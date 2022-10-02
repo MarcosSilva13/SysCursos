@@ -20,9 +20,9 @@
                 <input type="text" name="nome" autofocus> 
                 <label for="senha">Senha</label>
                 <input type="password" name="senha">
-                <input type="submit" value="entrar"> 
+                <input type="submit" id="send-data-login" value="entrar"> 
             </form>
-            <p>Ainda não tem uma conta?<a href="#">Criar conta</a></p>
+            <p>Ainda não tem uma conta?<a href="view/formAddUser.php">Criar conta</a></p>
         </div>
     </section>
 </body>

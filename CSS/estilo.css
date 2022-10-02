@@ -1,10 +1,10 @@
 body {
-    background-color: #0D1117; /*#181F27*/
+    background-color: #1C1E2A; /*#181F27*/
     font-family: Arial, Helvetica, sans-serif;
-    overflow: hidden; /*Para ocultar barra de rolagem se tiver*/
+    overflow: visible; /*Para ocultar barra de rolagem se tiver*/
 }
 
-.area-login {
+.area-login, .area-form-user {
     display: flex;
     height: 100vh;
     justify-content: center;
@@ -29,7 +29,6 @@ body {
 }
 
 .login input {
-    margin-top: 0px;
     margin-bottom: 15px;
     background-color: #252A34;
     padding-left: 10px;
@@ -39,7 +38,7 @@ body {
     border-radius: 8px;
 }
 
-.login input:focus {
+.login input:focus, .form-user input:focus {
     outline: #5568FE solid 1px;
 }
 
@@ -48,7 +47,7 @@ body {
     height: auto;
 }
 
-.login h1 {
+.login h1, .form-user h1 {
     font-size: 36px;
     color: #CBD0F7;
     height: auto;
@@ -58,7 +57,7 @@ body {
     color: #CBD0F7;
 }
 
-form [type="submit"] {
+#send-data-login, #send-data-user {
     display: block;
     background-color: #5568FE;
     font-size: 20px;
@@ -67,12 +66,65 @@ form [type="submit"] {
     cursor: pointer;
 }
 
-form [type="submit"]:hover {
+#send-data-login:hover, #send-data-user:hover{
     background-color: #2A43FF;
 }
 
+#send-data-user {
+    width: 150px;
+}
+
+.form-user form {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+}
+
+.form-user {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #181920;
+    width: 600px;
+    height: auto;
+    border-radius: 10px;
+}
+
+.form-user input {
+    margin-bottom: 15px;
+    background-color: #252A34;
+    padding-left: 10px;
+    color: #CBD0F7;
+    border: none;
+    height: 30px;
+    border-radius: 10px;
+}
+
+.botao-enviar {
+    display: flex;
+    justify-content: center;
+
+}
+
+.div-login-nome, .div-cpf-email, .div-senha-tel {
+    display: flex;
+    flex-direction: row;
+    padding: 8px;
+}
+
+.div-login, .div-nome, .div-cpf, .div-email, .div-senha, .div-tel {
+    display: flex;
+    flex-direction: column;
+    padding-left: 0px;
+    width: 100%; 
+}
+
+.div-nome, .div-email, .div-tel {
+    margin-left: 5px;
+}
+
 label {
-    margin-bottom: 8px;
+    margin-bottom: 5px;
     text-align: left;
     color: #CBD0F7;
 }
@@ -86,3 +138,4 @@ a {
     text-decoration: none;
     margin-left: 10px;
 }
+
