@@ -20,12 +20,12 @@
                 if (v.length == 3 || v.length == 7) i.value += ".";
                 if (v.length == 11) i.value += "-";
             }
-            if (atributo == "tele") {
+            /*if (atributo == "tele") {
                 i.setAttribute("maxlength", "14"); 
                 //i.value += "(";
                 if (v.length == 2) i.value += ")";
                 if (v.length == 9) i.value += "-";
-            }
+            }*/
         }
 
         /*function mascaraTel(i) {
@@ -77,7 +77,7 @@
                     </div>
                     <div class="div-tel">
                         <label for="telephone">Telefone</label>
-                        <input oninput="mascara(this, 'tele')" type="tel" name="tel-user" id="tel-user" pattern="[(0-9)]{4}[0-9]{5}-[0-9]{4}" placeholder="Ex: (01)91234-5678" required>
+                        <input oninput="mascarat(this, 'tele')" type="tel" name="tel-user" id="tel-user" pattern="[(0-9)]{4}[0-9]{5}-[0-9]{4}" placeholder="Ex: (01)91234-5678" required>
                     </div>
                 </div>
                 <div class="botao-enviar">
