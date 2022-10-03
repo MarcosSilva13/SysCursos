@@ -47,19 +47,15 @@
             <form action="teste.php" method="POST">
                 <!--<label for="id">Id</label>
                 <input type="text" name="id-user" id="id-user"/>-->
-                <div class="div-login-nome">
+                <div class="form-fields">
                     <div class="div-login">
                         <label for="login">Login</label>
                         <input type="text" name="login-user" id="login-user" placeholder="Ex: MarcosSilva25" required>
                     </div>
-
                     <div class="div-nome">
                         <label for="name">Nome</label>
                         <input type="text" name="name-user" id="name-user" placeholder="Seu nome completo" required>
                     </div>
-                </div>
-
-                <div class="div-cpf-email">
                     <div class="div-cpf">
                         <label for="cpf">CPF</label>
                         <input oninput="mascara(this, 'cpf')" type="text" name="cpf-user" id="cpf-user" pattern="[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}" placeholder="Ex: 123.456.789-10" required>
@@ -68,9 +64,6 @@
                         <label for="email">Email</label>
                         <input type="email" name="email-user" id="email-user" placeholder="Ex: syscursos@gmail.com" required>
                     </div>
-                </div>
-                
-                <div class="div-senha-tel">
                     <div class="div-senha">
                         <label for="password">Senha</label>
                         <input type="password" name="password-user" id="password-user" placeholder="Sua senha" required>
