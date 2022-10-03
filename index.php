@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -14,12 +17,20 @@
                 <h1>SysCursos</h1>
                 <!--<img src="imagens/SysCursos.png">-->
             </div>
+            
+            <?php if (isset($_SESSION['nao_autenticado'])): ?>
 
-            <form action="" method="POST">
-                <label for="nome">Usuário ou email</label>
-                <input type="text" name="nome" autofocus> 
+            <div class="notificacao">
+                <p>Erro: Usuário ou senha inválidos!</p>
+            </div>
+
+            <?php endif; unset($_SESSION['nao_autenticado']); ?>
+
+            <form action="login.php" method="POST">
+                <label for="usuario">Usuário ou email</label>
+                <input type="text" name="usuario" id="usuario" autofocus required> 
                 <label for="senha">Senha</label>
-                <input type="password" name="senha">
+                <input type="password" name="senha" id="senha" required>
                 <input type="submit" id="send-data-login" value="entrar"> 
             </form>
             <p>Ainda não tem uma conta?<a href="view/formAddUser.php">Criar conta</a></p>
