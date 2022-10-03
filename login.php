@@ -11,9 +11,11 @@ $usuario = filter_input(INPUT_POST, 'usuario');
 $senha = filter_input(INPUT_POST, 'senha');
 
 //$sql = "select login from usuarios where login = '{$usuario}' and senha = '{$senha}'";
-$sql = 'select login from usuarios where login = ? and senha = ?;';
+//para usar o email talvez retornar a consulta numa lista e pegar o login para exibir
+$sql = 'select login from usuarios where login = ? and senha = ?;'; //add md5()
 $pst = Connection::getPreparedStatement($sql);
 $pst->bindValue(1, $usuario);
+//$pst->bindValue(2, $usuario);
 $pst->bindValue(2, $senha);
 
 if ($pst->execute()) {

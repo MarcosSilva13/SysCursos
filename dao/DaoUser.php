@@ -9,7 +9,7 @@ class DaoUser
     public function insertUser(Users $user)
     {
         $sql = 'insert into usuarios (login, nome, cpf, email, senha, telefone)
-        values (?, ?, ?, ?, ?, ?);';
+        values (?, ?, ?, ?, ?, ?);'; // add md5
 
         $pst = GlobalConnection::getPreparedStatement($sql);
         $pst->bindValue(1, $user->getLogin());
