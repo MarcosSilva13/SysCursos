@@ -28,6 +28,7 @@ class DaoUser
 
     public function login($user, $password) {
         $list = [];
+
         $sql = 'select login, nome from usuarios where login = ? OR email = ? and senha = ?;';
         $pst = GlobalConnection::getPreparedStatement($sql);
         $pst->bindValue(1, $user);
@@ -35,6 +36,19 @@ class DaoUser
         $pst->bindValue(3, $password);
         $pst->execute();
         $list = $pst->fetchAll(PDO::FETCH_ASSOC);
+
+        return $list;
+    }
+
+    public function checkRepeatedLogin($login) {
+        $list = [];
+        
+        $sql = 'select count(*) as total from usuarios where login = ?;';
+        $pst = Connection::getPreparedStatement($sql);
+        $pst->bindValue(1, $login);
+        $pst->execute();
+        $list = $pst->fetchAll(PDO::FETCH_ASSOC);
+
         return $list;
     }
 
