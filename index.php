@@ -28,9 +28,9 @@ session_start();
 
             <form action="login.php" method="POST">
                 <label for="usuario">Usuário ou email</label>
-                <input type="text" name="usuario" id="usuario" autofocus required> 
+                <input type="text" name="user" autofocus required> 
                 <label for="senha">Senha</label>
-                <input type="password" name="senha" id="senha" required>
+                <input type="password" name="password" required>
                 <input type="submit" id="send-data-login" value="entrar"> 
             </form>
             <p>Ainda não tem uma conta?<a href="view/formAddUser.php">Criar conta</a></p>
