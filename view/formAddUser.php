@@ -1,3 +1,6 @@
+<?php
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -44,7 +47,30 @@
     <div class="area-form-user">
         <div class="form-user">
             <h1>Cadastro</h1>
-            <form action="teste.php" method="POST">
+
+            <?php 
+                if (isset($_SESSION['status-cadastro'])): 
+            ?>
+            <div class="notification-success">
+                <p>Cadastro efetuado com sucesso!</p>
+                <p>Faça login informando seu usuário e senha <a href="../index.php">aqui</a>.</p>
+            </div>
+            <?php 
+                endif; 
+                unset($_SESSION['status-cadastro']);
+            ?>
+
+            <?php
+                if (isset(($_SESSION['usuario-existe']))):  
+            ?>
+            <div class="notification-info">
+                <p>O usuário escolhido já existe. Informe outro e tente novamente.</p>
+            </div>
+            <?php
+                endif;
+                unset($_SESSION['usuario-existe']);
+            ?>
+            <form action="../registration.php" method="POST">
                 <!--<label for="id">Id</label>
                 <input type="text" name="id-user" id="id-user"/>-->
                 <div class="form-fields">
@@ -81,7 +107,7 @@
         </div>
     </div>
     <footer>
-        <p>&copy; 2022</p>
+        <p>Desenvolvido por Marcos Antônio &copy; 2022</p>
     </footer>
 </body>
 </html>

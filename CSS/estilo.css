@@ -52,7 +52,7 @@ body {
     height: auto;
 }
 
-.notificacao {
+.notification {
     margin-bottom: 20px;
     width: 80%;
     text-align: center;
@@ -60,11 +60,39 @@ body {
     background-color: rgba(210, 128, 128, 0.400);    
 }
 
-.notificacao p {
+.notification p {
     color: #A84343;
     font-size: 16px;
     font-weight: bold;
 }
+
+.notification-success {
+    width: 70%;
+    height: 75px;
+    text-align: center;
+    border-radius: 50px;
+    background-color: rgba(0, 255, 0, 0.400);
+    margin-bottom: 15px;
+}
+
+.notification-success p, .notification-info p {
+    color: #fff;
+}
+
+.notification-success p a {
+    color: #fff;
+    text-decoration: underline;
+    margin-left: 0px;
+}
+
+.notification-info {
+    width: 80%;
+    text-align: center;
+    border-radius: 50px;
+    background-color: rgba(210, 145, 128, 0.4);
+    margin-bottom: 15px;
+}
+
 
 #send-data-login, #send-data-user {
     display: block;
@@ -144,3 +172,11 @@ a {
     margin-left: 10px;
 }
 
+footer {
+    display: flex;
+    background-color: #1C1E2A;
+    height: auto;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+}

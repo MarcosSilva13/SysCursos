@@ -20,7 +20,7 @@ session_start();
             
             <?php if (isset($_SESSION['nao_autenticado'])): ?>
 
-            <div class="notificacao">
+            <div class="notification">
                 <p>Erro: Usuário ou senha inválidos!</p>
             </div>
 
