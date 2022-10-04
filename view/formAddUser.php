@@ -49,7 +49,7 @@ session_start();
             <h1>Cadastro</h1>
 
             <?php 
-                if (isset($_SESSION['status-cadastro'])): 
+                if (isset($_SESSION['status-registration'])): 
             ?>
             <div class="notification-success">
                 <p>Cadastro efetuado com sucesso!</p>
@@ -57,18 +57,18 @@ session_start();
             </div>
             <?php 
                 endif; 
-                unset($_SESSION['status-cadastro']);
+                unset($_SESSION['status-registration']);
             ?>
 
             <?php
-                if (isset(($_SESSION['usuario-existe']))):  
+                if (isset(($_SESSION['user-exists']))):  
             ?>
             <div class="notification-info">
                 <p>O usuário escolhido já existe. Informe outro e tente novamente.</p>
             </div>
             <?php
                 endif;
-                unset($_SESSION['usuario-existe']);
+                unset($_SESSION['user-exists']);
             ?>
             <form action="../registration.php" method="POST">
                 <!--<label for="id">Id</label>
@@ -96,7 +96,7 @@ session_start();
                     </div>
                     <div class="div-tel">
                         <label for="telephone">Telefone</label>
-                        <input oninput="mascarat(this, 'tele')" type="tel" name="tel-user" id="tel-user" pattern="[(0-9)]{4}[0-9]{5}-[0-9]{4}" placeholder="Ex: (01)91234-5678" required>
+                        <input oninput="mascarat(this, 'tele')" type="tel" name="tel-user" id="tel-user" pattern="[(0-9)]{4}[0-9]{5}-[0-9]{4}" placeholder="Ex: (01)91234-5678" maxlength="14" required>
                     </div>
                 </div>
                 <div class="botao-enviar">

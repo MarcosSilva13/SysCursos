@@ -1,17 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
 <?php
 session_start();
 include 'dao/Connection.php';
 include 'dao/DaoUser.php';
 include 'model/Users.php';
+
+$dao = new DaoUser();
 
 $login = filter_input(INPUT_POST, 'login-user');
 $nome = filter_input(INPUT_POST, 'name-user');
@@ -20,16 +13,12 @@ $email = filter_input(INPUT_POST, 'email-user');
 $senha = filter_input(INPUT_POST, 'password-user');
 $telefone = filter_input(INPUT_POST, 'tel-user');
 
-$sql = 'select count(*) as total from usuarios where login = ?;';
-$pst = Connection::getPreparedStatement($sql);
-$pst->bindValue(1, $login);
-$pst->execute();
-$row = $pst->fetchAll(PDO::FETCH_ASSOC);
+$list = $dao->checkRepeatedLogin($login); //faz a busca no banco se o login enviado ja exite
+$total = $list[0];
 
-if ($row[0]['total'] == 1) {
-    $_SESSION['usuario-existe'] = true;
+if ($total['total'] == 1) { //se retornar o total de 1, o login já existe, senão o usuario é cadastrado
+    $_SESSION['user-exists'] = true;
     header('Location: view/formAddUser.php');
-    //header('Location: registration.php');
     exit();
 } 
 
@@ -38,12 +27,8 @@ if ($login && $nome && $cpf && $email && $senha && $telefone) {
     $dao = new DaoUser();
 
     if ($dao->insertUser($obj)) {
-        $_SESSION['status-cadastro'] = true;
+        $_SESSION['status-registration'] = true;
         header('Location: view/formAddUser.php');
         exit();
     } 
 }
-
-?>
-</body>
-</html>
