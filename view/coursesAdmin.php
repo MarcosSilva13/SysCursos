@@ -9,7 +9,7 @@
     <title>Cursos</title>
 </head>
 <body>
-    <?php include '../menuDefault.php'; ?>
+    <?php include 'menuDefault.php'; ?>
 <main id="content">
     <table>
         <tr>

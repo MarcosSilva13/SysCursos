@@ -33,10 +33,12 @@ $dataUser = $list[0];
 if ($dataUser['login'] != null) {
 
     $_SESSION['usuario'] = $dataUser['nome'];
+    $_SESSION['id_user'] = $dataUser['id_usuario'];
+    $_SESSION['type_user'] = $dataUser['tipo'];
     header('Location: view/coursesDefault.php');
     exit();
 } else {
     $_SESSION['nao_autenticado'] = true;
-    header('Location: index.php');
+    header('Location: ../index.php');
      exit();
 }

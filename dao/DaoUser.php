@@ -29,7 +29,7 @@ class DaoUser
     public function login($user, $password) {
         $list = [];
 
-        $sql = 'select login, nome from usuarios where login = ? OR email = ? and senha = ?;';
+        $sql = 'select id_usuario, login, nome, tipo from usuarios where login = ? OR email = ? and senha = ?;';
         $pst = GlobalConnection::getPreparedStatement($sql);
         $pst->bindValue(1, $user);
         $pst->bindValue(2, $user);

@@ -1,0 +1,65 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+
+.form-buy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /*background-color: #181920;*/
+    width: 600px;
+    height: auto;
+    border-radius: 10px;
+    border: 1px solid #c4c4c4;
+}
+
+.form-buy input, .form-buy select {
+    margin-bottom: 15px;
+    background-color: #c4c4c4;
+    padding-left: 10px;
+    color: #000000;
+    border: none;
+    height: 30px;
+    border-radius: 10px;
+}
+
+.form-fields {
+    display: flex;
+    flex-direction: column;
+    /*justify-content: space-evenly;*/
+    /*flex-wrap: wrap;*/
+    margin-bottom: 5px;
+}
+
+.course-name, .course-duration, .course-price, .payment{
+    display: flex;
+    flex-direction: column;
+    /*width: 45%;*/
+}
+
+label {
+    margin-bottom: 5px;
+    text-align: left;
+    color: #000;
+}
+
+.btn-finalizar {
+    display: flex;
+    justify-content: center;
+
+}
+
+#btn-fin {
+    display: block;
+    background-color: #2a2f50;
+    font-size: 20px;
+    text-transform: uppercase;
+    font-weight: bold;
+    cursor: pointer;
+    color: #fff;
+}
+
+#btn-fin:hover {
+    background-color: rgb(0, 120, 175);
+}

@@ -10,7 +10,7 @@
     <title>Cursos</title>
 </head>
 <body>
-    <?php include '../menuDefault.php'; ?>
+    <?php include 'menuDefault.php'; ?>
     <main id="content">
         <div class="div-search-bar">
             <form class="form-search" action="" method="POST">
@@ -43,8 +43,11 @@
                                 echo '<td>' . $values['duracao_curso'] . 'H</td>';
                                 echo '<td>' . $values['descricao_curso'] . '</td>';
                                 echo '<td>
-                                <form action="deleteCourse.php" method="POST">
+                                <form action="formBuyCourse.php" method="POST">
                                 <input type="hidden" name="id_course" id="id_course" value="' . $values['id_curso'] . '"/>
+                                <input type="hidden" name="course_name" id="course_name" value="' . $values['nome_curso'] . '"/>
+                                <input type="hidden" name="course_price" id="price" value="' . $values['valor_curso'] . '"/>
+                                <input type="hidden" name="course_duration" id="course_duration" value="' . $values['duracao_curso'] . '"/>
                                 <input type="submit" id="buy" value="Comprar"/>
                                 </form></td>';
                                 echo '</tr>';
@@ -63,15 +66,16 @@
                             echo '<td>' . $values['duracao_curso'] . 'H</td>';
                             echo '<td>' . $values['descricao_curso'] . '</td>';
                             echo '<td>
-                            <form action="deleteCourse.php" method="POST">
+                            <form action="formBuyCourse.php" method="POST">
                             <input type="hidden" name="id_course" id="id_course" value="' . $values['id_curso'] . '"/>
+                            <input type="hidden" name="course_name" id="course_name" value="' . $values['nome_curso'] . '"/>
+                            <input type="hidden" name="course_price" id="price" value="' . $values['valor_curso'] . '"/>
+                            <input type="hidden" name="course_duration" id="course_duration" value="' . $values['duracao_curso'] . '"/>
                             <input type="submit" id="buy" value="Comprar"/>
                             </form></td>';
                             echo '</tr>';
                         }
                     }
-
-                    
                 ?>
             </table>
     </main>
