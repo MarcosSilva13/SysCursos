@@ -4,10 +4,13 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../CSS/coursesAdminStyle.css">
+    <link rel="stylesheet" href="../CSS/coursesDefaultStyle.css">
+    <link rel="stylesheet" href="../CSS/menuStyle.css">
     <title>Cursos</title>
 </head>
 <body>
+    <?php include '../menuDefault.php'; ?>
+<main id="content">
     <table>
         <tr>
             <th>Curso</th>
@@ -38,5 +41,7 @@
             }
         ?>
     </table>
+</main>
+<script src="../JS/controleMenu.js"></script>
 </body>
 </html>

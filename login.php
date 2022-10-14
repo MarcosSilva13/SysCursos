@@ -33,7 +33,7 @@ $dataUser = $list[0];
 if ($dataUser['login'] != null) {
 
     $_SESSION['usuario'] = $dataUser['nome'];
-    header('Location: painel.php');
+    header('Location: view/coursesDefault.php');
     exit();
 } else {
     $_SESSION['nao_autenticado'] = true;
