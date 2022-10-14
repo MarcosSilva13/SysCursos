@@ -58,3 +58,8 @@ main {
     color: #CBD0F7;
     font-size: 25px;
 }
+
+#menu a i {
+    padding-right: 5px;
+    font-size: 20px;
+}
