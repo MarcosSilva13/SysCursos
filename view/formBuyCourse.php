@@ -11,18 +11,20 @@
 </head>
 <body>
     <?php include 'menuDefault.php'; 
-        $id_course = $_POST['id_course'];
-        $course_name = $_POST['course_name'];
-        $course_duration = $_POST['course_duration'];
-        $price = $_POST['course_price'];
+        $id_course = filter_input(INPUT_POST, 'id_course');
+        $course_name = filter_input(INPUT_POST,'course_name');
+        $course_duration = filter_input(INPUT_POST, 'course_duration');
+        $price = filter_input(INPUT_POST, 'course_price');
+
         $id_user = $_SESSION['id_user']; 
-        //echo "$id_course<br>$price<br>$id_user<br>";
     ?>
     <main id="content">
         <div class="form-buy">
             <h1>Detalhes do pagamento</h1>
-            <form action="" method="POST">
+            <form action="../confirmSale.php" method="POST">
                 <div class="form-fields">
+                    <input type="hidden" name="id_user" id="id_user" value="<?=$id_user?>">
+                    <input type="hidden" name="id_course" id="id_course" value="<?=$id_course?>">
                     <div class="course-name">
                         <label for="course_name">Curso:</label>
                         <input type="text" name="course_name" value="<?=$course_name?>" readonly>

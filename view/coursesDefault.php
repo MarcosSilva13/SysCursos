@@ -32,7 +32,7 @@
                     $dao = new DaoCourses();
 
                     if (isset($_POST['submit'])) {
-                        $course_name = $_POST['search'];
+                        $course_name = filter_input(INPUT_POST, 'search');
                         $list = $dao->findCourse($course_name);
 
                         if (!$list == '') {
