@@ -31,21 +31,47 @@
                     require_once '../dao/DaoCourses.php';
                     $dao = new DaoCourses();
 
-                    $list = $dao->listCourses();
+                    if (isset($_POST['submit'])) {
+                        $course_name = $_POST['search'];
+                        $list = $dao->findCourse($course_name);
 
-                    foreach ($list as $values) {
-                        echo '<tr>';
-                        echo '<td>' . $values['nome_curso'] . '</td>';
-                        echo '<td>' . $values['valor_curso'] . '</td>';
-                        echo '<td>' . $values['duracao_curso'] . 'H</td>';
-                        echo '<td>' . $values['descricao_curso'] . '</td>';
-                        echo '<td>
-                        <form action="deleteCourse.php" method="POST">
-                        <input type="hidden" name="id_course" id="id_course" value="' . $values['id_curso'] . '"/>
-                        <input type="submit" id="buy" value="Comprar"/>
-                        </form></td>';
-                        echo '</tr>';
+                        if (!$list == '') {
+                            foreach ($list as $values) {
+                                echo '<tr>';
+                                echo '<td>' . $values['nome_curso'] . '</td>';
+                                echo '<td>' . $values['valor_curso'] . '</td>';
+                                echo '<td>' . $values['duracao_curso'] . 'H</td>';
+                                echo '<td>' . $values['descricao_curso'] . '</td>';
+                                echo '<td>
+                                <form action="deleteCourse.php" method="POST">
+                                <input type="hidden" name="id_course" id="id_course" value="' . $values['id_curso'] . '"/>
+                                <input type="submit" id="buy" value="Comprar"/>
+                                </form></td>';
+                                echo '</tr>';
+                            }
+                        } else {
+                            echo '<p>Curso não encontrado!</p>';
+                            
+                        }    
+                    } else {
+                        $list = $dao->listCourses();
+
+                        foreach ($list as $values) {
+                            echo '<tr>';
+                            echo '<td>' . $values['nome_curso'] . '</td>';
+                            echo '<td>' . $values['valor_curso'] . '</td>';
+                            echo '<td>' . $values['duracao_curso'] . 'H</td>';
+                            echo '<td>' . $values['descricao_curso'] . '</td>';
+                            echo '<td>
+                            <form action="deleteCourse.php" method="POST">
+                            <input type="hidden" name="id_course" id="id_course" value="' . $values['id_curso'] . '"/>
+                            <input type="submit" id="buy" value="Comprar"/>
+                            </form></td>';
+                            echo '</tr>';
+                        }
                     }
+
+                    
                 ?>
             </table>
     </main>

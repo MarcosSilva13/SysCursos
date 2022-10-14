@@ -24,9 +24,8 @@ class DaoCourses
     public function findCourse($name) 
     {
         $list = [];
-        $sql = 'select * from cursos where nome_curso like %?%;';
+        $sql = "select * from cursos where nome_curso like '%$name%';";
         $pst = Connection::getPreparedStatement($sql);
-        $pst->bindValue(1, $name);
         $pst->execute();
         $list = $pst->fetchAll(PDO::FETCH_ASSOC);
         return $list;
