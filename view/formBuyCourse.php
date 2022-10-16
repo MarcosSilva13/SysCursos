@@ -10,13 +10,14 @@
     <title>Comprar</title>
 </head>
 <body>
-    <?php include 'menuDefault.php'; 
+    <?php include 'menuDefault.php';
+        //valores vindo de coursesDefault.php 
         $id_course = filter_input(INPUT_POST, 'id_course');
         $course_name = filter_input(INPUT_POST,'course_name');
         $course_duration = filter_input(INPUT_POST, 'course_duration');
         $price = filter_input(INPUT_POST, 'course_price');
 
-        $id_user = $_SESSION['id_user']; 
+        $id_user = $_SESSION['id_user']; //valor vindo de login.php
     ?>
     <main id="content">
         <div class="form-buy">
