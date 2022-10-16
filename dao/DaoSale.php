@@ -21,4 +21,16 @@ class DaoSale
             return false;
         }
     }
+
+    public function listCoursesUser($id_user) {
+        $list = [];
+        $sql = "select c.nome_curso, c.valor_curso, c.duracao_curso, c.descricao_curso from cursos c
+        join venda v on c.id_curso = v.id_curso
+        join usuarios us on v.id_usuario = us.id_usuario
+        where us.id_usuario = $id_user;";
+        $pst = Connection::getPreparedStatement($sql);
+        $pst->execute();
+        $list = $pst->fetchAll(PDO::FETCH_ASSOC);
+        return $list;
+    }
 }
