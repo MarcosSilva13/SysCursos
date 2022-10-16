@@ -27,21 +27,23 @@
 
                     $list = $dao->listCoursesUser($id_user);
 
-                    foreach ($list as $values) {
-                        echo '<tr>';
-                        echo '<td>' . $values['nome_curso'] . '</td>';
-                        echo '<td>' . $values['valor_curso'] . '</td>';
-                        echo '<td>' . $values['duracao_curso'] . 'H</td>';
-                        echo '<td>' . $values['descricao_curso'] . '</td>';
-                        /*echo '<td>
-                        <form action="formBuyCourse.php" method="POST">
-                        <input type="hidden" name="id_course" id="id_course" value="' . $values['id_curso'] . '"/>
-                        <input type="hidden" name="course_name" id="course_name" value="' . $values['nome_curso'] . '"/>
-                        <input type="hidden" name="course_price" id="price" value="' . $values['valor_curso'] . '"/>
-                        <input type="hidden" name="course_duration" id="course_duration" value="' . $values['duracao_curso'] . '"/>
-                        <input type="submit" id="buy" value="Comprar"/>
-                        </form></td>';*/
-                        echo '</tr>';
+                    if (!$list == '') {
+                        foreach ($list as $values) {
+                            echo '<tr>';
+                            echo '<td>' . $values['nome_curso'] . '</td>';
+                            echo '<td>' . $values['valor_curso'] . '</td>';
+                            echo '<td>' . $values['duracao_curso'] . 'H</td>';
+                            echo '<td>' . $values['descricao_curso'] . '</td>';
+                            echo '<td>
+                            <form action="../deleteSaleUser.php" method="POST">
+                            <input type="hidden" name="id_course" id="id_course" value="' . $values['id_curso'] . '"/>
+                            <input type="hidden" name="id_user" id="id_user" value="' . $id_user . '"/>
+                            <input type="submit" id="cancel" value="Remover curso"/>
+                            </form></td>';
+                            echo '</tr>';
+                        }
+                    } else {
+                        echo '<p>Você não tem cursos comprados!</p>';
                     }
                 ?>
             </table>

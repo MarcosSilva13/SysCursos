@@ -35,7 +35,7 @@
                         $course_name = filter_input(INPUT_POST, 'search');
                         $list = $dao->findCourse($course_name);
 
-                        if (!$list == '') {
+                        if (!$list == '') { // se a lista não tiver vazia
                             foreach ($list as $values) {
                                 echo '<tr>';
                                 echo '<td>' . $values['nome_curso'] . '</td>';
@@ -54,7 +54,6 @@
                             }
                         } else {
                             echo '<p>Curso não encontrado!</p>';
-                            
                         }    
                     } else {
                         $list = $dao->listCourses();
