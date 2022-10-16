@@ -10,7 +10,7 @@ include '../verifyLogin.php'; //verifica se o usuario esta logado, para nao entr
     <nav id="menu">
         <a href="#" onclick="closeMenu()">&times; Fechar</a>
         <a href="coursesDefault.php"> <i class="fas fa-home"></i>Home</a>
-        <a id="abc" href="coursesAdmin.php"> <i class="fas fa-book"></i>Meus Cursos</a>
+        <a id="abc" href="coursesUser.php"> <i class="fas fa-book"></i>Meus Cursos</a>
         <a href="#">Alguma coisa</a>
         <a href="#"> <i class="fa fa-gear"></i>Configuração</a>
         <a href="../logout.php"> <i class="fas fa-power-off"></i>Logout</a>

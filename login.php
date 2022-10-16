@@ -39,6 +39,6 @@ if ($dataUser['login'] != null) {
     exit();
 } else {
     $_SESSION['nao_autenticado'] = true;
-    header('Location: ../index.php');
-     exit();
+    header('Location: index.php');
+    exit();
 }
