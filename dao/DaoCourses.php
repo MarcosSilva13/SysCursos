@@ -24,7 +24,10 @@ class DaoCourses
     public function findCourse($name) 
     {
         $list = [];
-        $sql = "select * from cursos where nome_curso like '%$name%';";
+        //$sql = "select * from cursos where nome_curso like '%$name%';";
+        $sql = "select c.id_curso, c.nome_curso, c.valor_curso, c.duracao_curso, c.descricao_curso, emp.nome_emp from cursos c
+        join fornece f on c.id_curso = f.id_curso
+        join empresas emp on f.id_empresa = emp.id_empresa where c.nome_curso like '%$name%'";
         $pst = Connection::getPreparedStatement($sql);
         $pst->execute();
         $list = $pst->fetchAll(PDO::FETCH_ASSOC);
@@ -34,7 +37,10 @@ class DaoCourses
     public function listCourses() 
     {
         $list = [];
-        $pst = Connection::getPreparedStatement('select * from cursos');
+        $sql = 'select c.id_curso, c.nome_curso, c.valor_curso, c.duracao_curso, c.descricao_curso, emp.nome_emp from cursos c
+        join fornece f on c.id_curso = f.id_curso
+        join empresas emp on f.id_empresa = emp.id_empresa;';
+        $pst = Connection::getPreparedStatement($sql);
         $pst->execute();
         $list = $pst->fetchAll(PDO::FETCH_ASSOC);
         return $list;

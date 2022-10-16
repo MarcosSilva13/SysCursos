@@ -16,6 +16,7 @@
         $course_name = filter_input(INPUT_POST,'course_name');
         $course_duration = filter_input(INPUT_POST, 'course_duration');
         $price = filter_input(INPUT_POST, 'course_price');
+        $company_name = filter_input(INPUT_POST, 'company_name');
 
         $id_user = $_SESSION['id_user']; //valor vindo de login.php
     ?>
@@ -37,6 +38,10 @@
                     <div class="course-price">
                         <label for="course_price">Valor:</label>
                         <input type="text" name="course_price" value="<?=$price?>" readonly>
+                    </div>  
+                    <div class="company-name">
+                        <label for="company_name">Empresa:</label>
+                        <input type="text" name="company_name" value="<?=$company_name?>" readonly>
                     </div>  
                     <div class="payment">
                         <label for="payment">Forma de pagamento:</label>

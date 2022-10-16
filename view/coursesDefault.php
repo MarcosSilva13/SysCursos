@@ -23,7 +23,8 @@
                     <th>Curso</th>
                     <th>Valor</th>
                     <th>Duração</th>
-                    <th>Descricao</th>
+                    <th>Descrição</th>
+                    <th>Empresa</th>
                     <th>Ações</th>
                 </tr>
 
@@ -42,12 +43,14 @@
                                 echo '<td>' . $values['valor_curso'] . '</td>';
                                 echo '<td>' . $values['duracao_curso'] . 'H</td>';
                                 echo '<td>' . $values['descricao_curso'] . '</td>';
+                                echo '<td>' . $values['nome_emp'] . '</td>';
                                 echo '<td>
                                 <form action="formBuyCourse.php" method="POST">
                                 <input type="hidden" name="id_course" id="id_course" value="' . $values['id_curso'] . '"/>
                                 <input type="hidden" name="course_name" id="course_name" value="' . $values['nome_curso'] . '"/>
                                 <input type="hidden" name="course_price" id="price" value="' . $values['valor_curso'] . '"/>
                                 <input type="hidden" name="course_duration" id="course_duration" value="' . $values['duracao_curso'] . '"/>
+                                <input type="hidden" name="company_name" id="company_name" value="' . $values['nome_emp'] . '"/>
                                 <input type="submit" id="buy" value="Comprar"/>
                                 </form></td>';
                                 echo '</tr>';
@@ -64,12 +67,14 @@
                             echo '<td>' . $values['valor_curso'] . '</td>';
                             echo '<td>' . $values['duracao_curso'] . 'H</td>';
                             echo '<td>' . $values['descricao_curso'] . '</td>';
+                            echo '<td>' . $values['nome_emp'] . '</td>';
                             echo '<td>
                             <form action="formBuyCourse.php" method="POST">
                             <input type="hidden" name="id_course" id="id_course" value="' . $values['id_curso'] . '"/>
                             <input type="hidden" name="course_name" id="course_name" value="' . $values['nome_curso'] . '"/>
                             <input type="hidden" name="course_price" id="price" value="' . $values['valor_curso'] . '"/>
                             <input type="hidden" name="course_duration" id="course_duration" value="' . $values['duracao_curso'] . '"/>
+                            <input type="hidden" name="company_name" id="company_name" value="' . $values['nome_emp'] . '"/>
                             <input type="submit" id="buy" value="Comprar"/>
                             </form></td>';
                             echo '</tr>';

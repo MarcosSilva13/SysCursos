@@ -18,7 +18,7 @@ body {
     margin-bottom: 15px;
     background-color: #c4c4c4;
     padding-left: 10px;
-    color: #000000;
+    color: #000;
     border: none;
     height: 30px;
     border-radius: 10px;
@@ -32,7 +32,7 @@ body {
     margin-bottom: 5px;
 }
 
-.course-name, .course-duration, .course-price, .payment{
+.course-name, .course-duration, .course-price, .company-name, .payment{
     display: flex;
     flex-direction: column;
     /*width: 45%;*/
