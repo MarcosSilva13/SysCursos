@@ -39,7 +39,7 @@ class DaoCourses
         $list = [];
         $sql = 'select c.id_curso, c.nome_curso, c.valor_curso, c.duracao_curso, c.descricao_curso, emp.nome_emp from cursos c
         join fornece f on c.id_curso = f.id_curso
-        join empresas emp on f.id_empresa = emp.id_empresa;';
+        join empresas emp on f.id_empresa = emp.id_empresa order by c.id_curso;';
         $pst = Connection::getPreparedStatement($sql);
         $pst->execute();
         $list = $pst->fetchAll(PDO::FETCH_ASSOC);

@@ -24,7 +24,7 @@ if ($total['total'] == 1) { //se retornar o total de 1, o login jÃ¡ existe, senÃ
 
 if ($login && $nome && $cpf && $email && $senha && $telefone) {
     $obj = new Users(null, $login, $nome, $cpf, $email, $senha, $telefone, null);
-    $dao = new DaoUser();
+    //$dao = new DaoUser();
 
     if ($dao->insertUser($obj)) {
         $_SESSION['status-registration'] = true;

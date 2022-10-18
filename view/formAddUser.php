@@ -15,7 +15,7 @@ session_start();
         <div class="form-user">
             <h1>Cadastro</h1>
 
-            <?php 
+            <?php //sessão criada em registration.php
                 if (isset($_SESSION['status-registration'])): 
             ?>
             <div class="notification-success">
@@ -27,7 +27,7 @@ session_start();
                 unset($_SESSION['status-registration']);
             ?>
 
-            <?php
+            <?php //sessão criada em registration.php
                 if (isset(($_SESSION['user-exists']))):  
             ?>
             <div class="notification-info">
