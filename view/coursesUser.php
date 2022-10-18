@@ -18,7 +18,7 @@
                     <th>Valor</th>
                     <th>Duração</th>
                     <th>Descrição</th>
-                    <!--<th>Empresa</th>-->
+                    <th>Empresa</th>
                     <th>Ações</th>
                 </tr>
 
@@ -35,7 +35,7 @@
                             echo '<td>' . $values['valor_curso'] . '</td>';
                             echo '<td>' . $values['duracao_curso'] . 'H</td>';
                             echo '<td>' . $values['descricao_curso'] . '</td>';
-                            //echo '<td>' . $values['nome_emp'] . '</td>'; mudar o sql para a empresa
+                            echo '<td>' . $values['nome_emp'] . '</td>';
                             echo '<td>
                             <form action="../deleteSaleUser.php" method="POST">
                             <input type="hidden" name="id_course" id="id_course" value="' . $values['id_curso'] . '"/>
@@ -50,8 +50,6 @@
                 ?>
             </table>
         </main>
-
-
     <script src="../JS/controleMenu.js"></script>
 </body>
 </html>

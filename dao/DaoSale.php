@@ -25,9 +25,11 @@ class DaoSale
     public function listCoursesUser($id_user) 
     {
         $list = [];
-        $sql = "select c.id_curso, c.nome_curso, c.valor_curso, c.duracao_curso, c.descricao_curso from cursos c
+        $sql = "select c.id_curso, c.nome_curso, c.valor_curso, c.duracao_curso, c.descricao_curso, emp.nome_emp from cursos c
         join venda v on c.id_curso = v.id_curso
         join usuarios us on v.id_usuario = us.id_usuario
+        join fornece f on c.id_curso = f.id_curso
+        join empresas emp on f.id_empresa = emp.id_empresa
         where us.id_usuario = $id_user;";
         $pst = Connection::getPreparedStatement($sql);
         $pst->execute();
