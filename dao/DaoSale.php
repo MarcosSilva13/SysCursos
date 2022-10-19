@@ -51,5 +51,17 @@ class DaoSale
         }
     }
 
+    public function deleteSaleReference($id_user) 
+    {
+        $sql = "delete from venda where id_usuario = $id_user;";
+        $pst = Connection::getPreparedStatement($sql);
+        
+        if ($pst->execute()) {
+            return $pst->rowCount();
+        } else {
+            return false;
+        }
+    }
+
     //public function deleteSaleAdmin() {}
 }

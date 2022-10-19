@@ -15,7 +15,7 @@
     <main id="content">
         <div class="user-config">
             <a class="edit-user" href="formEditUser.php">Editar conta</a>
-            <a class="delete-user" href="#">Deletar conta</a>
+            <a class="delete-user" href="../deleteUser.php">Deletar conta</a>
         </div>
     </main>
 

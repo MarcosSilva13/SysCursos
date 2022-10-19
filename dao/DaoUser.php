@@ -26,6 +26,8 @@ class DaoUser
         }
     }
 
+    // public function listUsers() {}
+
     public function updateUser(Users $user) 
     {
         $sql = 'update usuarios set login = ?, nome = ?, cpf = ?, email = ?, senha = ?, telefone = ? 
@@ -39,6 +41,18 @@ class DaoUser
         $pst->bindValue(5, $user->getPassword());
         $pst->bindValue(6, $user->getTelephone());
         $pst->bindValue(7, $user->getIdUser());
+
+        if ($pst->execute()) {
+            return $pst->rowCount();
+        } else {
+            return false;
+        }
+    }
+
+    public function deleteUser($id_user) 
+    {
+        $sql = "delete from usuarios where id_usuario = $id_user;";
+        $pst = Connection::getPreparedStatement($sql);
 
         if ($pst->execute()) {
             return $pst->rowCount();
@@ -86,6 +100,4 @@ class DaoUser
 
         return $list;
     }
-
-    //terminar o resto 
 }

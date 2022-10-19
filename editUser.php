@@ -5,6 +5,7 @@ require_once 'model/Users.php';
 
 $dao = new DaoUser();
 
+//valores vindo de formEditUser.php
 $id_user = filter_input(INPUT_POST, 'id-user');
 $login = filter_input(INPUT_POST, 'login-user');
 $nome = filter_input(INPUT_POST, 'name-user');
@@ -18,10 +19,12 @@ echo "$id_user<br>$login<br>$nome<br>$cpf<br>$email<br>$senha<br>$telefone<br>";
 if ($id_user && $login && $nome && $cpf && $email && $senha && $telefone) {
     $obj = new Users($id_user, $login, $nome, $cpf, $email, $senha, $telefone, null);
 
-    if ($dao->updateUser($obj)) {
+    if ($dao->updateUser($obj) > 0) {
         echo "Deu certo";
         header('Location: view/coursesDefault.php');
         exit();
+    } else {
+        echo "não atualizou!";
     }
 
 } else {
