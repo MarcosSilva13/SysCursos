@@ -11,21 +11,21 @@
     width: fit-content;
     padding: 20px;
     border-radius: 50px;
-    background-color: #4caf4f;  
+    background-color: #4caf4fdd;  
 }
 
 .message-error {
     width: fit-content;
     padding: 20px;
     border-radius: 50px;
-    background-color: #f44336;
+    background-color: #f44336dd;
 }
 
 .message-warning {
     width: fit-content;
     padding: 20px;
     border-radius: 50px;
-    background-color: #ff9800;
+    background-color: #ff9900dd;
 }
 
 /*#2196f3*/
