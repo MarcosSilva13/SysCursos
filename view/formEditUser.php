@@ -8,10 +8,11 @@
     <link rel="stylesheet" href="../CSS/coursesDefaultStyle.css">
     <link rel="stylesheet" href="../CSS/menuStyle.css">
     <link rel="stylesheet" href="../CSS/formEditUser.css">
+    <link rel="stylesheet" href="../CSS/messages.css">
     <title>Editar Conta</title>
 </head>
 <body>
-    <?php include 'menuDefault.php'; 
+    <?php require_once 'menuDefault.php'; 
         require_once '../dao/DaoUser.php';
         
         $id_user = $_SESSION['id_user']; // valor vindo da sessão em login.php
@@ -21,6 +22,32 @@
         $values = $list[0];
     ?>
         <main id="content">
+            <div id="messages">
+                <?php //sessão vindo de EditUser.php
+                    if (isset($_SESSION['update-user-ok'])): ?>
+                        <div class="message-confirm">
+                            Confirmação: Dados atualizados com sucesso!
+                            <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
+                        </div>
+                <?php endif; unset($_SESSION['update-user-ok']); ?>
+
+                <?php //sessão vindo de EditUser.php
+                    if (isset($_SESSION['update-user-not-ok'])): ?>
+                        <div class="message-warning">
+                            Atenção: É preciso modificar pelo menos um dos campos!
+                            <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
+                        </div>
+                <?php endif; unset($_SESSION['update-user-not-ok']); ?>
+
+                <?php //sessão vindo de EditUser.php
+                    if (isset($_SESSION['missing-values-user'])): ?>
+                        <div class="message-error">
+                            Erro: Dados insuficientes para atualizar!
+                            <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
+                        </div>
+                <?php endif; unset($_SESSION['missing-values-user']); ?>
+            </div>
+
             <div class="area-form-user">
                 <div class="form-user">
                     <h1>Editar Dados</h1>
@@ -63,5 +90,6 @@
         </main>
     <script src="../JS/controleMenu.js"></script>
     <script src="../JS/mascaraCampos.js"></script>
+    <script src="../JS/messages.js"></script>
 </body>
 </html>

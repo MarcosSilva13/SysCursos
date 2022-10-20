@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once 'dao/Connection.php';
 require_once 'dao/DaoUser.php';
 require_once 'model/Users.php';
@@ -14,19 +15,22 @@ $email = filter_input(INPUT_POST, 'email-user');
 $senha = filter_input(INPUT_POST, 'password-user');
 $telefone = filter_input(INPUT_POST, 'tel-user');
 
-echo "$id_user<br>$login<br>$nome<br>$cpf<br>$email<br>$senha<br>$telefone<br>";
+//echo "$id_user<br>$login<br>$nome<br>$cpf<br>$email<br>$senha<br>$telefone<br>";
 
 if ($id_user && $login && $nome && $cpf && $email && $senha && $telefone) {
     $obj = new Users($id_user, $login, $nome, $cpf, $email, $senha, $telefone, null);
 
     if ($dao->updateUser($obj) > 0) {
-        echo "Deu certo";
-        header('Location: view/coursesDefault.php');
+        $_SESSION['update-user-ok'] = true; // sessão para notificação de atualização
+        header('Location: view/formEditUser.php');
         exit();
     } else {
-        echo "não atualizou!";
+        $_SESSION['update-user-not-ok'] = true;
+        header('Location: view/formEditUser.php');
+        exit();
     }
-
 } else {
-    echo "deu ruim";
+    $_SESSION['missing-values-user'] = true; // sessão para notificação de valores faltando
+        header('Location: view/formEditUser.php');
+        exit();
 }
