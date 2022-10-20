@@ -57,11 +57,13 @@ body {
     width: 80%;
     text-align: center;
     border-radius: 50px;
-    background-color: rgba(210, 128, 128, 0.400);    
+    /*background-color: rgba(210, 128, 128, 0.400);*/
+    background-color: #f44336aa;
 }
 
 .notification p {
-    color: #A84343;
+    /*color: #A84343;*/
+    color: #fff;
     font-size: 16px;
     font-weight: bold;
 }
@@ -71,7 +73,8 @@ body {
     height: 75px;
     text-align: center;
     border-radius: 50px;
-    background-color: rgba(0, 255, 0, 0.400);
+    /*background-color: rgba(0, 255, 0, 0.400);*/
+    background-color: #4caf4fdd;
     margin-bottom: 15px;
 }
 
@@ -89,7 +92,8 @@ body {
     width: 80%;
     text-align: center;
     border-radius: 50px;
-    background-color: rgba(210, 145, 128, 0.4);
+    /*background-color: rgba(210, 145, 128, 0.4);*/
+    background-color: #ff9900dd;
     margin-bottom: 15px;
 }
 

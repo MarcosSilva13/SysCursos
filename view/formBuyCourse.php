@@ -40,7 +40,7 @@
                 </div>
         <?php endif; unset($_SESSION['confirm-sale-not-ok']); ?>
 
-        <?php 
+        <?php //sessão vindo de confirmSale.php
             if (isset($_SESSION['values-not-ok'])){ ?>
                 <div class="message-error">
                     Dados insuficientes para realizar a compra!
