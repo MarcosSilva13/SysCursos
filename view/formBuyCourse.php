@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="../CSS/formBuyCourseStyle.css">
     <link rel="stylesheet" href="../CSS/menuStyle.css">
+    <link rel="stylesheet" href="../CSS/messages.css">
     <title>Comprar</title>
 </head>
 <body>
@@ -21,7 +22,27 @@
         $id_user = $_SESSION['id_user']; //valor vindo de login.php
     ?>
     <main id="content">
-        <div class="form-buy">
+        <!-- Mensagem de confirmação ou erro -->  
+        <div id="messages">
+        <?php //sessão vindo de confirSale.php
+            if (isset($_SESSION['confirm-sale'])): ?>
+                <div class="message-confirm">
+                    Compra realizada com sucesso!
+                    <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
+                </div>
+        <?php endif; unset($_SESSION['confirm-sale']); ?>
+
+        <?php //sessão vindo de confirSale.php
+            if (isset($_SESSION['no-confirm-sale'])): ?>
+                <div class="message-error">
+                    Não foi possível realizar a compra!
+                    <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
+                </div>
+        <?php endif; unset($_SESSION['no-confirm-sale']); ?>
+        </div>
+        
+
+        <div id="form-buy" class="form-buy">
             <h1>Detalhes do pagamento</h1>
             <form action="../confirmSale.php" method="POST">
                 <div class="form-fields">
@@ -60,6 +81,6 @@
         </div>
     </main>
     <script src="../JS/controleMenu.js"></script>
-    
+    <script src="../JS/messages.js"></script>
 </body>
 </html>

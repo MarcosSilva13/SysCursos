@@ -1,0 +1,27 @@
+#messages {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 5px;
+    color: #fff;
+    font-weight: bold;
+}
+
+.message-confirm{
+    width: fit-content;
+    padding: 20px;
+    border-radius: 50px;
+    background-color: #4caf4f;  
+}
+
+.message-error {
+    width: fit-content;
+    padding: 20px;
+    border-radius: 50px;
+    background-color: #f44336;
+}
+
+.btn-close-message {
+    cursor: pointer;
+    margin-left: 30px;
+}
