@@ -10,7 +10,9 @@
     <title>Meus Cursos</title>
 </head>
 <body>
-    <?php include 'menuDefault.php'; $id_user = $_SESSION['id_user'];?>
+    <?php include 'menuDefault.php'; 
+        //valor vindo de login.php
+        $id_user = $_SESSION['id_user'];?> 
         <main id="content">
         <table id="tab">
                 <tr>
@@ -38,11 +40,12 @@
                             echo '<td>' . $values['nome_emp'] . '</td>';
                             echo '<td>
                             <form action="../deleteSaleUser.php" method="POST">
-                            <input type="hidden" name="id_course" id="id_course" value="' . $values['id_curso'] . '"/>
-                            <input type="hidden" name="id_user" id="id_user" value="' . $id_user . '"/>
+                            <input type="hidden" name="id_sale" id="id_sale" value="' . $values['id_venda'] . '"/>
                             <input type="submit" id="cancel" value="Remover curso"/>
                             </form></td>';
                             echo '</tr>';
+                            //<input type="hidden" name="id_course" id="id_course" value="' . $values['id_curso'] . '"/>
+                            //<input type="hidden" name="id_user" id="id_user" value="' . $id_user . '"/>
                         }
                     } else {
                         echo '<p>Você não tem cursos comprados!</p>';
