@@ -7,13 +7,33 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="../CSS/coursesDefaultStyle.css">
     <link rel="stylesheet" href="../CSS/menuStyle.css">
+    <link rel="stylesheet" href="../CSS/messages.css">
     <title>Meus Cursos</title>
 </head>
 <body>
     <?php include 'menuDefault.php'; 
         //valor vindo de login.php
-        $id_user = $_SESSION['id_user'];?> 
+        $id_user = $_SESSION['id_user']; 
+    ?> 
         <main id="content">
+            <div id="messages">
+                <?php //sessão vindo de deleteSaleUser.php
+                    if (isset($_SESSION['delete-sale-ok'])): ?>
+                        <div class="message-confirm">
+                            Curso removido com sucesso!
+                            <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
+                        </div>
+                <?php endif; unset($_SESSION['delete-sale-ok']); ?>
+
+                <?php //sessão vindo de deleteSaleUser.php
+                    if (isset($_SESSION['delete-sale-not-ok'])): ?>
+                        <div class="message-error">
+                            Não foi possível remover o curso!
+                            <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
+                        </div>
+                <?php endif; unset($_SESSION['delete-sale-not-ok']); ?>
+            </div>
+            
         <table id="tab">
                 <tr>
                     <th>Curso</th>
@@ -48,11 +68,16 @@
                             //<input type="hidden" name="id_user" id="id_user" value="' . $id_user . '"/>
                         }
                     } else {
-                        echo '<p>Você não tem cursos comprados!</p>';
+                        echo '<div id="messages">
+                                <div class="message-warning">
+                                    Você não tem cursos comprados!
+                                    <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
+                            </div>';
                     }
                 ?>
             </table>
         </main>
     <script src="../JS/controleMenu.js"></script>
+    <script src="../JS/messages.js"></script>
 </body>
 </html>
