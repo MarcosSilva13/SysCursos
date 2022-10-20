@@ -1,5 +1,5 @@
 <?php
-include '../verifyLogin.php'; //verifica se o usuario esta logado, para nao entrar direto no painel
+require_once '../verifyLogin.php'; //verifica se o usuario esta logado, para nao entrar direto no painel
 //session_abort();
 ?>
 

@@ -11,7 +11,7 @@
     <title>Comprar</title>
 </head>
 <body>
-    <?php include 'menuDefault.php';
+    <?php require_once 'menuDefault.php';
         //valores vindo de coursesDefault.php 
         $id_course = filter_input(INPUT_POST, 'id_course');
         $course_name = filter_input(INPUT_POST,'course_name');
@@ -27,7 +27,7 @@
         <?php //sessão vindo de confirmSale.php
             if (isset($_SESSION['confirm-sale-ok'])): ?>
                 <div class="message-confirm">
-                    Compra realizada com sucesso!
+                    Confirmação: Compra realizada com sucesso!
                     <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
                 </div>
         <?php endif; unset($_SESSION['confirm-sale-ok']); ?>
@@ -35,18 +35,18 @@
         <?php //sessão vindo de confirmSale.php
             if (isset($_SESSION['confirm-sale-not-ok'])): ?>
                 <div class="message-error">
-                    Não foi possível realizar a compra!
+                    Erro: Não foi possível realizar a compra!
                     <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
                 </div>
         <?php endif; unset($_SESSION['confirm-sale-not-ok']); ?>
 
         <?php //sessão vindo de confirmSale.php
-            if (isset($_SESSION['values-not-ok'])){ ?>
+            if (isset($_SESSION['values-not-ok'])): ?>
                 <div class="message-error">
-                    Dados insuficientes para realizar a compra!
+                    Erro: Dados insuficientes para realizar a compra!
                     <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
                 </div>
-        <?php } unset($_SESSION['values-not-ok']); ?>
+        <?php endif; unset($_SESSION['values-not-ok']); ?>
         </div>
         
         <div id="form-buy" class="form-buy">

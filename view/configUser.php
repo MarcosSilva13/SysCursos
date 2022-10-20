@@ -11,7 +11,7 @@
     <title>Configuração</title>
 </head>
 <body>
-    <?php include 'menuDefault.php'; ?>
+    <?php require_once 'menuDefault.php'; ?>
     <main id="content">
         <div class="user-config">
             <a class="edit-user" href="formEditUser.php">Editar conta</a>

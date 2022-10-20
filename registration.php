@@ -1,8 +1,8 @@
 <?php
 session_start();
-include 'dao/Connection.php';
-include 'dao/DaoUser.php';
-include 'model/Users.php';
+require_once 'dao/Connection.php';
+require_once 'dao/DaoUser.php';
+require_once 'model/Users.php';
 
 $dao = new DaoUser();
 

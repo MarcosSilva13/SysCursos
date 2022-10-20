@@ -11,7 +11,7 @@
     <title>Cursos</title>
 </head>
 <body>
-    <?php include 'menuDefault.php'; ?>
+    <?php require_once 'menuDefault.php'; ?>
     <main id="content">
         <div class="div-search-bar">
             <form class="form-search" action="" method="POST">
@@ -59,7 +59,7 @@
                         } else {
                             echo '<div id="messages">
                                     <div class="message-error">
-                                        Curso não encontrado, pesquise novamente!
+                                        Erro: Curso não encontrado, pesquise novamente!
                                         <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
                                     </div>';
                         }    

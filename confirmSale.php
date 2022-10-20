@@ -28,7 +28,7 @@ if ($id_user && $id_course && $date && $payment && $final_price) {
         exit();
     }
 } else {
-    $_SESSION['values-not-ok'] = true;
+    $_SESSION['values-not-ok'] = true; // sessão para notificação de valores faltando
     header('Location: view/formBuyCourse.php');
     exit();
 }

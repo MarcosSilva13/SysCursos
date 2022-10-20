@@ -11,7 +11,7 @@
     <title>Meus Cursos</title>
 </head>
 <body>
-    <?php include 'menuDefault.php'; 
+    <?php require_once 'menuDefault.php'; 
         //valor vindo de login.php
         $id_user = $_SESSION['id_user']; 
     ?> 
@@ -20,7 +20,7 @@
                 <?php //sessão vindo de deleteSaleUser.php
                     if (isset($_SESSION['delete-sale-ok'])): ?>
                         <div class="message-confirm">
-                            Curso removido com sucesso!
+                            Confirmação: Curso removido com sucesso!
                             <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
                         </div>
                 <?php endif; unset($_SESSION['delete-sale-ok']); ?>
@@ -28,7 +28,7 @@
                 <?php //sessão vindo de deleteSaleUser.php
                     if (isset($_SESSION['delete-sale-not-ok'])): ?>
                         <div class="message-error">
-                            Não foi possível remover o curso!
+                            Erro: Não foi possível remover o curso!
                             <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
                         </div>
                 <?php endif; unset($_SESSION['delete-sale-not-ok']); ?>
@@ -70,7 +70,7 @@
                     } else {
                         echo '<div id="messages">
                                 <div class="message-warning">
-                                    Você não tem cursos comprados!
+                                    Atenção: Você não tem cursos comprados!
                                     <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
                             </div>';
                     }
