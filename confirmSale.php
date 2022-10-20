@@ -19,12 +19,16 @@ if ($id_user && $id_course && $date && $payment && $final_price) {
     $obj = new Sales(null, $id_user, $id_course, $date->format('Y-m-d'), $payment, $final_price);
 
     if ($dao->insertSale($obj)) {
-        $_SESSION['confirm-sale'] = true; // sessão para notificação de compra
+        $_SESSION['confirm-sale-ok'] = true; // sessão para notificação de compra
         header('Location: view/formBuyCourse.php');
         exit();
     } else {
-        $_SESSION['no-confirm-sale'] = true;
+        $_SESSION['confirm-sale-not-ok'] = true;
         header('Location: view/formBuyCourse.php');
         exit();
     }
+} else {
+    $_SESSION['values-not-ok'] = true;
+    header('Location: view/formBuyCourse.php');
+    exit();
 }

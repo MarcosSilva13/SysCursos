@@ -24,24 +24,31 @@
     <main id="content">
         <!-- Mensagem de confirmação ou erro -->  
         <div id="messages">
-        <?php //sessão vindo de confirSale.php
-            if (isset($_SESSION['confirm-sale'])): ?>
+        <?php //sessão vindo de confirmSale.php
+            if (isset($_SESSION['confirm-sale-ok'])): ?>
                 <div class="message-confirm">
                     Compra realizada com sucesso!
                     <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
                 </div>
-        <?php endif; unset($_SESSION['confirm-sale']); ?>
+        <?php endif; unset($_SESSION['confirm-sale-ok']); ?>
 
-        <?php //sessão vindo de confirSale.php
-            if (isset($_SESSION['no-confirm-sale'])): ?>
+        <?php //sessão vindo de confirmSale.php
+            if (isset($_SESSION['confirm-sale-not-ok'])): ?>
                 <div class="message-error">
                     Não foi possível realizar a compra!
                     <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
                 </div>
-        <?php endif; unset($_SESSION['no-confirm-sale']); ?>
+        <?php endif; unset($_SESSION['confirm-sale-not-ok']); ?>
+
+        <?php 
+            if (isset($_SESSION['values-not-ok'])){ ?>
+                <div class="message-error">
+                    Dados insuficientes para realizar a compra!
+                    <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
+                </div>
+        <?php } unset($_SESSION['values-not-ok']); ?>
         </div>
         
-
         <div id="form-buy" class="form-buy">
             <h1>Detalhes do pagamento</h1>
             <form action="../confirmSale.php" method="POST">
