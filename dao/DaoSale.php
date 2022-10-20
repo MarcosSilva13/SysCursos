@@ -30,7 +30,7 @@ class DaoSale
         join usuarios us on v.id_usuario = us.id_usuario
         join fornece f on c.id_curso = f.id_curso
         join empresas emp on f.id_empresa = emp.id_empresa
-        where us.id_usuario = $id_user;";
+        where us.id_usuario = $id_user order by c.id_curso;";
         $pst = Connection::getPreparedStatement($sql);
         $pst->execute();
         $list = $pst->fetchAll(PDO::FETCH_ASSOC);

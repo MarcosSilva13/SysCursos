@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="../CSS/coursesDefaultStyle.css">
     <link rel="stylesheet" href="../CSS/menuStyle.css">
+    <link rel="stylesheet" href="../CSS/messages.css">
     <title>Cursos</title>
 </head>
 <body>
@@ -56,7 +57,11 @@
                                 echo '</tr>';
                             }
                         } else {
-                            echo '<p>Curso não encontrado!</p>';
+                            echo '<div id="messages">
+                                    <div class="message-error">
+                                        Curso não encontrado, pesquise novamente!
+                                        <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
+                                    </div>';
                         }    
                     } else {
                         $list = $dao->listCourses();
@@ -85,5 +90,6 @@
     </main>
 
     <script src="../JS/controleMenu.js"></script>
+    <script src="../JS/messages.js"></script>
 </body>
 </html>

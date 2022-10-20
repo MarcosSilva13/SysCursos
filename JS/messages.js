@@ -11,7 +11,7 @@ function closeMessage(event) {
     form.remove();
 }*/
 
-function closeForm() {
+/*function closeForm() {
     let form = document.getElementsByClassName('form-buy').item(0);
     form.remove();
-}
+}*/
