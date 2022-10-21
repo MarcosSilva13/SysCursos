@@ -80,9 +80,22 @@ class DaoUser
     {
         $list = [];
         
-        $sql = 'select count(*) as total from usuarios where login = ?;';
+        $sql = 'select count(*) as total_login from usuarios where login = ?;';
         $pst = Connection::getPreparedStatement($sql);
         $pst->bindValue(1, $login);
+        $pst->execute();
+        $list = $pst->fetchAll(PDO::FETCH_ASSOC);
+
+        return $list;
+    }
+
+    public function checkRepeatedCpf($cpf)
+    {
+        $list = [];
+
+        $sql = 'select count(*) as total_cpf from usuarios where cpf = ?;';
+        $pst = Connection::getPreparedStatement($sql);
+        $pst->bindValue(1, $cpf);
         $pst->execute();
         $list = $pst->fetchAll(PDO::FETCH_ASSOC);
 

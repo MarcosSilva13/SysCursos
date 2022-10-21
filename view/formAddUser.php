@@ -37,6 +37,18 @@ session_start();
                 endif;
                 unset($_SESSION['user-exists']);
             ?>
+
+            <?php //sessão criada em registration.php
+                if (isset(($_SESSION['cpf-exists']))):  
+            ?>
+            <div class="notification-info">
+                <p>O cpf informado já esta cadastrado. Informe outro e tente novamente.</p>
+            </div>
+            <?php
+                endif;
+                unset($_SESSION['cpf-exists']);
+            ?>
+
             <form action="../registration.php" method="POST">
                 <!--<label for="id">Id</label>
                 <input type="text" name="id-user" id="id-user"/>-->

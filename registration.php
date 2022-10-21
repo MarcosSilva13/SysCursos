@@ -13,14 +13,21 @@ $email = filter_input(INPUT_POST, 'email-user');
 $senha = filter_input(INPUT_POST, 'password-user');
 $telefone = filter_input(INPUT_POST, 'tel-user');
 
-$list = $dao->checkRepeatedLogin($login); //faz a busca no banco se o login enviado ja exite
-$total = $list[0];
+$list_login = $dao->checkRepeatedLogin($login); //faz a busca no banco se o login enviado ja exite
+$total_login = $list_login[0];
 
-if ($total['total'] == 1) { //se retornar o total de 1, o login já existe, senão o usuario é cadastrado
+$list_cpf = $dao->checkRepeatedCpf($cpf);
+$total_cpf = $list_cpf[0];
+
+if ($total_login['total_login'] == 1) { //se retornar o total de 1, o login já existe, senão o usuario é cadastrado
     $_SESSION['user-exists'] = true;
     header('Location: view/formAddUser.php');
     exit();
-} 
+} else if ($total_cpf['total_cpf'] == 1) {
+    $_SESSION['cpf-exists'] = true;
+    header('Location: view/formAddUser.php');
+    exit();
+}
 
 if ($login && $nome && $cpf && $email && $senha && $telefone) {
     $obj = new Users(null, $login, $nome, $cpf, $email, $senha, $telefone, null);
