@@ -26,8 +26,9 @@
                 <?php //sessão vindo de EditUser.php
                     if (isset($_SESSION['update-user-ok'])): ?>
                         <div class="message-confirm">
-                            Confirmação: Dados atualizados com sucesso!
-                            <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
+                            Confirmação: Dados atualizados com sucesso!<span class="btn-close-message" onclick="closeMessage(event);">&times;</span><br>
+                            Por favor faça login novamente clicando <a href="../logout.php">aqui</a>
+                            
                         </div>
                 <?php endif; unset($_SESSION['update-user-ok']); ?>
 
