@@ -1,7 +1,5 @@
 <?php
 
-use Connection as GlobalConnection;
-
 require_once 'Connection.php';
 
 class DaoUser
@@ -11,7 +9,7 @@ class DaoUser
         $sql = 'insert into usuarios (login, nome, cpf, email, senha, telefone)
         values (?, ?, ?, ?, ?, ?);'; // add md5
 
-        $pst = GlobalConnection::getPreparedStatement($sql);
+        $pst = Connection::getPreparedStatement($sql);
         $pst->bindValue(1, $user->getLogin());
         $pst->bindValue(2, $user->getName());
         $pst->bindValue(3, $user->getCpf());
@@ -66,7 +64,7 @@ class DaoUser
         $list = [];
 
         $sql = 'select id_usuario, login, nome, tipo from usuarios where login = ? OR email = ? and senha = ?;';
-        $pst = GlobalConnection::getPreparedStatement($sql);
+        $pst = Connection::getPreparedStatement($sql);
         $pst->bindValue(1, $user);
         $pst->bindValue(2, $user);
         $pst->bindValue(3, $password);
@@ -96,6 +94,19 @@ class DaoUser
         $sql = 'select count(*) as total_cpf from usuarios where cpf = ?;';
         $pst = Connection::getPreparedStatement($sql);
         $pst->bindValue(1, $cpf);
+        $pst->execute();
+        $list = $pst->fetchAll(PDO::FETCH_ASSOC);
+
+        return $list;
+    }
+
+    public function checkRepeatedEmail($email)
+    {
+        $list = [];
+
+        $sql = 'select count(*) as total_email from usuarios where email = ?;';
+        $pst = Connection::getPreparedStatement($sql);
+        $pst->bindValue(1, $email);
         $pst->execute();
         $list = $pst->fetchAll(PDO::FETCH_ASSOC);
 

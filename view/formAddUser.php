@@ -18,10 +18,10 @@ session_start();
             <?php //sessão criada em registration.php
                 if (isset($_SESSION['status-registration'])): 
             ?>
-            <div class="notification-success">
-                <p>Cadastro efetuado com sucesso!</p>
-                <p>Faça login informando seu usuário e senha <a href="../index.php">aqui</a>.</p>
-            </div>
+                <div class="notification-success">
+                    <p>Cadastro efetuado com sucesso!</p>
+                    <p>Faça login informando seu usuário e senha <a href="../index.php">aqui</a>.</p>
+                </div>
             <?php 
                 endif; 
                 unset($_SESSION['status-registration']);
@@ -30,9 +30,9 @@ session_start();
             <?php //sessão criada em registration.php
                 if (isset(($_SESSION['user-exists']))):  
             ?>
-            <div class="notification-info">
-                <p>O usuário escolhido já existe. Informe outro e tente novamente.</p>
-            </div>
+                <div class="notification-info">
+                    <p>O usuário escolhido já existe. Informe outro e tente novamente.</p>
+                </div>
             <?php
                 endif;
                 unset($_SESSION['user-exists']);
@@ -41,12 +41,23 @@ session_start();
             <?php //sessão criada em registration.php
                 if (isset(($_SESSION['cpf-exists']))):  
             ?>
-            <div class="notification-info">
-                <p>O cpf informado já esta cadastrado. Informe outro e tente novamente.</p>
-            </div>
+                <div class="notification-info">
+                    <p>O cpf informado já esta cadastrado. Informe outro e tente novamente.</p>
+                </div>
             <?php
                 endif;
                 unset($_SESSION['cpf-exists']);
+            ?>
+
+            <?php //sessão criada em registration.php
+                if (isset(($_SESSION['email-exists']))):  
+            ?>
+                <div class="notification-info">
+                    <p>O email informado já esta cadastrado. Informe outro e tente novamente.</p>
+                </div>
+            <?php
+                endif;
+                unset($_SESSION['email-exists']);
             ?>
 
             <form action="../registration.php" method="POST">
