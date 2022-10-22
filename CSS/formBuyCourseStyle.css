@@ -36,7 +36,7 @@ body {
     margin-bottom: 5px;
 }
 
-.course-name, .course-duration, .course-price, .company-name, .payment{
+.course-name, .course-duration, .course-price, .company-name, .payment, .password{
     display: flex;
     flex-direction: column;
     /*width: 45%;*/

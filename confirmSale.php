@@ -8,14 +8,23 @@ $dao = new DaoSale();
 //valores vindo de formBuyCourse.php
 $id_user = filter_input(INPUT_POST, 'id_user');
 $id_course = filter_input(INPUT_POST, 'id_course');
-//$date = date('Y-m-d');
 $date = new DateTime('now', new DateTimeZone('America/Sao_Paulo'));
 $payment = filter_input(INPUT_POST, 'payment');
 $final_price = filter_input(INPUT_POST, 'course_price');
+$password = filter_input(INPUT_POST, 'password');
 
-//echo "$id_user<br>$id_course<br>$date<br>$payment<br>$final_price<br>";
+$pst = Connection::getPreparedStatement("select senha from usuarios where id_usuario = $id_user");
+$pst->execute();
+$bd_pass = $pst->fetchAll(PDO::FETCH_ASSOC);
+print_r($bd_pass);
 
-if ($id_user && $id_course && $date && $payment && $final_price) {
+if ($password != $bd_pass[0]['senha']) {
+    $_SESSION['wrong-password'] = true;
+    header('Location: view/formBuyCourse.php');
+    exit();
+}
+
+if ($id_user && $id_course && $date && ($payment != "") && $final_price && $password) {
     $obj = new Sales(null, $id_user, $id_course, $date->format('Y-m-d'), $payment, $final_price);
 
     if ($dao->insertSale($obj)) {

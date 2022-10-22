@@ -24,29 +24,37 @@
     <main id="content">
         <!-- Mensagem de confirmação ou erro -->  
         <div id="messages">
-        <?php //sessão vindo de confirmSale.php
-            if (isset($_SESSION['confirm-sale-ok'])): ?>
-                <div class="message-confirm">
-                    Confirmação: Compra realizada com sucesso!
-                    <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
-                </div>
-        <?php endif; unset($_SESSION['confirm-sale-ok']); ?>
+            <?php //sessão vindo de confirmSale.php
+                if (isset($_SESSION['confirm-sale-ok'])): ?>
+                    <div class="message-confirm">
+                        Confirmação: Compra realizada com sucesso!
+                        <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
+                    </div>
+            <?php endif; unset($_SESSION['confirm-sale-ok']); ?>
 
-        <?php //sessão vindo de confirmSale.php
-            if (isset($_SESSION['confirm-sale-not-ok'])): ?>
-                <div class="message-error">
-                    Erro: Não foi possível realizar a compra!
-                    <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
-                </div>
-        <?php endif; unset($_SESSION['confirm-sale-not-ok']); ?>
+            <?php //sessão vindo de confirmSale.php
+                if (isset($_SESSION['confirm-sale-not-ok'])): ?>
+                    <div class="message-error">
+                        Erro: Não foi possível realizar a compra!
+                        <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
+                    </div>
+            <?php endif; unset($_SESSION['confirm-sale-not-ok']); ?>
 
-        <?php //sessão vindo de confirmSale.php
-            if (isset($_SESSION['values-not-ok'])): ?>
+            <?php //sessão vindo de confirmSale.php
+                if (isset($_SESSION['values-not-ok'])): ?>
+                    <div class="message-error">
+                        Erro: Dados insuficientes para realizar a compra!
+                        <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
+                    </div>
+            <?php endif; unset($_SESSION['values-not-ok']); ?>
+            
+            <?php //sessão vindo de confirmSale.php
+                if (isset($_SESSION['wrong-password'])): ?>
                 <div class="message-error">
-                    Erro: Dados insuficientes para realizar a compra!
+                    Erro: Senha incorreta, volte e tente novamente!
                     <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
                 </div>
-        <?php endif; unset($_SESSION['values-not-ok']); ?>
+            <?php endif; unset($_SESSION['wrong-password']); ?>
         </div>
         
         <div id="form-buy" class="form-buy">
@@ -57,7 +65,7 @@
                     <input type="hidden" name="id_course" id="id_course" value="<?=$id_course?>">
                     <div class="course-name">
                         <label for="course_name">Curso:</label>
-                        <input type="text" name="course_name" value="<?=$course_name?>" readonly>
+                        <input type="text" id="course_name" name="course_name" value="<?=$course_name?>" readonly>
                     </div>  
                     <div class="course-duration">
                         <label for="course_duration">Duração:</label>
@@ -73,13 +81,18 @@
                     </div>  
                     <div class="payment">
                         <label for="payment">Forma de pagamento:</label>
-                        <select name="payment" id="payment">
+                        <select name="payment" id="payment" autofocus required>
+                            <option value="" selected >Selecione uma opção</option>
                             <option value="Cartão de crédito">Cartão de crédito</option>
                             <option value="Cartão de débito">Cartão de débito</option>
                             <option value="Pix">Pix</option>
                             <option value="Boleto">Boleto</option>
                         </select>
                     </div>
+                    <div class="password">
+                        <label for="password">Senha para confirmação:</label>
+                        <input type="password" name="password" placeholder="Sua senha" required>
+                    </div> 
                 </div>
                 <div class="btn-finalizar">
                     <input id="btn-fin" type="submit" value="Finalizar">
