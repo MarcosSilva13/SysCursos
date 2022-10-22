@@ -30,10 +30,13 @@ if ($pst->execute()) {
 $list = $dao->login($user, $password);
 $dataUser = $list[0];
 
-if ($dataUser['login'] != null) {
+if ($dataUser['login'] != null) { // se não for nulo um usuario foi encontrado e será logado
 
-    $_SESSION['usuario'] = $dataUser['nome'];
     $_SESSION['id_user'] = $dataUser['id_usuario'];
+    $_SESSION['usuario'] = $dataUser['nome'];
+    $_SESSION['login_user'] = $dataUser['login'];
+    $_SESSION['cpf_user'] = $dataUser['cpf'];
+    $_SESSION['email_user'] = $dataUser['email'];
     $_SESSION['type_user'] = $dataUser['tipo'];
     header('Location: view/coursesDefault.php');
     exit();

@@ -63,7 +63,7 @@ class DaoUser
     {
         $list = [];
 
-        $sql = 'select id_usuario, login, nome, tipo from usuarios where login = ? OR email = ? and senha = ?;';
+        $sql = 'select * from usuarios where login = ? OR email = ? and senha = ?;';
         $pst = Connection::getPreparedStatement($sql);
         $pst->bindValue(1, $user);
         $pst->bindValue(2, $user);
