@@ -38,8 +38,14 @@ if ($dataUser['login'] != null) { // se não for nulo um usuario foi encontrado 
     $_SESSION['cpf_user'] = $dataUser['cpf'];
     $_SESSION['email_user'] = $dataUser['email'];
     $_SESSION['type_user'] = $dataUser['tipo'];
-    header('Location: view/coursesDefault.php');
-    exit();
+
+    if ($dataUser['tipo'] == "administrador") {
+        header('Location: Admin/coursesAdmin.php');
+        exit();
+    } else {
+        header('Location: view/coursesDefault.php');
+        exit();
+    }
 } else {
     $_SESSION['nao_autenticado'] = true;
     header('Location: index.php');
