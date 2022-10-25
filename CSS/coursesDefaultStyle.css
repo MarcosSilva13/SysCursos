@@ -22,6 +22,11 @@ td {
     text-align: center;
 }
 
+td a {
+    margin: 0;
+    padding: 0;
+}
+
 #acoes {
     display: flex;
     flex-direction: row;
@@ -81,6 +86,20 @@ a:hover, #env:hover {
 
 #editar:hover {
     background-color: rgb(247, 181, 0);
+}
+
+#excluir {
+    padding: 2px 10px;
+    border: 1px solid #000;
+    font-size: 18px;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+    background-color: #8b0000;
+}
+
+#excluir:hover {
+    background-color: rgb(180, 0, 0);
 }
 
 .div-search-bar {
