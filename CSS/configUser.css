@@ -3,11 +3,11 @@
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    width: 45%;
+    width: 80%;
     height: 30px;
 }
 
-.edit-user, .delete-user {
+.edit-user, .add-course, .add-company, .add-provider, .delete-user {
     padding: 2px 10px;
     margin-right: 10px;
     border: 1px solid #000;
@@ -17,13 +17,13 @@
     background-color: #2a2f50;
 }
 
-.edit-user:hover, .delete-user:hover {
+.edit-user:hover, .add-course:hover, .add-company:hover, .add-provider:hover, .delete-user:hover {
     background-color: rgb(0, 120, 175);
 }
 
 @media screen and (max-width: 1255px){
     .user-config {
-        width: 50%;
+        width: 70%;
         height: auto;
     }
 }
