@@ -8,18 +8,21 @@ class DaoUser
     {
         $sql = 'insert into usuarios (login, nome, cpf, email, senha, telefone)
         values (?, ?, ?, ?, ?, ?);'; // add md5
-
-        $pst = Connection::getPreparedStatement($sql);
-        $pst->bindValue(1, $user->getLogin());
-        $pst->bindValue(2, $user->getName());
-        $pst->bindValue(3, $user->getCpf());
-        $pst->bindValue(4, $user->getEmail());
-        $pst->bindValue(5, $user->getPassword());
-        $pst->bindValue(6, $user->getTelephone());
-
-        if ($pst->execute()) {
-            return true;
-        } else {
+        try {
+            $pst = Connection::getPreparedStatement($sql);
+            $pst->bindValue(1, $user->getLogin());
+            $pst->bindValue(2, $user->getName());
+            $pst->bindValue(3, $user->getCpf());
+            $pst->bindValue(4, $user->getEmail());
+            $pst->bindValue(5, $user->getPassword());
+            $pst->bindValue(6, $user->getTelephone());
+    
+            if ($pst->execute()) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch(PDOException $ex) {
             return false;
         }
     }
@@ -30,19 +33,22 @@ class DaoUser
     {
         $sql = 'update usuarios set login = ?, nome = ?, cpf = ?, email = ?, senha = ?, telefone = ? 
         where id_usuario = ?;';
-
-        $pst = Connection::getPreparedStatement($sql);
-        $pst->bindValue(1, $user->getLogin());
-        $pst->bindValue(2, $user->getName());
-        $pst->bindValue(3, $user->getCpf());
-        $pst->bindValue(4, $user->getEmail());
-        $pst->bindValue(5, $user->getPassword());
-        $pst->bindValue(6, $user->getTelephone());
-        $pst->bindValue(7, $user->getIdUser());
-
-        if ($pst->execute()) {
-            return $pst->rowCount();
-        } else {
+        try {
+            $pst = Connection::getPreparedStatement($sql);
+            $pst->bindValue(1, $user->getLogin());
+            $pst->bindValue(2, $user->getName());
+            $pst->bindValue(3, $user->getCpf());
+            $pst->bindValue(4, $user->getEmail());
+            $pst->bindValue(5, $user->getPassword());
+            $pst->bindValue(6, $user->getTelephone());
+            $pst->bindValue(7, $user->getIdUser());
+    
+            if ($pst->execute()) {
+                return $pst->rowCount();
+            } else {
+                return false;
+            }
+        } catch(PDOException $ex) {
             return false;
         }
     }
@@ -50,11 +56,15 @@ class DaoUser
     public function deleteUser($id_user) 
     {
         $sql = "delete from usuarios where id_usuario = $id_user;";
-        $pst = Connection::getPreparedStatement($sql);
-
-        if ($pst->execute()) {
-            return $pst->rowCount();
-        } else {
+        try {
+            $pst = Connection::getPreparedStatement($sql);
+    
+            if ($pst->execute()) {
+                return $pst->rowCount();
+            } else {
+                return false;
+            }
+        } catch(PDOException $ex) {
             return false;
         }
     }
@@ -64,6 +74,7 @@ class DaoUser
         $list = [];
 
         $sql = 'select * from usuarios where login = ? OR email = ? and senha = ?;';
+        
         $pst = Connection::getPreparedStatement($sql);
         $pst->bindValue(1, $user);
         $pst->bindValue(2, $user);

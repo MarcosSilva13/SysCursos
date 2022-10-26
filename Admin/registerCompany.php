@@ -12,7 +12,7 @@ $telephone = filter_input(INPUT_POST, 'tel-company');
 $description = filter_input(INPUT_POST, 'description-company');
 
 if ($name && $email && $telephone && $description) {
-    $obj = new Company(null, null, $email, $telephone, $description);
+    $obj = new Company(null, $name, $email, $telephone, $description);
 
     if ($dao->insertCompany($obj)) {
         $_SESSION['registration-ok'] = true;

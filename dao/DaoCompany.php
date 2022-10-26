@@ -33,7 +33,7 @@ class DaoCompany
         $pst = Connection::getPreparedStatement($sql);
         $pst->execute();
         $list = $pst->fetchAll(PDO::FETCH_ASSOC);
-
+        
         return $list;
     }
 }

@@ -8,16 +8,20 @@ class DaoSale
     {
         $sql = 'insert into venda (id_usuario, id_curso, data_venda, forma_pagamento, valor)
         values (?, ?, ?, ?, ?);';
-        $pst = Connection::getPreparedStatement($sql);
-        $pst->bindValue(1, $sale->getIdUser());
-        $pst->bindValue(2, $sale->getIdCourse());
-        $pst->bindValue(3, $sale->getSaleDate());
-        $pst->bindValue(4, $sale->getPayment());
-        $pst->bindValue(5, $sale->getFinalPrice());
-
-        if ($pst->execute()) {
-            return true;
-        } else {
+        try {
+            $pst = Connection::getPreparedStatement($sql);
+            $pst->bindValue(1, $sale->getIdUser());
+            $pst->bindValue(2, $sale->getIdCourse());
+            $pst->bindValue(3, $sale->getSaleDate());
+            $pst->bindValue(4, $sale->getPayment());
+            $pst->bindValue(5, $sale->getFinalPrice());
+    
+            if ($pst->execute()) {
+                return true;
+            } else {
+                return false;
+            }
+        } catch(PDOException $ex) {
             return false;
         }
     }
@@ -51,11 +55,15 @@ class DaoSale
     public function deleteSaleUser($id_sale) 
     {
         $sql = "delete from venda where id_venda = $id_sale;";
-        $pst = Connection::getPreparedStatement($sql);
-
-        if ($pst->execute()) {
-            return $pst->rowCount();
-        } else {
+        try {
+            $pst = Connection::getPreparedStatement($sql);
+    
+            if ($pst->execute()) {
+                return $pst->rowCount();
+            } else {
+                return false;
+            }
+        } catch(PDOException $ex) {
             return false;
         }
     }
@@ -63,14 +71,16 @@ class DaoSale
     public function deleteSaleReference($id_user) // remove as todas as compras de um usuario
     {
         $sql = "delete from venda where id_usuario = $id_user;";
-        $pst = Connection::getPreparedStatement($sql);
-        
-        if ($pst->execute()) {
-            return $pst->rowCount();
-        } else {
+        try {
+            $pst = Connection::getPreparedStatement($sql);
+            
+            if ($pst->execute()) {
+                return $pst->rowCount();
+            } else {
+                return false;
+            }
+        } catch(PDOException $ex) {
             return false;
         }
     }
-
-    //public function deleteSaleAdmin() {}
 }
