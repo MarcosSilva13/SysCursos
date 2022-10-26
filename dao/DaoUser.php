@@ -27,7 +27,16 @@ class DaoUser
         }
     }
 
-    // public function listUsers() {}
+    public function listUsers() 
+    {
+        $list = [];
+        $sql = 'select * from usuarios';
+        $pst = Connection::getPreparedStatement($sql);
+        $pst->execute();
+        $list = $pst->fetchAll(PDO::FETCH_ASSOC);
+
+        return $list;
+    }
 
     public function updateUser(Users $user) 
     {
