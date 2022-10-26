@@ -37,6 +37,17 @@ class DaoSale
         return $list;
     }
 
+    public function checkSale($id_user)
+    {
+        $list = [];
+        $sql = "select count(*) as total_compra from venda v 
+        join usuarios us on us.id_usuario = v.id_usuario where us.id_usuario = $id_user;";
+        $pst = Connection::getPreparedStatement($sql);
+        $pst->execute();
+        $list = $pst->fetchAll(PDO::FETCH_ASSOC);
+        return $list;
+    }
+
     public function deleteSaleUser($id_sale) 
     {
         $sql = "delete from venda where id_venda = $id_sale;";
@@ -49,7 +60,7 @@ class DaoSale
         }
     }
 
-    public function deleteSaleReference($id_user) // remove as todas as vendas de um usuario
+    public function deleteSaleReference($id_user) // remove as todas as compras de um usuario
     {
         $sql = "delete from venda where id_usuario = $id_user;";
         $pst = Connection::getPreparedStatement($sql);
