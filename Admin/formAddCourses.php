@@ -46,20 +46,20 @@
                 <form action="registerCourse.php" method="POST">
                     <div class="form-fields">
                         <div class="div-nome">
-                            <label for="name">Nome*</label>
+                            <label for="name">Nome</label>
                             <input type="text" name="name-course" id="name-course" placeholder="Nome do curso" required>
                         </div>
                         <div class="div-valor">
-                            <label for="valor">Valor*</label>
+                            <label for="valor">Valor</label>
                             <input type="number" name="price-course" id="price-course" placeholder="Ex: 59.90" required>
                         </div>
                         <div class="div-duracao">
-                            <label for="duration">Duração*</label>
+                            <label for="duration">Duração</label>
                             <input type="number" name="duration-course" id="duration-course" 
                             placeholder="Duração do curso" required>
                         </div>
                         <div class="div-desc">
-                            <label for="description">Descrição*</label>
+                            <label for="description">Descrição</label>
                             <textarea name="description-course" id="description-course" cols="30" rows="2" placeholder="Descrição da curso..." required></textarea>
                         </div>
                     </div>

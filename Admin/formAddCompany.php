@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="../CSS/coursesDefaultStyle.css">
     <link rel="stylesheet" href="../CSS/menuStyle.css">
-    <link rel="stylesheet" href="../CSS/formAddCompany.css">
+    <link rel="stylesheet" href="../CSS/formStyle.css">
     <link rel="stylesheet" href="../CSS/messages.css">
     <title>Cadastro - Empresas</title>
 </head>
@@ -64,7 +64,7 @@
                         </div>
                     </div>
                     <div class="botao-enviar">
-                        <input type="submit" id="send-data-company" value="Enviar">
+                        <input type="submit" id="send-data" value="Enviar">
                     </div>
                 </form>
             </div>
