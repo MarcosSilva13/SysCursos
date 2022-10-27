@@ -81,9 +81,7 @@ class DaoUser
     public function login($user, $password) 
     {
         $list = [];
-
         $sql = 'select * from usuarios where login = ? OR email = ? and senha = ?;';
-        
         $pst = Connection::getPreparedStatement($sql);
         $pst->bindValue(1, $user);
         $pst->bindValue(2, $user);
@@ -97,7 +95,6 @@ class DaoUser
     public function checkRepeatedLogin($login) 
     {
         $list = [];
-        
         $sql = 'select count(*) as total_login from usuarios where login = ?;';
         $pst = Connection::getPreparedStatement($sql);
         $pst->bindValue(1, $login);
@@ -110,7 +107,6 @@ class DaoUser
     public function checkRepeatedCpf($cpf)
     {
         $list = [];
-
         $sql = 'select count(*) as total_cpf from usuarios where cpf = ?;';
         $pst = Connection::getPreparedStatement($sql);
         $pst->bindValue(1, $cpf);
@@ -123,7 +119,6 @@ class DaoUser
     public function checkRepeatedEmail($email)
     {
         $list = [];
-
         $sql = 'select count(*) as total_email from usuarios where email = ?;';
         $pst = Connection::getPreparedStatement($sql);
         $pst->bindValue(1, $email);
@@ -136,12 +131,11 @@ class DaoUser
     public function findUser($id_user) 
     {
         $list = [];
-
         $sql = "select * from usuarios where id_usuario = $id_user;";
         $pst = Connection::getPreparedStatement($sql);
         $pst->execute();
         $list = $pst->fetchAll(PDO::FETCH_ASSOC);
-
+        
         return $list;
     }
 }

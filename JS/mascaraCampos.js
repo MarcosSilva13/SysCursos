@@ -9,10 +9,17 @@ function mascara(i,atributo) {
         if (v.length == 3 || v.length == 7) i.value += ".";
         if (v.length == 11) i.value += "-";
     }
-    /*if (atributo == "tele") {
-        i.setAttribute("maxlength", "14"); 
-        //i.value += "(";
-        if (v.length == 2) i.value += ")";
-        if (v.length == 9) i.value += "-";
-    }*/
+
+    if (atributo == "tele") {
+        i.setAttribute("maxlength", "13"); 
+        if (v.length == 2 || v.length == 8) i.value += "-";
+    }
+
+    if (atributo == "cnpj") {
+        i.setAttribute("maxlength", "18");
+        if (v.length == 2 || v.length == 6 ) i.value += ".";
+        if (v.length == 10) i.value += "/";
+        if (v.length == 15) i.value += "-";
+    } 
+
 }

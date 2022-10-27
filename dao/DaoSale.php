@@ -38,6 +38,7 @@ class DaoSale
         $pst = Connection::getPreparedStatement($sql);
         $pst->execute();
         $list = $pst->fetchAll(PDO::FETCH_ASSOC);
+
         return $list;
     }
 
@@ -49,6 +50,7 @@ class DaoSale
         $pst = Connection::getPreparedStatement($sql);
         $pst->execute();
         $list = $pst->fetchAll(PDO::FETCH_ASSOC);
+        
         return $list;
     }
 

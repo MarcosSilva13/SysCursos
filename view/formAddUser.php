@@ -74,7 +74,7 @@ session_start();
                     </div>
                     <div class="div-cpf">
                         <label for="cpf">CPF</label>
-                        <input oninput="mascara(this, 'cpf')" type="text" name="cpf-user" id="cpf-user" pattern="[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}" placeholder="Ex: 123.456.789-10" required>
+                        <input oninput="mascara(this, 'cpf')" type="text" name="cpf-user" id="cpf-user" pattern="[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}" placeholder="Ex: XXX.XXX.XXX-XX" required>
                     </div>
                     <div class="div-email">
                         <label for="email">Email</label>
@@ -86,7 +86,7 @@ session_start();
                     </div>
                     <div class="div-tel">
                         <label for="telephone">Telefone</label>
-                        <input oninput="mascarat(this, 'tele')" type="tel" name="tel-user" id="tel-user" pattern="[(0-9)]{4}[0-9]{5}-[0-9]{4}" placeholder="Ex: (01)91234-5678" maxlength="14" required>
+                        <input oninput="mascara(this, 'tele')" type="tel" name="tel-user" id="tel-user" pattern="[0-9]{2}-[0-9]{5}-[0-9]{4}" placeholder="Ex: XX-XXXXX-XXXX" required>
                     </div>
                 </div>
                 <div class="botao-enviar">

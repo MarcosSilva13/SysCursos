@@ -57,7 +57,7 @@
                         <div class="form-fields">
                             <div class="div-login">
                                 <label for="login">Login</label>
-                                <input type="text" name="login-user" id="login-user" placeholder="Ex: MarcosSilva25" value="<?= $values['login']?>" required readonly>
+                                <input type="text" name="login-user" id="login-user" placeholder="Ex: MarcosSilva25" value="<?= $values['login']?>" readonly>
                             </div>
                             <div class="div-nome">
                                 <label for="name">Nome</label>
@@ -66,11 +66,11 @@
                             <div class="div-cpf">
                                 <label for="cpf">CPF</label>
                                 <input oninput="mascara(this, 'cpf')" type="text" name="cpf-user" id="cpf-user" 
-                                pattern="[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}" placeholder="Ex: 123.456.789-10" value="<?= $values['cpf']?>" required readonly>
+                                pattern="[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}" placeholder="Ex: XXX.XXX.XXX-XX" value="<?= $values['cpf']?>" readonly>
                             </div>
                             <div class="div-email">
                                 <label for="email">Email</label>
-                                <input type="email" name="email-user" id="email-user" placeholder="Ex: syscursos@gmail.com" value="<?= $values['email']?>" required readonly>
+                                <input type="email" name="email-user" id="email-user" placeholder="Ex: syscursos@gmail.com" value="<?= $values['email']?>" readonly>
                             </div>
                             <div class="div-senha">
                                 <label for="password">Senha</label>
@@ -78,8 +78,8 @@
                             </div>
                             <div class="div-tel">
                                 <label for="telephone">Telefone</label>
-                                <input oninput="mascarat(this, 'tele')" type="tel" name="tel-user" id="tel-user" 
-                                pattern="[(0-9)]{4}[0-9]{5}-[0-9]{4}" placeholder="Ex: (01)91234-5678" maxlength="14" value="<?= $values['telefone']?>" required>
+                                <input oninput="mascara(this, 'tele')" type="tel" name="tel-user" id="tel-user" 
+                                pattern="[0-9]{2}-[0-9]{5}-[0-9]{4}" placeholder="Ex: XX-XXXXX-XXXX" value="<?= $values['telefone']?>" required>
                             </div>
                         </div>
                         <div class="botao-enviar">

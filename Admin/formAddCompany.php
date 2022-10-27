@@ -19,7 +19,7 @@
                 if (isset($_SESSION['registration-ok'])): ?>
                     <div class="message-confirm">
                         Confirmação: Cadastro realizado com sucesso!
-                        <span class="btn-close-message" onclick="closeMessage(event);">&times;</span><br>
+                        <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
                     </div>
             <?php endif; unset($_SESSION['registration-ok']); ?>
 
@@ -27,7 +27,7 @@
                 if (isset($_SESSION['registration-fail'])): ?>
                     <div class="message-error">
                         Erro: Não foi possivel realizar o cadastro!
-                        <span class="btn-close-message" onclick="closeMessage(event);">&times;</span><br>
+                        <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
                     </div>
             <?php endif; unset($_SESSION['registration-fail']); ?>
 
@@ -35,9 +35,17 @@
                 if (isset($_SESSION['registration-missing-values'])): ?>
                     <div class="message-warning">
                         Atenção: Dados insuficientes para realizar o cadastro!
-                        <span class="btn-close-message" onclick="closeMessage(event);">&times;</span><br>
+                        <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
                     </div>
             <?php endif; unset($_SESSION['registration-missing-values']); ?>
+
+            <?php //sessão vindo de registerCompany.php
+                if (isset($_SESSION['cnpj-exists'])): ?>
+                <div class="message-warning">
+                    Atenção: O Cnpj informado já existe, escolha outro e tente novamente!
+                    <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
+                </div>
+            <?php endif; unset($_SESSION['cnpj-exists']); ?>
         </div>
 
         <div class="area-form-company">
@@ -49,14 +57,19 @@
                             <label for="name">Nome</label>
                             <input type="text" name="name-company" id="name-company" placeholder="Nome da empresa" required>
                         </div>
+                        <div class="div-cnpj">
+                            <label for="cnpj">CNPJ</label>
+                            <input oninput="mascara(this, 'cnpj')" type="text" name="cnpj-company" id="cnpj-company" pattern="[0-9]{2}.[0-9]{3}.[0-9]{3}/[0-9]{4}-[0-9]{2}" 
+                            placeholder="Ex: XX.XXX.XXX/XXXX-XX" required>
+                        </div>
                         <div class="div-email">
                             <label for="email">Email</label>
                             <input type="email" name="email-company" id="email-company" placeholder="Ex: empresa123@gmail.com" required>
                         </div>
                         <div class="div-tel">
                             <label for="telephone">Telefone</label>
-                            <input oninput="mascarat(this, 'tele')" type="tel" name="tel-company" id="tel-company" 
-                            pattern="[(0-9)]{4}[0-9]{5}-[0-9]{4}" placeholder="Ex: (01)91234-5678" maxlength="14" required>
+                            <input oninput="mascara(this, 'tele')" type="tel" name="tel-company" id="tel-company" 
+                            pattern="[0-9]{2}-[0-9]{5}-[0-9]{4}" placeholder="Ex: XX-XXXXX-XXXX" maxlength="13" required>
                         </div>
                         <div class="div-desc">
                             <label for="description">Descrição</label>

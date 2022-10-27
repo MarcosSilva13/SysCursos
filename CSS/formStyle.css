@@ -53,7 +53,7 @@ body {
     margin-bottom: 5px;
 }
 
-.div-login, .div-nome, .div-cpf, .div-email, .div-tel, .div-senha, .div-desc, .div-valor, .div-duracao {
+.div-login, .div-nome, .div-cpf, .div-cnpj, .div-email, .div-tel, .div-senha, .div-desc, .div-valor, .div-duracao {
     display: flex;
     flex-direction: column;
     width: 45%;

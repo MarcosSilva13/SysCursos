@@ -15,6 +15,7 @@
         <table id="tab">
                 <tr>
                     <th>Empresa</th>
+                    <th>CNPJ</th>
                     <th>Email</th>
                     <th>Telefone</th>
                     <th>Descrição</th>
@@ -31,6 +32,7 @@
                     foreach ($list as $values) {
                         echo '<tr>';
                         echo '<td>' . $values['nome_emp'] . '</td>';
+                        echo '<td>' . $values['cnpj'] . '</td>';
                         echo '<td>' . $values['email_emp'] . '</td>';
                         echo '<td>' . $values['telefone_emp'] . '</td>';
                         echo '<td>' . $values['descricao_emp'] . '</td>';
