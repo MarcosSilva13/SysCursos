@@ -52,6 +52,17 @@ class DaoCourses
         return $list;
     }
 
+    public function listCourseForProvides()
+    {
+        $list = [];
+        $sql = 'select * from cursos;';
+        $pst = Connection::getPreparedStatement($sql);
+        $pst->execute();
+        $list = $pst->fetchAll(PDO::FETCH_ASSOC);
+
+        return $list;
+    }
+
     public function updateCourse(Courses $course) 
     {
         $sql = 'update cursos set nome_curso = ?, valor_curso = ?, duracao_curso = ?, descricao_curso where id_curso = ?;';

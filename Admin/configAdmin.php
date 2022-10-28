@@ -17,7 +17,7 @@
             <a class="edit-user" href="../view/formEditUser.php">Editar conta</a>
             <a class="add-course" href="formAddCourses.php">Cadastrar Curso</a>
             <a class="add-company" href="formAddCompany.php">Cadastrar Empresa</a>
-            <a class="add-provider" href="#">Cadastrar Fornecimento</a>
+            <a class="add-provider" href="formAddProvides.php">Cadastrar Fornecimento</a>
             <a class="delete-user" href="../deleteUser.php">Deletar conta</a>
         </div>
     </main>
