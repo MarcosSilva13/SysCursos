@@ -10,7 +10,7 @@ $dao = new DaoProvide();
 $id_company = filter_input(INPUT_POST, 'company');
 $id_course = filter_input(INPUT_POST, 'course');
 
-$list = $dao->checkProvide($id_course);
+$list = $dao->checkProvideCourse($id_course);
 $total_fornece = $list[0];
 
 if ($total_fornece['total_fornece'] > 0) { //verifica se um curso ja esta associado a alguma empresa 

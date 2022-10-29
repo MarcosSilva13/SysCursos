@@ -21,7 +21,7 @@ class DaoProvide
         }
     }
 
-    public function checkProvide($id_course)
+    public function checkProvideCourse($id_course)
     {
         $list = [];
         $sql = 'select count(*) as total_fornece from fornece where id_curso = ?;';
@@ -33,9 +33,37 @@ class DaoProvide
         return $list;
     }
 
+    public function checkProvideCompany($id_company)
+    {
+        $list = [];
+        $sql = 'select count(*) as total_fornece from fornece where id_empresa = ?;';
+        $pst = Connection::getPreparedStatement($sql);
+        $pst->bindValue(1, $id_company);
+        $pst->execute();
+        $list = $pst->fetchAll(PDO::FETCH_ASSOC);
+
+        return $list;
+    }
+
     public function deleteProvideByCourse($id_course) 
     {
         $sql = "delete from fornece where id_curso = $id_course;";
+        try {
+            $pst = Connection::getPreparedStatement($sql);
+            
+            if ($pst->execute()) {
+                return $pst->rowCount();
+            } else {
+                return false;
+            }
+        } catch(PDOException $ex) {
+            return false;
+        }
+    }
+
+    public function deleteProvideByCompany($id_company) 
+    {
+        $sql = "delete from fornece where id_empresa = $id_company;";
         try {
             $pst = Connection::getPreparedStatement($sql);
             

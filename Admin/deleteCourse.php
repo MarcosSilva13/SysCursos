@@ -14,7 +14,7 @@ $id_course = filter_input(INPUT_POST, 'id_course');
 $listCourse = $daoSale->checkSaleCourse($id_course);
 $total_course = $listCourse[0];
 
-$listProvide = $daoProvide->checkProvide($id_course);
+$listProvide = $daoProvide->checkProvideCourse($id_course);
 $total_fornece = $listProvide[0];
 
 if ($total_course['total_course'] > 0) { //verifica se o curso esta em uma venda

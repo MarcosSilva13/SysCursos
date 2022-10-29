@@ -54,9 +54,7 @@
                         Atenção: O curso já é fornecido por outra empresa!
                         <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
                     </div>
-            <?php endif; unset($_SESSION['missing-values-provide']); ?>
-
-
+            <?php endif; unset($_SESSION['provide-exists']); ?>
         </div>
 
         <div class="form-provides">

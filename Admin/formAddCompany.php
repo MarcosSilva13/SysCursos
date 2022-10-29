@@ -69,7 +69,7 @@
                         <div class="div-tel">
                             <label for="telephone">Telefone</label>
                             <input oninput="mascara(this, 'tele')" type="tel" name="tel-company" id="tel-company" 
-                            pattern="[0-9]{2}-[0-9]{5}-[0-9]{4}" placeholder="Ex: XX-XXXXX-XXXX" maxlength="13" required>
+                            pattern="[0-9]{2}-[0-9]{5}-[0-9]{4}" placeholder="Ex: XX-XXXXX-XXXX" required>
                         </div>
                         <div class="div-desc">
                             <label for="description">Descrição</label>
