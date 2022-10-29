@@ -16,11 +16,10 @@ $password = filter_input(INPUT_POST, 'password');
 $pst = Connection::getPreparedStatement("select senha from usuarios where id_usuario = $id_user");
 $pst->execute();
 $bd_pass = $pst->fetchAll(PDO::FETCH_ASSOC);
-print_r($bd_pass);
 
 if ($password != $bd_pass[0]['senha']) {
     $_SESSION['wrong-password'] = true;
-    header('Location: view/formBuyCourse.php');
+    header('Location: view/coursesDefault.php');
     exit();
 }
 
@@ -29,15 +28,15 @@ if ($id_user && $id_course && $date && ($payment != "") && $final_price && $pass
 
     if ($dao->insertSale($obj)) {
         $_SESSION['confirm-sale-ok'] = true; // sessão para notificação de compra
-        header('Location: view/formBuyCourse.php');
+        header('Location: view/coursesUser.php');
         exit();
     } else {
         $_SESSION['confirm-sale-not-ok'] = true;
-        header('Location: view/formBuyCourse.php');
+        header('Location: view/coursesDefault.php');
         exit();
     }
 } else {
     $_SESSION['values-not-ok'] = true; // sessão para notificação de valores faltando
-    header('Location: view/formBuyCourse.php');
+    header('Location: view/coursesDefault.php');
     exit();
 }

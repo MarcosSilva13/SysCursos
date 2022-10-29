@@ -19,53 +19,52 @@
                 <input class="submit" type="submit" name="submit" value="Pesquisar">
             </form>
         </div>
-            <table id="tab">
-                <tr>
-                    <th>Curso</th>
-                    <th>Valor</th>
-                    <th>Duração</th>
-                    <th>Descrição</th>
-                    <th>Empresa</th>
-                    <th>Ações</th>
-                </tr>
 
-                <?php 
-                    require_once '../dao/DaoCourses.php';
-                    $dao = new DaoCourses();
+        <div id="messages">
+            <?php //sessão vindo de confirmSale.php
+                if (isset($_SESSION['confirm-sale-not-ok'])): ?>
+                    <div class="message-error">
+                        Erro: Não foi possível realizar a compra!
+                        <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
+                    </div>
+            <?php endif; unset($_SESSION['confirm-sale-not-ok']); ?>
 
-                    if (isset($_POST['submit'])) {
-                        $course_name = filter_input(INPUT_POST, 'search');
-                        $list = $dao->findCourse($course_name);
+            <?php //sessão vindo de confirmSale.php
+                if (isset($_SESSION['values-not-ok'])): ?>
+                    <div class="message-error">
+                        Erro: Dados insuficientes para realizar a compra!
+                        <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
+                    </div>
+            <?php endif; unset($_SESSION['values-not-ok']); ?>
+            
+            <?php //sessão vindo de confirmSale.php
+                if (isset($_SESSION['wrong-password'])): ?>
+                <div class="message-error">
+                    Erro: Senha incorreta!
+                    <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
+                </div>
+            <?php endif; unset($_SESSION['wrong-password']); ?>
+        </div>
 
-                        if (!$list == '') { // se a lista não tiver vazia
-                            foreach ($list as $values) {
-                                echo '<tr>';
-                                echo '<td>' . $values['nome_curso'] . '</td>';
-                                echo '<td>' . $values['valor_curso'] . '</td>';
-                                echo '<td>' . $values['duracao_curso'] . 'H</td>';
-                                echo '<td>' . $values['descricao_curso'] . '</td>';
-                                echo '<td>' . $values['nome_emp'] . '</td>';
-                                echo '<td>
-                                <form action="formBuyCourse.php" method="POST">
-                                <input type="hidden" name="id_course" id="id_course" value="' . $values['id_curso'] . '"/>
-                                <input type="hidden" name="course_name" id="course_name" value="' . $values['nome_curso'] . '"/>
-                                <input type="hidden" name="course_price" id="price" value="' . $values['valor_curso'] . '"/>
-                                <input type="hidden" name="course_duration" id="course_duration" value="' . $values['duracao_curso'] . '"/>
-                                <input type="hidden" name="company_name" id="company_name" value="' . $values['nome_emp'] . '"/>
-                                <input type="submit" id="buy" value="Comprar"/>
-                                </form></td>';
-                                echo '</tr>';
-                            }
-                        } else {
-                            echo '<div id="messages">
-                                    <div class="message-error">
-                                        Erro: Curso não encontrado, pesquise novamente!
-                                        <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
-                                    </div>';
-                        }    
-                    } else {
-                        $list = $dao->listCourses();
+        <table id="tab">
+            <tr>
+                <th>Curso</th>
+                <th>Valor</th>
+                <th>Duração</th>
+                <th>Descrição</th>
+                <th>Empresa</th>
+                <th>Ações</th>
+            </tr>
 
+            <?php 
+                require_once '../dao/DaoCourses.php';
+                $dao = new DaoCourses();
+
+                if (isset($_POST['submit'])) {
+                    $course_name = filter_input(INPUT_POST, 'search');
+                    $list = $dao->findCourse($course_name);
+
+                    if (!$list == '') { // se a lista não tiver vazia
                         foreach ($list as $values) {
                             echo '<tr>';
                             echo '<td>' . $values['nome_curso'] . '</td>';
@@ -74,6 +73,34 @@
                             echo '<td>' . $values['descricao_curso'] . '</td>';
                             echo '<td>' . $values['nome_emp'] . '</td>';
                             echo '<td>
+                                <form action="formBuyCourse.php" method="POST">
+                                <input type="hidden" name="id_course" id="id_course" value="' . $values['id_curso'] . '"/>
+                                <input type="hidden" name="course_name" id="course_name" value="' . $values['nome_curso'] . '"/>
+                                <input type="hidden" name="course_price" id="price" value="' . $values['valor_curso'] . '"/>
+                                <input type="hidden" name="course_duration" id="course_duration" value="' . $values['duracao_curso'] . '"/>
+                                <input type="hidden" name="company_name" id="company_name" value="' . $values['nome_emp'] . '"/>
+                                <input type="submit" id="buy" value="Comprar"/>
+                                </form></td>';
+                            echo '</tr>';
+                        }
+                    } else {
+                        echo '<div id="messages">
+                                <div class="message-error">
+                                    Erro: Curso não encontrado, pesquise novamente!
+                                    <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
+                                </div>';
+                    }    
+                } else {
+                    $list = $dao->listCourses();
+
+                    foreach ($list as $values) {
+                        echo '<tr>';
+                        echo '<td>' . $values['nome_curso'] . '</td>';
+                        echo '<td>' . $values['valor_curso'] . '</td>';
+                        echo '<td>' . $values['duracao_curso'] . 'H</td>';
+                        echo '<td>' . $values['descricao_curso'] . '</td>';
+                        echo '<td>' . $values['nome_emp'] . '</td>';
+                        echo '<td>
                             <form action="formBuyCourse.php" method="POST">
                             <input type="hidden" name="id_course" id="id_course" value="' . $values['id_curso'] . '"/>
                             <input type="hidden" name="course_name" id="course_name" value="' . $values['nome_curso'] . '"/>
@@ -82,11 +109,11 @@
                             <input type="hidden" name="company_name" id="company_name" value="' . $values['nome_emp'] . '"/>
                             <input type="submit" id="buy" value="Comprar"/>
                             </form></td>';
-                            echo '</tr>';
-                        }
+                        echo '</tr>';
                     }
-                ?>
-            </table>
+                }
+            ?>
+        </table>
     </main>
 
     <script src="../JS/controleMenu.js"></script>
