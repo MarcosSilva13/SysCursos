@@ -32,4 +32,20 @@ class DaoProvide
 
         return $list;
     }
+
+    public function deleteProvideByCourse($id_course) 
+    {
+        $sql = "delete from fornece where id_curso = $id_course;";
+        try {
+            $pst = Connection::getPreparedStatement($sql);
+            
+            if ($pst->execute()) {
+                return $pst->rowCount();
+            } else {
+                return false;
+            }
+        } catch(PDOException $ex) {
+            return false;
+        }
+    }
 }

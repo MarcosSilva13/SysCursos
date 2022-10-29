@@ -20,7 +20,7 @@
         $listCompany = $daoCompany->listCompany();
 
         $daoCourse = new DaoCourses();
-        $listCourse = $daoCourse->listCourseForProvides();
+        $listCourse = $daoCourse->listCourseDefault();
     ?>
     <main id="content">
         <div id="messages">

@@ -54,6 +54,18 @@ class DaoSale
         return $list;
     }
 
+    public function checkSaleCourse($id_course)
+    {
+        $list = [];
+        $sql = 'select count(*) as total_course from venda where id_curso = ?;';
+        $pst = Connection::getPreparedStatement($sql);
+        $pst->bindValue(1, $id_course);
+        $pst->execute();
+        $list = $pst->fetchAll(PDO::FETCH_ASSOC);
+
+        return $list;
+    }
+
     public function deleteSaleUser($id_sale) 
     {
         $sql = "delete from venda where id_venda = $id_sale;";
@@ -73,6 +85,22 @@ class DaoSale
     public function deleteSaleReference($id_user) // remove as todas as compras de um usuario
     {
         $sql = "delete from venda where id_usuario = $id_user;";
+        try {
+            $pst = Connection::getPreparedStatement($sql);
+            
+            if ($pst->execute()) {
+                return $pst->rowCount();
+            } else {
+                return false;
+            }
+        } catch(PDOException $ex) {
+            return false;
+        }
+    }
+
+    public function deleteSaleReferenceCourse($id_course) // remove as todas as venda de um curso
+    {
+        $sql = "delete from venda where id_curso = $id_course;";
         try {
             $pst = Connection::getPreparedStatement($sql);
             

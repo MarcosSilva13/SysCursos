@@ -39,6 +39,28 @@ class DaoCourses
         return $list;
     }
 
+    public function findCourseDefault($name)
+    {
+        $list = [];
+        $sql = "select * from cursos where nome_curso like '%$name%';";
+        $pst = Connection::getPreparedStatement($sql);
+        $pst->execute();
+        $list = $pst->fetchAll(PDO::FETCH_ASSOC);
+
+        return $list;
+    }
+
+    public function findCourseById($id_course)
+    {
+        $list = [];
+        $sql = "select * from cursos where id_curso = $id_course;";
+        $pst = Connection::getPreparedStatement($sql);
+        $pst->execute();
+        $list = $pst->fetchAll(PDO::FETCH_ASSOC);
+
+        return $list;
+    }
+
     public function listCourses() 
     {
         $list = [];
@@ -52,7 +74,7 @@ class DaoCourses
         return $list;
     }
 
-    public function listCourseForProvides()
+    public function listCourseDefault()
     {
         $list = [];
         $sql = 'select * from cursos;';
@@ -65,7 +87,7 @@ class DaoCourses
 
     public function updateCourse(Courses $course) 
     {
-        $sql = 'update cursos set nome_curso = ?, valor_curso = ?, duracao_curso = ?, descricao_curso where id_curso = ?;';
+        $sql = 'update cursos set nome_curso = ?, valor_curso = ?, duracao_curso = ?, descricao_curso = ? where id_curso = ?;';
         try {
             $pst = Connection::getPreparedStatement($sql);
             $pst->bindValue(1, $course->getName());
@@ -80,16 +102,17 @@ class DaoCourses
                 return false;
             }
         } catch(PDOException $ex) {
+            //echo $ex->getMessage();
             return false;
         }
     }
 
-    public function deleteCourse(Courses $course) 
+    public function deleteCourse($id_course) 
     {
         $sql = 'delete from cursos where id_curso = ?;';
         try {
             $pst = Connection::getPreparedStatement($sql);
-            $pst->bindValue(1, $course->getIdCourse());
+            $pst->bindValue(1, $id_course);
     
             if ($pst->execute()) {
                 return $pst->rowCount();

@@ -135,6 +135,17 @@ a:hover, #env:hover {
     border: 1px solid #000;
 }
 
-.form-search .submit:hover {
+.btn-submit {
+    width: 120px;
+    height: 31px;
+    margin-left: 8px;
+    text-transform: uppercase;
+    background-color: #2a2f50;
+    color: #fff;
+    cursor: pointer;
+    border: 1px solid #000;
+}
+
+.form-search .submit:hover, .btn-submit:hover {
     background-color: rgb(0, 120, 175)
 }

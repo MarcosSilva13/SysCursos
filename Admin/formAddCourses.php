@@ -12,7 +12,7 @@
     <title>Cadastro - Cursos</title>
 </head>
 <body>
-    <?php require_once '../view/menuDefault.php' ?>
+    <?php require_once '../view/menuDefault.php'; ?>
     <main id="content">
         <div id="messages">
             <?php //sessão vindo de registerCourse.php
