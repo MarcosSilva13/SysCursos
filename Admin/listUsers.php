@@ -20,8 +20,6 @@
                     <th>Email</th>
                     <th>Telefone</th>
                     <th>Tipo</th>
-                    <th>Editar</th>
-                    <th>Excluir</th>
                 </tr>
 
                 <?php 
@@ -38,14 +36,6 @@
                         echo '<td>' . $values['email'] . '</td>';
                         echo '<td>' . $values['telefone'] . '</td>';
                         echo '<td>' . $values['tipo'] . '</td>';
-                        echo '<td> <form action="" method="POST">
-                                <input type="hidden" name="id_user" id="id_user" value="' . $values['id_usuario'] . '"/>
-                                <input type="submit" id="editar" value="Editar"/>
-                                </form></td>';
-                        echo '<td> <form action="" method="POST">
-                                <input type="hidden" name="id_user" id="id_user" value="' . $values['id_usuario'] . '"/>
-                                <input type="submit" id="excluir" value="Excluir"/>
-                                </form></td>';
                         echo '</tr>';
                     }
                 ?>
