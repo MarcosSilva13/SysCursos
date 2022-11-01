@@ -1,7 +1,7 @@
 body {
     background-color: #1C1E2A; /*#181F27*/
     font-family: Arial, Helvetica, sans-serif;
-    overflow: visible; /*Para ocultar barra de rolagem se tiver*/
+    overflow: hidden; /*Para ocultar barra de rolagem se tiver*/
 }
 
 .area-login, .area-form-user {
