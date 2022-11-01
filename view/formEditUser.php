@@ -53,7 +53,8 @@
                 <div class="form-user">
                     <h1>Editar Dados</h1>
                     <form action="../editUser.php" method="POST">
-                        <input type="hidden" name="id-user" id="id-user" value="<?= $values['id_usuario']?>"/>
+                        <input type="hidden" name="id-user" id="id-user" value="<?= $values['id_usuario']?>">
+                        <input type="hidden" name="bd-pass" id="bd-pass" value="<?= $values['senha']?>">
                         <div class="form-fields">
                             <div class="div-login">
                                 <label for="login">Login</label>

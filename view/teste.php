@@ -11,26 +11,15 @@
     require_once '../dao/DaoUser.php';
     require_once '../model/Users.php';
 
-    $login = filter_input(INPUT_POST, 'login-user');
-    $nome = filter_input(INPUT_POST, 'name-user');
-    $cpf = filter_input(INPUT_POST, 'cpf-user');
-    $email = filter_input(INPUT_POST, 'email-user');
-    $senha = filter_input(INPUT_POST, 'password-user');
-    $telefone = filter_input(INPUT_POST, 'tel-user');
+    $bd_pass = filter_input(INPUT_POST, 'bd-pass');
+    $form_pass = filter_input(INPUT_POST, 'password-user');
+    echo "bd = $bd_pass<br>";
+    echo "form = $form_pass<br>";
 
-    echo "$login<br> $nome<br> $cpf<br> $email<br> $senha<br> $telefone";
-
-    if ($login && $nome && $cpf && $email && $senha && $telefone) {
-        $obj = new Users(null, $login, $nome, $cpf, $email, $senha, $telefone, null);
-        $dao = new DaoUser();
-
-        if ($dao->insertUser($obj)) {
-            echo '<h3> Dados cadastrados com successo!</h3>';
-        } else {
-            echo '<h3> Deu erro!</h3>';
-        }
+    if ($form_pass != $bd_pass) {
+        echo 'é diferente, crip denovo';
     } else {
-        echo '<h3> Dados ausentes ou incorretos!</h3>';
+        echo 'são iguais ainda, mandar a do form';
     }
 
 ?>

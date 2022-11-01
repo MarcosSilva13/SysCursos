@@ -7,7 +7,7 @@ class DaoUser
     public function insertUser(Users $user)
     {
         $sql = 'insert into usuarios (login, nome, cpf, email, senha, telefone)
-        values (?, ?, ?, ?, ?, ?);'; // add md5
+        values (?, ?, ?, ?, ?, ?);';
         try {
             $pst = Connection::getPreparedStatement($sql);
             $pst->bindValue(1, $user->getLogin());
@@ -89,6 +89,14 @@ class DaoUser
         $pst->execute();
         $list = $pst->fetchAll(PDO::FETCH_ASSOC);
 
+        if ($list) {
+            $pass = $list[0];
+            if (password_verify($password, $pass['senha'])) {
+                return $list;
+            } else {
+                return $list = null;
+            }
+        }
         return $list;
     }
 

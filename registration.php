@@ -8,11 +8,13 @@ $dao = new DaoUser();
 
 //valores vindo de formAddUser.php
 $login = filter_input(INPUT_POST, 'login-user');
-$nome = filter_input(INPUT_POST, 'name-user');
+$name = filter_input(INPUT_POST, 'name-user');
 $cpf = filter_input(INPUT_POST, 'cpf-user');
 $email = filter_input(INPUT_POST, 'email-user');
-$senha = filter_input(INPUT_POST, 'password-user');
-$telefone = filter_input(INPUT_POST, 'tel-user');
+$password = filter_input(INPUT_POST, 'password-user');
+$telephone = filter_input(INPUT_POST, 'tel-user');
+
+$password_crip = password_hash($password, PASSWORD_DEFAULT);
 
 $list_login = $dao->checkRepeatedLogin($login); //faz a busca no banco se o login enviado ja exite
 $total_login = $list_login[0];
@@ -37,8 +39,8 @@ if ($total_login['total_login'] == 1) { //se retornar o total de 1, o login já 
     exit();
 }
 
-if ($login && $nome && $cpf && $email && $senha && $telefone) {
-    $obj = new Users(null, $login, $nome, $cpf, $email, $senha, $telefone, null);
+if ($login && $name && $cpf && $email && $password_crip && $telephone) {
+    $obj = new Users(null, $login, $name, $cpf, $email, $password_crip, $telephone, null);
 
     if ($dao->insertUser($obj)) {
         $_SESSION['status-registration'] = true;

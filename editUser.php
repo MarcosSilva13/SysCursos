@@ -9,39 +9,20 @@ $dao = new DaoUser();
 //valores vindo de formEditUser.php
 $id_user = filter_input(INPUT_POST, 'id-user');
 $login = filter_input(INPUT_POST, 'login-user');
-$nome = filter_input(INPUT_POST, 'name-user');
+$name = filter_input(INPUT_POST, 'name-user');
 $cpf = filter_input(INPUT_POST, 'cpf-user');
 $email = filter_input(INPUT_POST, 'email-user');
-$senha = filter_input(INPUT_POST, 'password-user');
-$telefone = filter_input(INPUT_POST, 'tel-user');
+$password = filter_input(INPUT_POST, 'password-user');
+$telephone = filter_input(INPUT_POST, 'tel-user');
 
-/*$list_login = $dao->checkRepeatedLogin($login); //faz a busca no banco se o login enviado ja exite
-$total_login = $list_login[0];
+$bd_pass = filter_input(INPUT_POST, 'bd-pass');
 
-$list_cpf = $dao->checkRepeatedCpf($cpf); //faz a busca no banco se o cpf enviado ja exite
-$total_cpf = $list_cpf[0];
+if ($password != $bd_pass) { //verifica se a senha teve alteração para criptografar denovo
+    $password = password_hash($password, PASSWORD_DEFAULT);
+}
 
-$list_email = $dao->checkRepeatedEmail($email); //faz a busca no banco se o email enviado ja exite
-$total_email = $list_email[0];
-
-
-if ($total_login['total_login'] == 1) { //se retornar o total de 1, o login já existe, senão o usuario é cadastrado
-    $_SESSION['user-exists'] = true;
-    echo $teste;
-    header('Location: view/formEditUser.php');
-    exit();
-} else if ($total_cpf['total_cpf'] == 1) {
-    $_SESSION['cpf-exists'] = true;
-    header('Location: view/formEditUser.php');
-    exit();
-} else if ($total_email['total_email'] == 1) {
-    $_SESSION['email-exists'] = true;
-    header('Location: view/formEditUser.php');
-    exit();
-}*/
-
-if ($id_user && $login && $nome && $cpf && $email && $senha && $telefone) {
-    $obj = new Users($id_user, $login, $nome, $cpf, $email, $senha, $telefone, null);
+if ($id_user && $login && $name && $cpf && $email && $password && $telephone) {
+    $obj = new Users($id_user, $login, $name, $cpf, $email, $password, $telephone, null);
 
     if ($dao->updateUser($obj) > 0) {
         $_SESSION['update-user-ok'] = true; // sessão para notificação de atualização
