@@ -100,6 +100,7 @@
             </form>
         </div>
     </main>
+    <?php require_once 'footer.php'; ?>
     <script src="../JS/controleMenu.js"></script>
     <script src="../JS/messages.js"></script>
 </body>

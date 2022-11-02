@@ -96,10 +96,7 @@ session_start();
             <p>Já tem uma conta?<a href="../index.php">Login</a></p>
         </div>
     </div>
-    <footer>
-        <p>Desenvolvido por Marcos Antônio &copy; 2022</p>
-    </footer>
-    
+    <?php require_once 'footer.php'; ?>
     <!-- JavaScript -->
     <script src="../JS/mascaraCampos.js"></script>
 </body>

@@ -86,6 +86,7 @@
             </form>
         </div>
     </main>
+    <?php require_once '../view/footer.php'; ?>
     <script src="../JS/controleMenu.js"></script>
     <script src="../JS/mascaraCampos.js"></script>
     <script src="../JS/messages.js"></script>

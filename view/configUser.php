@@ -18,7 +18,7 @@
             <a class="delete-user" onclick="confirmDelete('Deseja realmente deletar sua conta?', '../deleteUser.php');">Deletar conta</a>
         </div>
     </main>
-
+    <?php require_once 'footer.php'; ?>
     <script src="../JS/controleMenu.js"></script>
     <script src="../JS/confirm.js"></script>
 </body>

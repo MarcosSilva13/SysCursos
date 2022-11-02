@@ -39,6 +39,7 @@
                 ?>
             </table>
     </main>
+    <?php require_once 'footer.php'; ?>
     <script src="../JS/controleMenu.js"></script>
 </body>
 </html>

@@ -48,7 +48,7 @@
         width: 80%;
         height: auto;
     }
-    .edit-user {
+    .edit-user, .add-course, .add-company, .add-provider, .delete-user {
         margin-bottom: 8px;
     }
 }
@@ -59,7 +59,7 @@
         width: 120%;
         height: auto;
     }
-    .edit-user {
+    .edit-user, .add-course, .add-company, .add-provider, .delete-user {
         margin-bottom: 8px;
     }
 }

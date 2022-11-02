@@ -36,5 +36,6 @@ session_start();
             <p>Ainda não tem uma conta?<a href="view/formAddUser.php">Criar conta</a></p>
         </div>
     </section>
+    <?php require_once 'view/footer.php'; ?>
 </body>
 </html>
