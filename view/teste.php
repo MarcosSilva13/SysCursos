@@ -11,16 +11,7 @@
     require_once '../dao/DaoUser.php';
     require_once '../model/Users.php';
 
-    $bd_pass = filter_input(INPUT_POST, 'bd-pass');
-    $form_pass = filter_input(INPUT_POST, 'password-user');
-    echo "bd = $bd_pass<br>";
-    echo "form = $form_pass<br>";
-
-    if ($form_pass != $bd_pass) {
-        echo 'é diferente, crip denovo';
-    } else {
-        echo 'são iguais ainda, mandar a do form';
-    }
+    echo "Deletou";
 
 ?>
 </body>

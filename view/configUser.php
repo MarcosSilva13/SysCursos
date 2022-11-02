@@ -15,10 +15,11 @@
     <main id="content">
         <div class="user-config">
             <a class="edit-user" href="formEditUser.php">Editar conta</a>
-            <a class="delete-user" href="../deleteUser.php">Deletar conta</a>
+            <a class="delete-user" onclick="confirmDelete('Deseja realmente deletar sua conta?', '../deleteUser.php');">Deletar conta</a>
         </div>
     </main>
 
     <script src="../JS/controleMenu.js"></script>
+    <script src="../JS/confirm.js"></script>
 </body>
 </html>

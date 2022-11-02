@@ -18,10 +18,11 @@
             <a class="add-course" href="formAddCourses.php">Cadastrar Curso</a>
             <a class="add-company" href="formAddCompany.php">Cadastrar Empresa</a>
             <a class="add-provider" href="formAddProvides.php">Cadastrar Fornecimento</a>
-            <a class="delete-user" href="../deleteUser.php">Deletar conta</a>
+            <a class="delete-user" onclick="confirmDelete('Deseja realmente deletar sua conta?', '../deleteUser.php');">Deletar conta</a>
         </div>
     </main>
 
     <script src="../JS/controleMenu.js"></script>
+    <script src="../JS/confirm.js"></script>
 </body>
 </html>

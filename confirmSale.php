@@ -17,7 +17,7 @@ $pst = Connection::getPreparedStatement("select senha from usuarios where id_usu
 $pst->execute();
 $bd_pass = $pst->fetchAll(PDO::FETCH_ASSOC);
 
-if ($password != $bd_pass[0]['senha']) {
+if (!password_verify($password, $bd_pass[0]['senha'])) {
     $_SESSION['wrong-password'] = true;
     header('Location: view/coursesDefault.php');
     exit();
