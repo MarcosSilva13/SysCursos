@@ -66,6 +66,22 @@ class DaoSale
         return $list;
     }
 
+    public function selectLastSale()
+    {
+        $list = [];
+        $sql = 'select v.id_venda, v.data_venda, us.login, c.nome_curso, emp.nome_emp, v.valor, v.forma_pagamento 
+        from venda v join usuarios us on us.id_usuario = v.id_usuario
+        join cursos c on c.id_curso = v.id_curso
+        join fornece f on f.id_curso = c.id_curso
+        join empresas emp on f.id_empresa = emp.id_empresa
+        order by v.id_venda desc limit 1;';
+        $pst = Connection::getPreparedStatement($sql);
+        $pst->execute();
+        $list = $pst->fetchAll(PDO::FETCH_ASSOC);
+
+        return $list;
+    }
+
     public function deleteSaleUser($id_sale) 
     {
         $sql = "delete from venda where id_venda = $id_sale;";

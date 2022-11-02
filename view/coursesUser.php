@@ -67,7 +67,7 @@
                         echo '<td>' . $values['descricao_curso'] . '</td>';
                         echo '<td>' . $values['nome_emp'] . '</td>';
                         echo '<td>
-                            <form action="" method="POST">
+                            <form action="../deleteSaleUser.php" method="POST">
                             <input type="hidden" name="id_sale" id="id_sale" value="' . $values['id_venda'] . '"/>
                             <input type="submit" id="cancel" value="Remover curso"/>
                             </form></td>';

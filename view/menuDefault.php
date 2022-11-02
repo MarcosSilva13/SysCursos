@@ -13,6 +13,7 @@ if ($type_user == "administrador"): ?>
         <a href="../Admin/coursesAdmin.php"> <i class="fas fa-book"></i>Cursos</a>
         <a href="../Admin/listUsers.php"> <i class="fas fa-users"></i>Usuarios</a>
         <a href="../Admin/companyAdmin.php"> <i class="fa-regular fa-building"></i>Empresas</a>
+        <a href="../Admin/reports.php">Relatórios</a>
         <a href="../Admin/configAdmin.php"> <i class="fa fa-gear"></i>Configuração</a>
         <a href="../logout.php"> <i class="fas fa-power-off"></i>Logout</a>
     </nav>
