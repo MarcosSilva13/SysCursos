@@ -17,7 +17,7 @@
                     <th>Nº Venda</th>
                     <th>Data</th>
                     <th>Cliente</th>
-                    <th>Produto</th>
+                    <th>Curso</th>
                     <th>Fornecedor</th>
                     <th>Valor</th>
                     <th>Pagamento</th>

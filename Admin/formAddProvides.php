@@ -51,7 +51,7 @@
             <?php //sessão vindo de registerProvides.php
                 if (isset($_SESSION['provide-exists'])): ?>
                     <div class="message-warning">
-                        Atenção: O curso já é fornecido uma empresa!
+                        Atenção: O curso já é fornecido por uma empresa!
                         <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
                     </div>
             <?php endif; unset($_SESSION['provide-exists']); ?>
