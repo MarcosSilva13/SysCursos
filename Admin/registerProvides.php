@@ -7,6 +7,7 @@ require_once '../model/Provides.php';
 
 $dao = new DaoProvide();
 
+//valores vindo de formAddProvides.php
 $id_company = filter_input(INPUT_POST, 'company');
 $id_course = filter_input(INPUT_POST, 'course');
 

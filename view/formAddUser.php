@@ -8,96 +8,101 @@ session_start();
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../CSS/estilo.css"/>
+    <link rel="stylesheet" href="../CSS/messages.css">
     <title>Cadastro - Usuário</title>
 </head>
 <body>
     <div class="area-form-user">
         <div class="form-user">
             <h1>Cadastro</h1>
+            <div id="messages">
+                <?php //sessão vindo de registration.php
+                    if (isset($_SESSION['status-registration'])): 
+                ?>
+                    <div class="message-confirm">
+                        Confirmação: Cadastro efetuado com sucesso!<span class="btn-close-message" onclick="closeMessage(event);">&times;</span><br>
+                        Faça login informando seu usuário e senha <a href="../index.php">aqui</a>.
+                    </div>
+                <?php 
+                    endif; unset($_SESSION['status-registration']); ?>
 
-            <?php //sessão criada em registration.php
-                if (isset($_SESSION['status-registration'])): 
-            ?>
-                <div class="notification-success">
-                    <p>Cadastro efetuado com sucesso!</p>
-                    <p>Faça login informando seu usuário e senha <a href="../index.php">aqui</a>.</p>
-                </div>
-            <?php 
-                endif; 
-                unset($_SESSION['status-registration']);
-            ?>
+                <?php //sessão vindo de registration.php
+                    if (isset(($_SESSION['user-exists']))):  
+                ?>
+                    <div class="message-warning">
+                        Atenção: O usuário escolhido já existe.
+                        <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
+                    </div>
+                <?php
+                    endif; unset($_SESSION['user-exists']); ?>
 
-            <?php //sessão criada em registration.php
-                if (isset(($_SESSION['user-exists']))):  
-            ?>
-                <div class="notification-info">
-                    <p>O usuário escolhido já existe. Informe outro e tente novamente.</p>
-                </div>
-            <?php
-                endif;
-                unset($_SESSION['user-exists']);
-            ?>
+                <?php //sessão vindo de registration.php
+                    if (isset(($_SESSION['cpf-exists']))):  
+                ?>
+                    <div class="message-warning">
+                        Atenção: O cpf informado já esta cadastrado.
+                        <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
+                    </div>
+                <?php
+                    endif; unset($_SESSION['cpf-exists']); ?>
 
-            <?php //sessão criada em registration.php
-                if (isset(($_SESSION['cpf-exists']))):  
-            ?>
-                <div class="notification-info">
-                    <p>O cpf informado já esta cadastrado. Informe outro e tente novamente.</p>
-                </div>
-            <?php
-                endif;
-                unset($_SESSION['cpf-exists']);
-            ?>
+                <?php //sessão vindo de registration.php
+                    if (isset(($_SESSION['email-exists']))):  
+                ?>
+                    <div class="message-warning">
+                        Atenção: O email informado já esta cadastrado.
+                        <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
+                    </div>
+                <?php
+                    endif; unset($_SESSION['email-exists']); ?>
 
-            <?php //sessão criada em registration.php
-                if (isset(($_SESSION['email-exists']))):  
-            ?>
-                <div class="notification-info">
-                    <p>O email informado já esta cadastrado. Informe outro e tente novamente.</p>
-                </div>
-            <?php
-                endif;
-                unset($_SESSION['email-exists']);
-            ?>
-
+                <?php //sessão vindo de registration.php
+                    if (isset($_SESSION['missing-values-registration'])):
+                ?>
+                    <div class="message-warning">
+                        Atenção: Dados insuficientes para realizar cadastro.
+                        <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
+                    </div>
+                <?php endif; unset($_SESSION['missing-values-registration']); ?>
+            </div>
             <form action="../registration.php" method="POST">
-                <!--<label for="id">Id</label>
-                <input type="text" name="id-user" id="id-user"/>-->
                 <div class="form-fields">
                     <div class="div-login">
                         <label for="login">Login</label>
-                        <input type="text" name="login-user" id="login-user" placeholder="Ex: MarcosSilva25" required>
+                        <input type="text" name="login_user" id="login_user" placeholder="Ex: MarcosSilva25" required>
                     </div>
                     <div class="div-nome">
                         <label for="name">Nome</label>
-                        <input type="text" name="name-user" id="name-user" placeholder="Seu nome completo" required>
+                        <input type="text" name="name_user" id="name_user" placeholder="Seu nome completo" required>
                     </div>
                     <div class="div-cpf">
                         <label for="cpf">CPF</label>
-                        <input oninput="mascara(this, 'cpf')" type="text" name="cpf-user" id="cpf-user" pattern="[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}" placeholder="Ex: XXX.XXX.XXX-XX" required>
+                        <input oninput="mascara(this, 'cpf')" type="text" name="cpf_user" id="cpf_user" pattern="[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}" placeholder="Ex: XXX.XXX.XXX-XX" required>
                     </div>
                     <div class="div-email">
                         <label for="email">Email</label>
-                        <input type="email" name="email-user" id="email-user" placeholder="Ex: syscursos@gmail.com" required>
+                        <input type="email" name="email_user" id="email_user" placeholder="Ex: syscursos@gmail.com" required>
                     </div>
                     <div class="div-senha">
                         <label for="password">Senha</label>
-                        <input type="password" name="password-user" id="password-user" placeholder="Sua senha" required>
+                        <input type="password" name="password_user" id="password_user" placeholder="Sua senha" required>
                     </div>
                     <div class="div-tel">
                         <label for="telephone">Telefone</label>
-                        <input oninput="mascara(this, 'tele')" type="tel" name="tel-user" id="tel-user" pattern="[0-9]{2}-[0-9]{5}-[0-9]{4}" placeholder="Ex: XX-XXXXX-XXXX" required>
+                        <input oninput="mascara(this, 'tele')" type="tel" name="tel_user" id="tel_user" pattern="[0-9]{2}-[0-9]{5}-[0-9]{4}" placeholder="Ex: XX-XXXXX-XXXX" required>
                     </div>
                 </div>
                 <div class="botao-enviar">
                     <input type="submit" id="send-data-user" value="Enviar">
                 </div>
             </form>
-            <p>Já tem uma conta?<a href="../index.php">Login</a></p>
+            <p>Já tem uma conta?<a class="logar" href="../index.php">Login</a></p>
         </div>
     </div>
     <?php require_once 'footer.php'; ?>
     <!-- JavaScript -->
     <script src="../JS/mascaraCampos.js"></script>
+    <script src="../JS/messages.js"></script>
+    <!--<script src="../JS/addUser.js"></script>-->
 </body>
 </html>

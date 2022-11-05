@@ -6,12 +6,12 @@ require_once '../model/Company.php';
 
 $dao = new DaoCompany();
 
-$id_company = filter_input(INPUT_POST, 'id-company');
-$name = filter_input(INPUT_POST, 'name-company');
-$cnpj = filter_input(INPUT_POST, 'cnpj-company');
-$email = filter_input(INPUT_POST, 'email-company');
-$telephone = filter_input(INPUT_POST, 'tel-company');
-$description = filter_input(INPUT_POST, 'description-company');
+$id_company = trim(filter_input(INPUT_POST, 'id-company'));
+$name = trim(filter_input(INPUT_POST, 'name-company'));
+$cnpj = trim(filter_input(INPUT_POST, 'cnpj-company'));
+$email = trim(filter_input(INPUT_POST, 'email-company'));
+$telephone = trim(filter_input(INPUT_POST, 'tel-company'));
+$description = trim(filter_input(INPUT_POST, 'description-company'));
 
 if ($id_company && $name && $cnpj && $email && $telephone && $description) {
     $obj = new Company($id_company, $name, $cnpj, $email, $telephone, $description);

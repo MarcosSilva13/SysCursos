@@ -7,11 +7,11 @@ require_once '../model/Courses.php';
 $dao = new DaoCourses();
 
 //valores vindo de formEditCourse.php
-$id_course = filter_input(INPUT_POST, 'id-course');
-$name = filter_input(INPUT_POST, 'name-course');
-$price = filter_input(INPUT_POST, 'price-course');
-$duration = filter_input(INPUT_POST, 'duration-course');
-$description = filter_input(INPUT_POST, 'description-course');
+$id_course = trim(filter_input(INPUT_POST, 'id-course'));
+$name = trim(filter_input(INPUT_POST, 'name-course'));
+$price = trim(filter_input(INPUT_POST, 'price-course'));
+$duration = trim(filter_input(INPUT_POST, 'duration-course'));
+$description = trim(filter_input(INPUT_POST, 'description-course'));
 
 if ($id_course && $name && $price && $duration && $description) {
     $obj = new Courses($id_course, $name, $price, $duration, $description);

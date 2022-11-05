@@ -1,13 +1,13 @@
 body {
     background-color: #1C1E2A; /*#181F27*/
     font-family: Arial, Helvetica, sans-serif;
-    overflow: visible; /*Para ocultar barra de rolagem se tiver*/
+    overflow: hidden; /*Para ocultar barra de rolagem se tiver*/
 }
 
 .area-login, .area-form-user {
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    height: 90vh;
     justify-content: center;
     align-items: center;
 }
@@ -171,7 +171,7 @@ p {
     color: #CBD0F7;
 }
 
-a {
+.logar {
     color: #5568FE;
     text-decoration: none;
     margin-left: 10px;
@@ -189,5 +189,14 @@ footer {
 @media screen and (max-width: 700px) {
     .form-user, .login {
         width: auto;
+    }
+}
+
+@media screen and (max-height: 500px) {
+    body {
+        overflow: visible;
+    }
+    footer {
+        display: none;
     }
 }

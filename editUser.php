@@ -7,21 +7,21 @@ require_once 'model/Users.php';
 $dao = new DaoUser();
 
 //valores vindo de formEditUser.php
-$id_user = filter_input(INPUT_POST, 'id-user');
-$login = filter_input(INPUT_POST, 'login-user');
-$name = filter_input(INPUT_POST, 'name-user');
-$cpf = filter_input(INPUT_POST, 'cpf-user');
-$email = filter_input(INPUT_POST, 'email-user');
-$password = filter_input(INPUT_POST, 'password-user');
-$telephone = filter_input(INPUT_POST, 'tel-user');
+$id_user = trim(filter_input(INPUT_POST, 'id-user'));
+$login = trim(filter_input(INPUT_POST, 'login-user'));
+$name = trim(filter_input(INPUT_POST, 'name-user'));
+$cpf = trim(filter_input(INPUT_POST, 'cpf-user'));
+$email = trim(filter_input(INPUT_POST, 'email-user'));
+$password = trim(filter_input(INPUT_POST, 'password-user'));
+$telephone = trim(filter_input(INPUT_POST, 'tel-user'));
 
-$bd_pass = filter_input(INPUT_POST, 'bd-pass');
+$bd_pass = trim(filter_input(INPUT_POST, 'bd-pass'));
 
-if ($password != $bd_pass) { //verifica se a senha teve alteração para criptografar denovo
-    $password = password_hash($password, PASSWORD_DEFAULT);
-}
 
 if ($id_user && $login && $name && $cpf && $email && $password && $telephone) {
+    if ($password != $bd_pass) { //verifica se a senha teve alteração para criptografar denovo
+        $password = password_hash($password, PASSWORD_DEFAULT);
+    }
     $obj = new Users($id_user, $login, $name, $cpf, $email, $password, $telephone, null);
 
     if ($dao->updateUser($obj) > 0) {

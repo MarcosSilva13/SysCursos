@@ -6,10 +6,10 @@ require_once '../model/Courses.php';
 
 $dao = new DaoCourses();
 
-$name = filter_input(INPUT_POST, 'name-course');
-$price = filter_input(INPUT_POST, 'price-course');
-$duration = filter_input(INPUT_POST, 'duration-course');
-$description = filter_input(INPUT_POST, 'description-course');
+$name = trim(filter_input(INPUT_POST, 'name-course'));
+$price = trim(filter_input(INPUT_POST, 'price-course'));
+$duration = trim(filter_input(INPUT_POST, 'duration-course'));
+$description = trim(filter_input(INPUT_POST, 'description-course'));
 
 if ($name && $price && $duration && $description) {
     $obj = new Courses(null, $name, $price, $duration, $description);
