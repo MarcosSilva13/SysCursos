@@ -9,7 +9,7 @@ if (empty($_POST['user']) || empty($_POST['password'])) {
 }
 
 $dao = new DaoUser();
-
+//valores vindo de index.php
 $user = filter_input(INPUT_POST, 'user');
 $password = filter_input(INPUT_POST, 'password');
 

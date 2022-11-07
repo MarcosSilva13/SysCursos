@@ -37,10 +37,10 @@ session_start();
             </div>
 
             <form action="login.php" method="POST">
-                <label for="usuario">Usuário ou email</label>
-                <input type="text" name="user" autofocus required> 
+                <label for="usuario">Usuário</label>
+                <input type="text" name="user" placeholder="Digite seu usuário..." autofocus required> 
                 <label for="senha">Senha</label>
-                <input type="password" name="password" required>
+                <input type="password" name="password" placeholder="Digite sua senha..." required>
                 <input type="submit" id="send-data-login" value="entrar"> 
             </form>
             <p>Ainda não tem uma conta?<a class="logar" href="view/formAddUser.php">Criar conta</a></p>

@@ -81,11 +81,10 @@ class DaoUser
     public function login($user, $password) 
     {
         $list = [];
-        $sql = 'select * from usuarios where login = ? OR email = ? and senha = ?;';
+        $sql = 'select * from usuarios where login = ? or email = ?;';
         $pst = Connection::getPreparedStatement($sql);
         $pst->bindValue(1, $user);
         $pst->bindValue(2, $user);
-        $pst->bindValue(3, $password);
         $pst->execute();
         $list = $pst->fetchAll(PDO::FETCH_ASSOC);
 
