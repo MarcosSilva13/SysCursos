@@ -83,20 +83,32 @@ footer p {
     color: #CBD0F7;
 }
 
-@media screen and (max-width: 640px) and (min-width: 401px){
+@media screen and (max-width: 640px) {
+    header {
+        width: 620px;
+    }
+}
+
+@media screen and (max-width: 640px) {
+    footer {
+        width: 640px;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    header {
+        width: 620px;
+    }
+}
+
+@media screen and (max-width: 300px) {
     header {
         width: 620px;
     }
 }
 
 @media screen and (max-width: 400px) {
-    header {
-        width: 501px;
-    }
-}
-
-@media screen and (max-width: 300px) {
-    header {
-        width: 451px;
+    main {
+        margin-right: -180px;
     }
 }

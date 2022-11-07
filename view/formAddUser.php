@@ -87,7 +87,7 @@ session_start();
                     <div class="div-cpf">
                         <label for="cpf">CPF</label>
                         <input oninput="mascara(this, 'cpf')" type="text" name="cpf_user" id="cpf_user" pattern="[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}" placeholder="Ex: XXX.XXX.XXX-XX" required>
-                    </div>
+                    </div> 
                     <div class="div-email">
                         <label for="email">Email</label>
                         <input type="email" name="email_user" id="email_user" placeholder="Ex: syscursos@gmail.com" required>
