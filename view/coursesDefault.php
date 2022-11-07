@@ -24,7 +24,7 @@
     <main id="content">
         <div class="div-search-bar">
             <form class="form-search" action="" method="POST">
-                <input class="search-bar" type="text" name="search" placeholder="Pesquisar cursos...">
+                <input class="search-bar" type="text" name="search" placeholder="Pesquisar cursos por nome...">
                 <input class="submit" type="submit" name="submit" value="Pesquisar">
             </form>
         </div>
