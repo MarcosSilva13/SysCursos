@@ -33,28 +33,31 @@
     ?>
 
     <main id="content">
+
+        <div id="messages"></div>
+
         <div class="area-form-course">
             <div class="form-course">
                 <h1>Editar Curso</h1>
-                <form action="editCourse.php" method="POST">
+                <form id="form-edit-course" action="editCourse.php" method="POST">
                     <div class="form-fields">
-                        <input type="hidden" name="id-course" id="id-course" value="<?=$id_course?>">
+                        <input type="hidden" name="id_course" id="id_course" value="<?=$id_course?>">
                         <div class="div-nome">
                             <label for="name">Nome</label>
-                            <input type="text" name="name-course" id="name-course" placeholder="Nome do curso" value="<?= $values['nome_curso']?>" required>
+                            <input type="text" name="name_course" id="name_course" placeholder="Nome do curso" value="<?= $values['nome_curso']?>" required>
                         </div>
                         <div class="div-valor">
                             <label for="valor">Valor</label>
-                            <input type="number" name="price-course" id="price-course" placeholder="Ex: 59.90" value="<?= $values['valor_curso']?>" required>
+                            <input type="number" name="price_course" id="price_course" placeholder="Ex: 59.90" value="<?= $values['valor_curso']?>" required>
                         </div>
                         <div class="div-duracao">
                             <label for="duration">Duração</label>
-                            <input type="number" name="duration-course" id="duration-course" 
+                            <input type="number" name="duration_course" id="duration_course" 
                             placeholder="Duração do curso" value="<?= $values['duracao_curso'] ?>" required>
                         </div>
                         <div class="div-desc">
                             <label for="description">Descrição</label>
-                            <textarea name="description-course" id="description-course" cols="30" rows="2" placeholder="Descrição da curso..." required><?=$values['descricao_curso']?></textarea>
+                            <textarea name="description_course" id="description_course" cols="30" rows="2" placeholder="Descrição da curso..." required><?=$values['descricao_curso']?></textarea>
                         </div>
                     </div>
                     <div class="botao-enviar">
@@ -67,5 +70,6 @@
     <?php require_once '../view/footer.php'; ?>
     <script src="../JS/controleMenu.js"></script>
     <script src="../JS/messages.js"></script>
+    <script src="../JS/Courses/editCourse.js"></script>
 </body>
 </html>
