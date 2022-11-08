@@ -23,66 +23,35 @@
 <body>
     <?php require_once '../view/menuDefault.php' ?>
     <main id="content">
-        <div id="messages">
-            <?php //sessão vindo de registerCompany.php
-                if (isset($_SESSION['registration-ok'])): ?>
-                    <div class="message-confirm">
-                        Confirmação: Cadastro realizado com sucesso!
-                        <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
-                    </div>
-            <?php endif; unset($_SESSION['registration-ok']); ?>
-
-            <?php //sessão vindo de registerCompany.php
-                if (isset($_SESSION['registration-fail'])): ?>
-                    <div class="message-error">
-                        Erro: Não foi possivel realizar o cadastro!
-                        <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
-                    </div>
-            <?php endif; unset($_SESSION['registration-fail']); ?>
-
-            <?php //sessão vindo de registerCompany.php
-                if (isset($_SESSION['registration-missing-values'])): ?>
-                    <div class="message-warning">
-                        Atenção: Dados insuficientes para realizar o cadastro!
-                        <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
-                    </div>
-            <?php endif; unset($_SESSION['registration-missing-values']); ?>
-
-            <?php //sessão vindo de registerCompany.php
-                if (isset($_SESSION['cnpj-exists'])): ?>
-                <div class="message-warning">
-                    Atenção: O Cnpj informado já existe, escolha outro e tente novamente!
-                    <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
-                </div>
-            <?php endif; unset($_SESSION['cnpj-exists']); ?>
-        </div>
+        
+        <div id="messages"></div>
 
         <div class="area-form-company">
             <div class="form-company">
                 <h1>Cadastro de Empresa</h1>
-                <form action="registerCompany.php" method="POST">
+                <form id="form-add-company" action="registerCompany.php" method="POST">
                     <div class="form-fields">
                         <div class="div-nome">
                             <label for="name">Nome</label>
-                            <input type="text" name="name-company" id="name-company" placeholder="Nome da empresa" required>
+                            <input type="text" name="name_company" id="name_company" placeholder="Nome da empresa" required>
                         </div>
                         <div class="div-cnpj">
                             <label for="cnpj">CNPJ</label>
-                            <input oninput="mascara(this, 'cnpj')" type="text" name="cnpj-company" id="cnpj-company" pattern="[0-9]{2}.[0-9]{3}.[0-9]{3}/[0-9]{4}-[0-9]{2}" 
+                            <input oninput="mascara(this, 'cnpj')" type="text" name="cnpj_company" id="cnpj_company" pattern="[0-9]{2}.[0-9]{3}.[0-9]{3}/[0-9]{4}-[0-9]{2}" 
                             placeholder="Ex: XX.XXX.XXX/XXXX-XX" required>
                         </div>
                         <div class="div-email">
                             <label for="email">Email</label>
-                            <input type="email" name="email-company" id="email-company" placeholder="Ex: empresa123@gmail.com" required>
+                            <input type="email" name="email_company" id="email_company" placeholder="Ex: empresa123@gmail.com" required>
                         </div>
                         <div class="div-tel">
                             <label for="telephone">Telefone</label>
-                            <input oninput="mascara(this, 'tele')" type="tel" name="tel-company" id="tel-company" 
+                            <input oninput="mascara(this, 'tele')" type="tel" name="tel_company" id="tel_company" 
                             pattern="[0-9]{2}-[0-9]{5}-[0-9]{4}" placeholder="Ex: XX-XXXXX-XXXX" required>
                         </div>
                         <div class="div-desc">
                             <label for="description">Descrição</label>
-                            <textarea name="description-company" id="description-company" cols="30" rows="2" placeholder="Descrição da empresa..." required></textarea>
+                            <textarea name="description_company" id="description_company" cols="30" rows="2" placeholder="Descrição da empresa..." required></textarea>
                         </div>
                     </div>
                     <div class="botao-enviar">
@@ -96,5 +65,6 @@
     <script src="../JS/controleMenu.js"></script>
     <script src="../JS/mascaraCampos.js"></script>
     <script src="../JS/messages.js"></script>
+    <script src="../JS/Company/addCompany.js"></script>
 </body>
 </html>

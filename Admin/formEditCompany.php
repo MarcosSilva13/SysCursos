@@ -32,37 +32,36 @@
         $values = $list[0];
     ?>
     <main id="content">
-        <div id="messages">
-            
-        </div>
+        
+        <div id="messages"></div>
 
         <div class="area-form-company">
             <div class="form-company">
                 <h1>Editar Empresa</h1>
-                <form action="editCompany.php" method="POST">
+                <form id="form-edit-company" action="editCompany.php" method="POST">
                     <div class="form-fields">
-                        <input type="hidden" name="id-company" id="id-company" value="<?= $id_company ?>">
+                        <input type="hidden" name="id_company" id="id_company" value="<?= $id_company ?>">
                         <div class="div-nome">
                             <label for="name">Nome</label>
-                            <input type="text" name="name-company" id="name-company" placeholder="Nome da empresa" value="<?= $values['nome_emp'] ?>" required>
+                            <input type="text" name="name_company" id="name_company" placeholder="Nome da empresa" value="<?= $values['nome_emp'] ?>" required>
                         </div>
                         <div class="div-cnpj">
                             <label for="cnpj">CNPJ</label>
-                            <input oninput="mascara(this, 'cnpj')" type="text" name="cnpj-company" id="cnpj-company" pattern="[0-9]{2}.[0-9]{3}.[0-9]{3}/[0-9]{4}-[0-9]{2}" 
+                            <input oninput="mascara(this, 'cnpj')" type="text" name="cnpj_company" id="cnpj_company" pattern="[0-9]{2}.[0-9]{3}.[0-9]{3}/[0-9]{4}-[0-9]{2}" 
                             placeholder="Ex: XX.XXX.XXX/XXXX-XX" value="<?= $values['cnpj'] ?>" required readonly>
                         </div>
                         <div class="div-email">
                             <label for="email">Email</label>
-                            <input type="email" name="email-company" id="email-company" placeholder="Ex: empresa123@gmail.com" value="<?= $values['email_emp'] ?>" required readonly>
+                            <input type="email" name="email_company" id="email_company" placeholder="Ex: empresa123@gmail.com" value="<?= $values['email_emp'] ?>" required readonly>
                         </div>
                         <div class="div-tel">
                             <label for="telephone">Telefone</label>
-                            <input oninput="mascara(this, 'tele')" type="tel" name="tel-company" id="tel-company" 
+                            <input oninput="mascara(this, 'tele')" type="tel" name="tel_company" id="tel_company" 
                             pattern="[0-9]{2}-[0-9]{5}-[0-9]{4}" placeholder="Ex: XX-XXXXX-XXXX" value="<?= $values['telefone_emp'] ?>" required>
                         </div>
                         <div class="div-desc">
                             <label for="description">Descrição</label>
-                            <textarea name="description-company" id="description-company" cols="30" rows="2" placeholder="Descrição da empresa..." required><?= $values['descricao_emp'] ?></textarea>
+                            <textarea name="description_company" id="description_company" cols="30" rows="2" placeholder="Descrição da empresa..." required><?= $values['descricao_emp'] ?></textarea>
                         </div>
                     </div>
                     <div class="botao-enviar">
@@ -76,5 +75,6 @@
     <script src="../JS/controleMenu.js"></script>
     <script src="../JS/mascaraCampos.js"></script>
     <script src="../JS/messages.js"></script>
+    <script src="../JS/Company/editCompany.js"></script>
 </body>
 </html>
