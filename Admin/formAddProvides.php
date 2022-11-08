@@ -32,43 +32,12 @@
         $listCourse = $daoCourse->listCourseDefault();
     ?>
     <main id="content">
-        <div id="messages">
-            <?php //sessão vindo de registerProvides.php
-                if (isset($_SESSION['register-provide-ok'])): ?>
-                    <div class="message-confirm">
-                        Confirmação: Cadastro realizado com sucesso!
-                        <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
-                    </div>
-            <?php endif; unset($_SESSION['register-provide-ok']); ?>
-
-            <?php //sessão vindo de registerProvides.php
-                if (isset($_SESSION['register-provide-fail'])): ?>
-                    <div class="message-error">
-                        Erro: Não foi possível realizar o cadastro!
-                        <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
-                    </div>
-            <?php endif; unset($_SESSION['register-provide-fail']); ?>
-
-            <?php //sessão vindo de registerProvides.php
-                if (isset($_SESSION['missing-values-provide'])): ?>
-                    <div class="message-warning">
-                        Atenção: Dados insuficientes para realizar o cadastro!
-                        <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
-                    </div>
-            <?php endif; unset($_SESSION['missing-values-provide']); ?>
-
-            <?php //sessão vindo de registerProvides.php
-                if (isset($_SESSION['provide-exists'])): ?>
-                    <div class="message-warning">
-                        Atenção: O curso já é fornecido por uma empresa!
-                        <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
-                    </div>
-            <?php endif; unset($_SESSION['provide-exists']); ?>
-        </div>
+        
+        <div id="messages"></div>
 
         <div class="form-provides">
             <h1>Fornecimento</h1>
-            <form action="registerProvides.php" method="POST">
+            <form id="form-add-provide" action="registerProvides.php" method="POST">
                 <div class="form-fields">
                     <div class="company">
                         <label for="company">Empresa:</label>
@@ -99,5 +68,6 @@
     <script src="../JS/controleMenu.js"></script>
     <script src="../JS/mascaraCampos.js"></script>
     <script src="../JS/messages.js"></script>
+    <script src="../JS/Provide/addProvide.js"></script>
 </body>
 </html>
