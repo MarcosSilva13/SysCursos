@@ -1,24 +1,49 @@
 window.addEventListener('load', () => {
-    const formCourse = document.querySelectorAll('#form-course');
+    const button = document.querySelectorAll('#cancel');
 
-    console.log('Numero de forms:' + formCourse.length);
-
-    const botao = document.querySelectorAll('#cancel');
-    console.log('Numero de botões:' + botao.length);
-
-    const data; //continuar
-    for (let i = 0; i  < botao.length; ++i) {
-        botao[i].addEventListener('click', (e) => {
-            e.preventDefault();
-            console.log(e.target.parentElement.id_sale.value);
-            window.confirm(e.target.parentElement.id_sale.value);
-
-            let data = e.target.parentElement.id_sale.value;
-            console.log('data:' + data);
+    for (let i = 0; i < button.length; i++) {
+        button[i].addEventListener('click', (event) => {
+            event.preventDefault();
             
+            let result = window.confirm('Deseja realmente remover este curso?');
+            
+            if (result) {
+                const data = new FormData(event.target.parentElement);
+                data.append('id_sale', event.target.parentElement.id_sale.value);
+                
+                const config = {
+                    method: 'POST',
+                    body: data
+                };
+
+                fetch('../deleteSaleUser.php', config)
+                .then((response) => {
+                    return response.json();
+                })
+                .then((json) => {
+                    let notification = document.getElementById('messages');
+                    if (json.status == 'ok') {
+                        notification.innerHTML = 
+                        `<div class="message-confirm"> `
+                            + json.message + `
+                            <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
+                        </div>`;
+                        setTimeout(() => { window.location.reload(true); }, 2000); //recarrega a pagina depois de 3s
+                    } else if (json.status == 'warning') {
+                        notification.innerHTML = 
+                        `<div class="message-warning">`
+                            + json.message + `
+                            <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
+                        </div>`;
+                    } else if (json.status == 'error') {
+                        notification.innerHTML = 
+                        `<div class="message-error">`
+                            + json.message + `
+                            <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
+                        </div>`;
+                    }
+                });
+            }
         });
     }
-
-
-
 });

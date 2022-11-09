@@ -25,31 +25,8 @@
         $id_user = $_SESSION['id_user']; 
     ?> 
     <main id="content">
-        <div id="messages">
-            <?php //sessão vindo de confirmSale.php
-                if (isset($_SESSION['confirm-sale-ok'])): ?>
-                    <div class="message-confirm">
-                        Confirmação: Compra realizada com sucesso!
-                        <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
-                    </div>
-            <?php endif; unset($_SESSION['confirm-sale-ok']); ?>
-            
-            <?php //sessão vindo de deleteSaleUser.php
-                if (isset($_SESSION['delete-sale-ok'])): ?>
-                    <div class="message-confirm">
-                        Confirmação: Curso removido com sucesso!
-                        <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
-                    </div>
-            <?php endif; unset($_SESSION['delete-sale-ok']); ?>
-
-            <?php //sessão vindo de deleteSaleUser.php
-                if (isset($_SESSION['delete-sale-not-ok'])): ?>
-                    <div class="message-error">
-                        Erro: Não foi possível remover o curso!
-                        <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
-                    </div>
-            <?php endif; unset($_SESSION['delete-sale-not-ok']); ?>
-        </div>
+        
+        <div id="messages"></div>
         
         <table id="tab">
             <tr>
