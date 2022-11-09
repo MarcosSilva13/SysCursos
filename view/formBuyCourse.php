@@ -31,44 +31,12 @@
         $id_user = $_SESSION['id_user']; //valor vindo de login.php
     ?>
     <main id="content">
-        <!-- Mensagem de confirmação ou erro -->  
-        <div id="messages">
-            <?php //sessão vindo de confirmSale.php
-                if (isset($_SESSION['confirm-sale-ok'])): ?>
-                    <div class="message-confirm">
-                        Confirmação: Compra realizada com sucesso!
-                        <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
-                    </div>
-            <?php endif; unset($_SESSION['confirm-sale-ok']); ?>
-
-            <?php //sessão vindo de confirmSale.php
-                if (isset($_SESSION['confirm-sale-not-ok'])): ?>
-                    <div class="message-error">
-                        Erro: Não foi possível realizar a compra!
-                        <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
-                    </div>
-            <?php endif; unset($_SESSION['confirm-sale-not-ok']); ?>
-
-            <?php //sessão vindo de confirmSale.php
-                if (isset($_SESSION['values-not-ok'])): ?>
-                    <div class="message-error">
-                        Erro: Dados insuficientes para realizar a compra!
-                        <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
-                    </div>
-            <?php endif; unset($_SESSION['values-not-ok']); ?>
-            
-            <?php //sessão vindo de confirmSale.php
-                if (isset($_SESSION['wrong-password'])): ?>
-                <div class="message-error">
-                    Erro: Senha incorreta, volte e tente novamente!
-                    <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
-                </div>
-            <?php endif; unset($_SESSION['wrong-password']); ?>
-        </div>
+     
+        <div id="messages"></div>
         
         <div id="form-buy" class="form-buy">
             <h1>Detalhes do pagamento</h1>
-            <form action="../confirmSale.php" method="POST">
+            <form id="form-sale" action="../confirmSale.php" method="POST">
                 <div class="form-fields">
                     <input type="hidden" name="id_user" id="id_user" value="<?=$id_user?>">
                     <input type="hidden" name="id_course" id="id_course" value="<?=$id_course?>">
@@ -112,5 +80,6 @@
     <?php require_once 'footer.php'; ?>
     <script src="../JS/controleMenu.js"></script>
     <script src="../JS/messages.js"></script>
+    <script src="../JS/Sale/addSale.js"></script>
 </body>
 </html>
