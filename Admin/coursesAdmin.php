@@ -97,7 +97,7 @@
                                     <input type="submit" id="editar" value="Editar"/>
                                     </form></td>';
                                 //echo '<td id="acoes"><a id="editar" href="form.php?id_course=' . $values['id_curso'] . '&acao=2">Editar</a></td>';
-                                echo '<td><form class="form-del-course" action="" method="POST">
+                                echo '<td><form action="" method="POST">
                                     <input type="hidden" name="id_course" id="id_course" value="' . $values['id_curso'] . '"/>
                                     <input type="submit" id="excluir" value="Excluir"/>
                                     </form></td>';
@@ -125,7 +125,7 @@
                                 <input type="submit" id="editar" value="Editar"/>
                                 </form></td>';
                             //echo '<td id="acoes"><a id="editar" href="form.php?id_course=' . $values['id_curso'] . '&acao=2">Editar</a></td>';
-                            echo '<td> <form class="form-del-course" action="" method="POST">
+                            echo '<td> <form action="" method="POST">
                                 <input type="hidden" name="id_course" id="id_course" value="' . $values['id_curso'] . '"/>
                                 <input type="submit" id="excluir" value="Excluir"/>
                                 </form></td>';
@@ -167,7 +167,7 @@
                                     <input type="submit" id="editar" value="Editar"/>
                                     </form></td>';
                                 //echo '<td id="acoes"><a id="editar" href="form.php?id_course=' . $values['id_curso'] . '&acao=2">Editar</a></td>';
-                                echo '<td><form class="form-del-course" action="" method="POST">
+                                echo '<td><form action="" method="POST">
                                     <input type="hidden" name="id_course" id="id_course" value="' . $values['id_curso'] . '"/>
                                     <input type="submit" id="excluir" value="Excluir"/>
                                     </form></td>';
@@ -194,7 +194,7 @@
                                 <input type="submit" id="editar" value="Editar"/>
                                 </form></td>';
                             //echo '<td id="acoes"><a id="editar" href="form.php?id_course=' . $values['id_curso'] . '&acao=2">Editar</a></td>';
-                            echo '<td> <form class="form-del-course" action="" method="POST">
+                            echo '<td> <form action="" method="POST">
                                 <input type="hidden" name="id_course" id="id_course" value="' . $values['id_curso'] . '"/>
                                 <input type="submit" id="excluir" value="Excluir"/>
                                 </form></td>';
@@ -208,6 +208,6 @@
     <?php require_once '../view/footer.php'; ?>
     <script src="../JS/controleMenu.js"></script>
     <script src="../JS/messages.js"></script>
-    <script src="../JS/Courses/deleteCourse.js"></script>
+    <script src="../JS/Courses/deleteCourseAdmin.js"></script>
 </body>
 </html>

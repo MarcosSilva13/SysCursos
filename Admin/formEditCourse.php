@@ -44,7 +44,7 @@
                         <input type="hidden" name="id_course" id="id_course" value="<?=$id_course?>">
                         <div class="div-nome">
                             <label for="name">Nome</label>
-                            <input type="text" name="name_course" id="name_course" placeholder="Nome do curso" value="<?= $values['nome_curso']?>" required>
+                            <input type="text" name="name_course" id="name_course" placeholder="Nome do curso" value="<?= $values['nome_curso']?>" autofocus required>
                         </div>
                         <div class="div-valor">
                             <label for="valor">Valor</label>

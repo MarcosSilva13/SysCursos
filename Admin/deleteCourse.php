@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once '../dao/Connection.php';
 require_once '../dao/DaoCourses.php';
 require_once '../dao/DaoProvide.php';
@@ -17,36 +16,52 @@ $total_course = $listCourse[0];
 $listProvide = $daoProvide->checkProvideCourse($id_course);
 $total_fornece = $listProvide[0];
 
+$return = [];
+
 if ($total_course['total_course'] > 0) { //verifica se o curso esta em uma venda
     $daoSale->deleteSaleReferenceCourse($id_course); //remove o curso da venda
     
     if ($total_fornece['total_fornece'] > 0) { //verifica se o curso esta ligado a uma empresa
         $daoProvide->deleteProvideByCourse($id_course); //remove a ligação do curso com a empresa
         if ($daoCourse->deleteCourse($id_course) > 0) { //remove o curso
-            $_SESSION['delete-course-ok'] = true;
+            /*$_SESSION['delete-course-ok'] = true;
             header('Location: coursesAdmin.php');
-            exit();
+            exit();*/
+            $return = ['status' => 'ok', 'message' => 'Confirmação: Curso excluido com sucesso!'];
+        } else {
+            $return = ['status' => 'error', 'message' => 'Erro: Não foi possível remover!'];
         }
     } else { //curso está em uma venda mas não está em ligação com uma empresa
         if ($daoCourse->deleteCourse($id_course) > 0) { //remove o curso
-            $_SESSION['delete-course-ok'] = true;
+            /*$_SESSION['delete-course-ok'] = true;
             header('Location: coursesAdmin.php');
-            exit();
+            exit();*/
+            $return = ['status' => 'ok', 'message' => 'Confirmação: Curso excluido com sucesso!'];
+        } else {
+            $return = ['status' => 'error', 'message' => 'Erro: Não foi possível remover!'];
         }
     }
 } else { //curso não está em uma venda
     if ($total_fornece['total_fornece'] > 0) { //verifica se o curso esta ligado a uma empresa
         $daoProvide->deleteProvideByCourse($id_course); //remove a ligação do curso com a empresa
         if ($daoCourse->deleteCourse($id_course) > 0) { //remove o curso
-            $_SESSION['delete-course-ok'] = true;
+            /*$_SESSION['delete-course-ok'] = true;
             header('Location: coursesAdmin.php');
-            exit();
+            exit();*/
+            $return = ['status' => 'ok', 'message' => 'Confirmação: Curso excluido com sucesso!'];
+        } else {
+            $return = ['status' => 'error', 'message' => 'Erro: Não foi possível remover!'];
         }
     } else { //curso não está em uma venda nem em uma ligação com uma empresa
         if ($daoCourse->deleteCourse($id_course) > 0) { //remove o curso
-            $_SESSION['delete-course-ok'] = true;
+            /*$_SESSION['delete-course-ok'] = true;
             header('Location: coursesAdmin.php');
-            exit();
+            exit();*/
+            $return = ['status' => 'ok', 'message' => 'Confirmação: Curso excluido com sucesso!'];
+        } else {
+            $return = ['status' => 'error', 'message' => 'Erro: Não foi possível remover!'];
         }
     }
 }
+
+echo json_encode($return);

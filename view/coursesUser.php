@@ -73,6 +73,6 @@
     <script src="../JS/controleMenu.js"></script>
     <script src="../JS/messages.js"></script>
     <script src="../JS/confirm.js"></script>
-    <script src="../JS/Courses/deleteCourse.js"></script>
+    <script src="../JS/Courses/deleteCourseUser.js"></script>
 </body>
 </html>
