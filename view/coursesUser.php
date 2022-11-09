@@ -76,12 +76,12 @@
                         echo '<td>' . $values['descricao_curso'] . '</td>';
                         echo '<td>' . $values['nome_emp'] . '</td>';
                         echo '<td>
-                            <form action="../deleteSaleUser.php" method="POST">
+                            <form id="form-course" action="" method="POST">
                             <input type="hidden" name="id_sale" id="id_sale" value="' . $values['id_venda'] . '"/>
                             <input type="submit" id="cancel" value="Remover curso"/>
                             </form></td>';
                         echo '</tr>';
-                    }
+                    } //../deleteSaleUser.php
                 } else {
                     echo '<div id="messages">
                             <div class="message-warning">
@@ -96,5 +96,6 @@
     <script src="../JS/controleMenu.js"></script>
     <script src="../JS/messages.js"></script>
     <script src="../JS/confirm.js"></script>
+    <script src="../JS/Courses/deleteCourse.js"></script>
 </body>
 </html>
