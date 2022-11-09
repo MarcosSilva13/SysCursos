@@ -8,7 +8,10 @@ window.addEventListener('load', () => {
     document.querySelector('#btn-reg').addEventListener('click', () => {
         const data = new FormData(formAdd);
         data.append('company', formAdd.company.value);
-        data.append('company', formAdd.course.value);
+        data.append('course', formAdd.course.value);
+
+        console.log('id empresa:' + formAdd.company.value);
+        console.log('id curso:' + formAdd.course.value);
 
         const config = {
             method: 'POST',

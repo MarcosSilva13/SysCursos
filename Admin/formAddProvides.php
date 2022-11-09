@@ -44,7 +44,7 @@
                         <select name="company" id="company" autofocus required>
                             <option value="">Selecione uma empresa</option>
                             <?php foreach($listCompany as $company) {
-                                echo '<option value="' . $company['id_empresa'] . '">' . $company['nome_emp'] .'';
+                                echo '<option value="' . $company['id_empresa'] . '">' . $company['nome_emp'];
                             } ?>
                         </select>
                     </div>
@@ -53,7 +53,7 @@
                         <select name="course" id="course" required>
                             <option value="">Selecione um curso</option>
                             <?php foreach($listCourse as $course) {
-                                echo '<option value="' . $course['id_curso'] . '">' . $course['nome_curso'] . '';
+                                echo '<option value="' . $course['id_curso'] . '">' . $course['nome_curso'];
                             } ?>
                         </select>
                     </div>
