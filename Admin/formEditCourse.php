@@ -39,7 +39,7 @@
         <div class="area-form-course">
             <div class="form-course">
                 <h1>Editar Curso</h1>
-                <form id="form-edit-course" action="editCourse.php" method="POST">
+                <form id="form-edit-course" action="" method="POST">
                     <div class="form-fields">
                         <input type="hidden" name="id_course" id="id_course" value="<?=$id_course?>">
                         <div class="div-nome">

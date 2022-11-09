@@ -33,12 +33,8 @@ window.addEventListener('load', () => {
                     + json.message + `
                     <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
                 </div>`;
-               
                 formAdd.parentElement.remove();
-
-                setTimeout(() => {
-                    window.location.href= 'coursesDefault.php';
-                }, 3000);
+                setTimeout(() => { window.location.href= 'coursesDefault.php'; }, 3000);
             } else if (json.status == 'warning') {
                 notification.innerHTML = 
                 `<div class="message-warning">`

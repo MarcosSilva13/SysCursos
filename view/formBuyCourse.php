@@ -36,7 +36,7 @@
         
         <div id="form-buy" class="form-buy">
             <h1>Detalhes do pagamento</h1>
-            <form id="form-sale" action="../confirmSale.php" method="POST">
+            <form id="form-sale" action="" method="POST">
                 <div class="form-fields">
                     <input type="hidden" name="id_user" id="id_user" value="<?=$id_user?>">
                     <input type="hidden" name="id_course" id="id_course" value="<?=$id_course?>">

@@ -7,8 +7,6 @@ $dao = new DaoSale();
 
 //valores vindo de coursesUser.php
 $id_sale = filter_input(INPUT_POST, 'id_sale');
-/*$id_user = filter_input(INPUT_POST, 'id_user');
-$id_course = filter_input(INPUT_POST, 'id_course');*/
 
 $return = [];
 

@@ -22,39 +22,8 @@
 <body>
     <?php require_once '../view/menuDefault.php'; ?>
     <main id="content">
-        <div id="messages">
-            <?php //sessão vindo de editCompany.php
-                if (isset($_SESSION['update-company-ok'])): ?>
-                    <div class="message-confirm">
-                        Confirmação: Empresa atualizada com sucesso!
-                        <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
-                    </div>
-            <?php endif; unset($_SESSION['update-company-ok']); ?>
-
-            <?php //sessão vindo de editCompany.php
-                if (isset($_SESSION['update-company-fail'])): ?>
-                    <div class="message-warning">
-                        Atenção: É preciso modificar pelo menos um dos campos!
-                        <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
-                    </div>
-            <?php endif; unset($_SESSION['update-company-fail']); ?>
-
-            <?php //sessão vindo de editCompany.php
-                if (isset($_SESSION['missing-company-values'])): ?>
-                    <div class="message-error">
-                        Erro: Algum campo não foi preenchido corretamente!
-                        <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
-                    </div>
-            <?php endif; unset($_SESSION['missing-company-values']); ?>
-
-            <?php //sessão vindo de deleteCompany.php
-                if (isset($_SESSION['delete-company-ok'])): ?>
-                <div class="message-confirm">
-                    Confirmação: Empresa removida com sucesso!
-                    <span class="btn-close-message" onclick="closeMessage(event)">&times;</span>
-                </div>
-            <?php endif; unset($_SESSION['delete-company-ok']);?>
-        </div>
+        
+        <div id="messages"></div>
 
         <table id="tab">
                 <tr>
@@ -84,7 +53,7 @@
                                 <input type="hidden" name="id_company" id="id_company" value="' . $values['id_empresa'] . '"/>
                                 <input type="submit" id="editar" value="Editar"/>
                                 </form></td>';
-                        echo '<td> <form action="deleteCompany.php" method="POST">
+                        echo '<td> <form action="" method="POST">
                                 <input type="hidden" name="id_company" id="id_company" value="' . $values['id_empresa'] . '"/>
                                 <input type="submit" id="excluir" value="Excluir"/>
                                 </form></td>';
@@ -96,5 +65,6 @@
     <?php require_once '../view/footer.php'; ?>
     <script src="../JS/controleMenu.js"></script>
     <script src="../JS/messages.js"></script>
+    <script src="../JS/Company/deleteCompany.js"></script>
 </body>
 </html>

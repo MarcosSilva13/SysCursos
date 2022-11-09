@@ -29,7 +29,7 @@
         <div class="area-form-company">
             <div class="form-company">
                 <h1>Cadastro de Empresa</h1>
-                <form id="form-add-company" action="registerCompany.php" method="POST">
+                <form id="form-add-company" action="" method="POST">
                     <div class="form-fields">
                         <div class="div-nome">
                             <label for="name">Nome</label>

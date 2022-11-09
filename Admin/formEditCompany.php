@@ -38,7 +38,7 @@
         <div class="area-form-company">
             <div class="form-company">
                 <h1>Editar Empresa</h1>
-                <form id="form-edit-company" action="editCompany.php" method="POST">
+                <form id="form-edit-company" action="" method="POST">
                     <div class="form-fields">
                         <input type="hidden" name="id_company" id="id_company" value="<?= $id_company ?>">
                         <div class="div-nome">

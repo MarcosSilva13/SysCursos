@@ -29,7 +29,7 @@
         <div class="area-form-course">
             <div class="form-course">
                 <h1>Cadastro de Cursos</h1>
-                <form id="form-add-course" action="registerCourse.php" method="POST">
+                <form id="form-add-course" action="" method="POST">
                     <div class="form-fields">
                         <div class="div-nome">
                             <label for="name">Nome</label>

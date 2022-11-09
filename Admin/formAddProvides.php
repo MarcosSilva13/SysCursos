@@ -37,7 +37,7 @@
 
         <div class="form-provides">
             <h1>Fornecimento</h1>
-            <form id="form-add-provide" action="registerProvides.php" method="POST">
+            <form id="form-add-provide" action="" method="POST">
                 <div class="form-fields">
                     <div class="company">
                         <label for="company">Empresa:</label>
