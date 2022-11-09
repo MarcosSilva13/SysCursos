@@ -31,64 +31,40 @@
         $values = $list[0];
     ?>
         <main id="content">
-            <div id="messages">
-                <?php //sessão vindo de EditUser.php
-                    if (isset($_SESSION['update-user-ok'])): ?>
-                        <div class="message-confirm">
-                            Confirmação: Dados atualizados com sucesso!<span class="btn-close-message" onclick="closeMessage(event);">&times;</span><br>
-                            Por favor faça login novamente clicando <a href="../logout.php">aqui</a>
-                            
-                        </div>
-                <?php endif; unset($_SESSION['update-user-ok']); ?>
-
-                <?php //sessão vindo de EditUser.php
-                    if (isset($_SESSION['update-user-not-ok'])): ?>
-                        <div class="message-warning">
-                            Atenção: É preciso modificar pelo menos um dos campos!
-                            <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
-                        </div>
-                <?php endif; unset($_SESSION['update-user-not-ok']); ?>
-
-                <?php //sessão vindo de EditUser.php
-                    if (isset($_SESSION['missing-values-user'])): ?>
-                        <div class="message-error">
-                            Erro: Dados insuficientes para atualizar!
-                            <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
-                        </div>
-                <?php endif; unset($_SESSION['missing-values-user']); ?>
-            </div>
+            
+            <div id="messages"></div>
 
             <div class="area-form-user">
                 <div class="form-user">
                     <h1>Editar Dados</h1>
-                    <form action="../editUser.php" method="POST">
-                        <input type="hidden" name="id-user" id="id-user" value="<?= $values['id_usuario']?>">
-                        <input type="hidden" name="bd-pass" id="bd-pass" value="<?= $values['senha']?>">
+                    <form id="form-edit-user" action="" method="POST">
+                        <input type="hidden" name="id_user" id="id_user" value="<?= $values['id_usuario']?>">
+                        <input type="hidden" name="bd_pass" id="bd_pass" value="<?= $values['senha']?>">
                         <div class="form-fields">
                             <div class="div-login">
                                 <label for="login">Login</label>
-                                <input type="text" name="login-user" id="login-user" placeholder="Ex: MarcosSilva25" value="<?= $values['login']?>" readonly>
+                                <input type="text" name="login_user" id="login_user" placeholder="Ex: MarcosSilva25" value="<?= $values['login']?>" readonly>
                             </div>
                             <div class="div-nome">
                                 <label for="name">Nome</label>
-                                <input type="text" name="name-user" id="name-user" placeholder="Seu nome completo" value="<?= $values['nome']?>" required>
+                                <input type="text" name="name_user" id="name_user" placeholder="Seu nome completo" value="<?= $values['nome']?>" required>
                             </div>
                             <div class="div-cpf">
                                 <label for="cpf">CPF</label>
-                                <input oninput="mascara(this, 'cpf')" type="text" name="cpf-user" id="cpf-user" 
+                                <input oninput="mascara(this, 'cpf')" type="text" name="cpf_user" id="cpf_user" 
                                 pattern="[0-9]{3}.[0-9]{3}.[0-9]{3}-[0-9]{2}" placeholder="Ex: XXX.XXX.XXX-XX" value="<?= $values['cpf']?>" readonly>
                             </div>
                             <div class="div-email">
                                 <label for="email">Email</label>
-                                <input type="email" name="email-user" id="email-user" placeholder="Ex: syscursos@gmail.com" value="<?= $values['email']?>" readonly>
+                                <input type="email" name="email_user" id="email_user" placeholder="Ex: syscursos@gmail.com" value="<?= $values['email']?>" readonly>
                             </div>
                             <div class="div-senha">
                                 <label for="password">Senha</label>
-                                <input type="password" name="password-user" id="password-user" placeholder="Sua senha" value="<?= $values['senha']?>" required>
+                                <input type="password" name="password_user" id="password_user" placeholder="Sua senha" value="<?= $values['senha']?>" required>
                             </div>
                             <div class="div-tel">
                                 <label for="telephone">Telefone</label>
-                                <input oninput="mascara(this, 'tele')" type="tel" name="tel-user" id="tel-user" 
+                                <input oninput="mascara(this, 'tele')" type="tel" name="tel_user" id="tel_user" 
                                 pattern="[0-9]{2}-[0-9]{5}-[0-9]{4}" placeholder="Ex: XX-XXXXX-XXXX" value="<?= $values['telefone']?>" required>
                             </div>
                         </div>
@@ -103,5 +79,6 @@
     <script src="../JS/controleMenu.js"></script>
     <script src="../JS/mascaraCampos.js"></script>
     <script src="../JS/messages.js"></script>
+    <script src="../JS/User/editUser.js"></script>
 </body>
 </html>
