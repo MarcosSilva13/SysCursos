@@ -29,32 +29,6 @@
             </form>
         </div>
 
-        <div id="messages">
-            <?php //sessão vindo de confirmSale.php
-                if (isset($_SESSION['confirm-sale-not-ok'])): ?>
-                    <div class="message-error">
-                        Erro: Não foi possível realizar a compra!
-                        <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
-                    </div>
-            <?php endif; unset($_SESSION['confirm-sale-not-ok']); ?>
-
-            <?php //sessão vindo de confirmSale.php
-                if (isset($_SESSION['values-not-ok'])): ?>
-                    <div class="message-error">
-                        Erro: Dados insuficientes para realizar a compra!
-                        <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
-                    </div>
-            <?php endif; unset($_SESSION['values-not-ok']); ?>
-            
-            <?php //sessão vindo de confirmSale.php
-                if (isset($_SESSION['wrong-password'])): ?>
-                <div class="message-error">
-                    Erro: Senha incorreta!
-                    <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
-                </div>
-            <?php endif; unset($_SESSION['wrong-password']); ?>
-        </div>
-
         <table id="tab">
             <tr>
                 <th>Curso</th>

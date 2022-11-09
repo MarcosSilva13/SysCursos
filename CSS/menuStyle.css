@@ -73,10 +73,12 @@ main {
 footer {
     display: flex;
     background-color: #1C1E2A;
+    width: calc(100% + 50px);
     height: auto;
     justify-content: center;
     padding: 0;
-    margin-top: 0;
+    margin-top: 10px;
+
 }
 
 footer p {
@@ -110,5 +112,11 @@ footer p {
 @media screen and (max-width: 400px) {
     main {
         margin-right: -180px;
+    }
+}
+
+@media screen and (max-height: 500px) {
+    footer {
+        display: none;
     }
 }

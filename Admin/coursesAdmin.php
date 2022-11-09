@@ -30,39 +30,7 @@
             </form>
         </div>
 
-        <div id="messages">
-            <?php //sessão vindo de editCourse.php
-                if (isset($_SESSION['update-course-ok'])): ?>
-                    <div class="message-confirm">
-                        Confirmação: Curso atualizado com sucesso!
-                        <span class="btn-close-message" onclick="closeMessage(event);">&times;</span><br>
-                    </div>
-            <?php endif; unset($_SESSION['update-course-ok']); ?>
-
-            <?php //sessão vindo de editCourse.php
-                if (isset($_SESSION['update-course-fail'])): ?>
-                    <div class="message-warning">
-                        Atenção: É preciso modificar pelo menos um dos campos!
-                        <span class="btn-close-message" onclick="closeMessage(event);">&times;</span><br>
-                    </div>
-            <?php endif; unset($_SESSION['update-course-fail']); ?>
-
-            <?php //sessão vindo de editCourse.php
-                if (isset($_SESSION['missing-course-values'])): ?>
-                    <div class="message-error">
-                        Erro: Algum campo não foi preenchido corretamente!
-                        <span class="btn-close-message" onclick="closeMessage(event);">&times;</span><br>
-                    </div>
-            <?php endif; unset($_SESSION['missing-course-values']); ?>
-
-            <?php //sessão vindo de deleteCourse.php
-                if (isset($_SESSION['delete-course-ok'])): ?>
-                <div class="message-confirm">
-                        Confirmação: Curso deletado com sucesso!
-                        <span class="btn-close-message" onclick="closeMessage(event);">&times;</span><br>
-                    </div>
-            <?php endif; unset($_SESSION['delete-course-ok']); ?>
-        </div>
+        <div id="messages"></div>
         
         <?php if (isset($_POST['btn-submit'])) {  ?>
             <table>
