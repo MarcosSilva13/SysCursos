@@ -34,6 +34,7 @@ window.addEventListener('load', () => {
                 <span class="btn-close-message" onclick="closeMessage(event);">&times;</span><br>
                 Por favor faça login novamente clicando <a href="../logout.php">aqui</a>
                 </div>`;
+                //formEdit.parentElement.remove();
             } else if (json.status == 'warning') {
                 notification.innerHTML = 
                 `<div class="message-warning">`

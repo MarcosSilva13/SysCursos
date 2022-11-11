@@ -58,7 +58,7 @@
                             <input type="submit" id="cancel" value="Remover curso"/>
                             </form></td>';
                         echo '</tr>';
-                    } //../deleteSaleUser.php
+                    }
                 } else {
                     echo '<div id="messages">
                             <div class="message-warning">
@@ -72,7 +72,6 @@
     <?php require_once 'footer.php'; ?>
     <script src="../JS/controleMenu.js"></script>
     <script src="../JS/messages.js"></script>
-    <script src="../JS/confirm.js"></script>
     <script src="../JS/Courses/deleteCourseUser.js"></script>
 </body>
 </html>
