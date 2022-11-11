@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -27,16 +24,10 @@ session_start();
                 <h1>SysCursos</h1>
                 <!--<img src="imagens/SysCursos.png">-->
             </div>
-            <div id="messages">
-                <?php if (isset($_SESSION['nao_autenticado'])): ?>
-                    <div class="message-error">
-                        Erro: Usuário ou senha inválidos.
-                        <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
-                    </div>
-                    <?php endif; unset($_SESSION['nao_autenticado']); ?>
-            </div>
 
-            <form action="login.php" method="POST">
+            <div id="messages"></div>
+
+            <form id="login-user" action="login.php" method="POST">
                 <label for="usuario">Usuário</label>
                 <input type="text" name="user" placeholder="Digite seu usuário..." autofocus required> 
                 <label for="senha">Senha</label>
@@ -48,5 +39,6 @@ session_start();
     </section>
     <?php require_once 'view/footer.php'; ?>
     <script src="JS/messages.js"></script>
+    <script src="JS/User/login.js"></script>
 </body>
 </html>

@@ -74,7 +74,7 @@ session_start();
                     </div>
                 <?php endif; unset($_SESSION['missing-values-registration']); ?>
             </div>
-            <form action="../registration.php" method="POST">
+            <form id="form-add-user" action="../registration.php" method="POST">
                 <div class="form-fields">
                     <div class="div-login">
                         <label for="login">Login</label>
@@ -112,6 +112,6 @@ session_start();
     <!-- JavaScript -->
     <script src="../JS/mascaraCampos.js"></script>
     <script src="../JS/messages.js"></script>
-    <!--<script src="../JS/addUser.js"></script>-->
+    <script src="../JS/User/addUser.js"></script>
 </body>
 </html>
