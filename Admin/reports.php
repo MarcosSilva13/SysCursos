@@ -16,11 +16,29 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="../CSS/coursesDefaultStyle.css">
     <link rel="stylesheet" href="../CSS/menuStyle.css">
+    <link rel="stylesheet" href="../CSS/messages.css">
     <title>Relatórios</title>
 </head>
 <body>
     <?php require_once '../view/menuDefault.php'; ?>
     <main id="content">
+        <div class="div-search-bar">
+            <form id="form-search" class="form-search" action="../listReports.php" method="POST">
+                <input id="search" class="search-bar" type="text" name="search" placeholder="Pesquisando por...">
+                <select class="tipo" name="tipo" id="tipo" required>
+                    <option value="">Pesquisar por...</option>
+                    <option value="all">Listar Todos</option>
+                    <option value="data">Data</option>
+                    <option value="usuario">Cliente</option>
+                    <option value="curso">Curso</option>
+                    <option value="empresa">Fornecedor</option>
+                    <option value="valor">Valor</option>
+                    <option value="pagamento">Pagamento</option>
+                </select>
+                <input class="submit" type="submit" name="submit" id="enviar" value="Pesquisar">
+            </form>
+        </div>
+
         <table id="tab">
                 <tr>
                     <th>Nº Venda</th>
@@ -32,10 +50,11 @@
                     <th>Pagamento</th>
                 </tr>
 
-                <?php 
+                <tbody id="dados">
+
+                <?php
                     require_once '../dao/DaoReports.php';
                     $dao = new DaoReports();
-
                     $list = $dao->listReports();
 
                     foreach ($list as $values) {
@@ -51,9 +70,12 @@
                         echo '</tr>';
                     }
                 ?>
+                </tbody>
             </table>
-            <?php require_once '../view/footer.php'; ?>
-    </main>
+        </main>
+        <?php require_once '../view/footer.php'; ?>
     <script src="../JS/controleMenu.js"></script>
+    <script src="../JS/messages.js"></script>
+    <script src="../JS/Relatorios/search.js"></script>
 </body>
 </html>

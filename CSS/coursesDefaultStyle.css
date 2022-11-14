@@ -135,6 +135,17 @@ a:hover, #env:hover {
     border: 1px solid #000;
 }
 
+.tipo {
+    /*margin-bottom: 15px;*/
+    margin-right: 5px;
+    background-color: #c4c4c49d;
+    padding-left: 10px;
+    color: #000;
+    border: none;
+    height: 30px;
+    border-radius: 10px;
+}
+
 .btn-submit {
     width: 120px;
     height: 31px;

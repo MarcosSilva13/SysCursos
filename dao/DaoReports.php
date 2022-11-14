@@ -36,4 +36,15 @@ class DaoReports
 
         return $list;
     }
+
+    public function findReports($termo, $tipo)
+    {
+        $list = [];
+        $sql = "select * from relatorios where $tipo like '%$termo%'";
+        $pst = Connection::getPreparedStatement($sql);
+        $pst->execute();
+        $list = $pst->fetchAll(PDO::FETCH_ASSOC);
+
+        return $list;
+    }
 }
