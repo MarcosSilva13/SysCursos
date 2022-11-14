@@ -61,7 +61,7 @@
                         $date = new DateTime($values['data'], new DateTimeZone('America/Sao_Paulo'));
                         echo '<tr>';
                         echo '<td>' . $values['num_venda'] . '</td>';
-                        echo '<td>' . $date->format('d-m-Y') . '</td>';
+                        echo '<td>' . $date->format('d/m/Y') . '</td>';
                         echo '<td>' . $values['usuario'] . '</td>';
                         echo '<td>' . $values['curso'] . '</td>';
                         echo '<td>' . $values['empresa'] . '</td>';

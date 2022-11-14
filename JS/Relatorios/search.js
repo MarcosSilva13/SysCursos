@@ -88,7 +88,7 @@ window.addEventListener('load', () => {
                     let td_pagamento = tr.insertCell();
 
                     td_num_venda.innerText = json[i].num_venda;
-                    td_data.innerText = json[i].data.split('-').reverse().join('-');
+                    td_data.innerText = json[i].data.split('-').reverse().join('/');
                     td_cliente.innerText = json[i].usuario;
                     td_curso.innerText = json[i].curso;
                     td_fornecedor.innerText = json[i].empresa;
