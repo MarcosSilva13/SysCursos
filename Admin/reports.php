@@ -40,6 +40,9 @@
         </div>
 
         <table id="tab">
+
+            <div id="messages"></div>
+            
                 <tr>
                     <th>Nº Venda</th>
                     <th>Data</th>

@@ -72,6 +72,9 @@ window.addEventListener('load', () => {
             return response.json();
         })
         .then((json) => {
+            let notification = document.getElementById('messages');
+            notification.innerHTML = '';
+
             if (json != null) {
                 let tbody = document.getElementById('dados');
                 tbody.innerText = '';
@@ -96,7 +99,11 @@ window.addEventListener('load', () => {
                     td_pagamento.innerText = json[i].pagamento;
                 }
             } else if (json == '' || json == null) {
-                alert("Pesquisa sem resultados!");
+                notification.innerHTML = 
+                `<div class="message-error">
+                    Pesquisa sem resultados!
+                    <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
+                </div>`;
             }
         });
     });
