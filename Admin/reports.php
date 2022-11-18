@@ -51,6 +51,7 @@
                     <th>Fornecedor</th>
                     <th>Valor</th>
                     <th>Pagamento</th>
+                    <th>Ações</th>
                 </tr>
 
                 <tbody id="dados">
@@ -70,6 +71,11 @@
                         echo '<td>' . $values['empresa'] . '</td>';
                         echo '<td>' . $values['valor'] . '</td>';
                         echo '<td>' . $values['pagamento'] . '</td>';
+                        echo '<td>
+                            <form id="form-reports" action="" method="POST">
+                            <input type="hidden" name="id_reports" id="id_reports" value="' . $values['id_relatorio'] . '"/>
+                            <input type="submit" id="cancel" value="Excluir"/>
+                            </form></td>';
                         echo '</tr>';
                     }
                 ?>
@@ -80,5 +86,6 @@
     <script src="../JS/controleMenu.js"></script>
     <script src="../JS/messages.js"></script>
     <script src="../JS/Relatorios/search.js"></script>
+    <script src="../JS/Relatorios/deleteReport.js"></script>
 </body>
 </html>

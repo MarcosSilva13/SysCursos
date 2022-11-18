@@ -47,4 +47,20 @@ class DaoReports
 
         return $list;
     }
+
+    public function deleteReport($id_report) 
+    {
+        $sql = "delete from relatorios where id_relatorio = $id_report;";
+        try {
+            $pst = Connection::getPreparedStatement($sql);
+
+            if ($pst->execute()) {
+                return $pst->rowCount();
+            } else {
+                return false;
+            }
+        } catch (PDOException $ex) {
+            return false;
+        }
+    }
 }

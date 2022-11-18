@@ -1,6 +1,6 @@
 <?php
-require_once 'dao/Connection.php';
-require_once 'dao/DaoReports.php';
+require_once '../dao/Connection.php';
+require_once '../dao/DaoReports.php';
 
 $termo_pesquisa = trim(filter_input(INPUT_POST, 'search'));
 $tipo = trim(filter_input(INPUT_POST, 'tipo'));

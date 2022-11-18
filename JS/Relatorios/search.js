@@ -67,7 +67,7 @@ window.addEventListener('load', () => {
             body: data
         };
 
-        fetch('../listReports.php', config)
+        fetch('../Admin/listReports.php', config)
         .then((response) => {
             return response.json();
         })
@@ -89,6 +89,7 @@ window.addEventListener('load', () => {
                     let td_fornecedor = tr.insertCell();
                     let td_valor = tr.insertCell();
                     let td_pagamento = tr.insertCell();
+                    let td_acao = tr.insertCell();
 
                     td_num_venda.innerText = json[i].num_venda;
                     td_data.innerText = json[i].data.split('-').reverse().join('/');
@@ -97,6 +98,26 @@ window.addEventListener('load', () => {
                     td_fornecedor.innerText = json[i].empresa;
                     td_valor.innerText = json[i].valor;
                     td_pagamento.innerText = json[i].pagamento;
+                    td_acao.innerHTML = `<form id="form-reports" action="" method="POST">
+                    <input type="hidden" name="id_reports" id="id_reports" value="`+ json[i].id_relatorio + `"/>
+                    <input type="submit" id="cancel" value="Excluir"/>
+                    </form>`;
+                    
+                    /*const button = document.querySelectorAll('#cancel');
+
+                    for (let i = 0; i < button.length; i++) {
+                        button[i].addEventListener('click', (event) => {
+                            event.preventDefault();
+
+                            let result = window.confirm("Deseja realmente excluir o relatório?");
+
+                            if (result) {
+                                const data = new FormData(event.target.parentElement);
+                                console.log(event.target.parentElement.id_reports.value);
+                            }
+                        })
+                        
+                    }*/
                 }
             } else if (json == '' || json == null) {
                 notification.innerHTML = 
