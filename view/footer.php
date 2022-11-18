@@ -1,3 +1,4 @@
 <footer>
-    <p>SysCursos &copy; 2022 - Desenvolvido por Marcos Antônio</p>
+    <p>Copyright &copy; 2022 SysCursos | All right reserved.<br>
+                Desenvolvido por Marcos Antônio.</p>
 </footer>
