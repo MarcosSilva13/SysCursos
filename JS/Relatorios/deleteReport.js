@@ -9,7 +9,6 @@ window.addEventListener('load', () => {
 
             if (result) {
                 const data = new FormData(event.target.parentElement);
-                console.log(event.target.parentElement.id_reports.value);
                 data.append('id_reports', event.target.parentElement.id_reports.value);
 
                 const config = {

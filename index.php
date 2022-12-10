@@ -22,7 +22,6 @@
         <div class="login">
             <div>
                 <h1>SysCursos</h1>
-                <!--<img src="imagens/SysCursos.png">-->
             </div>
 
             <div id="messages"></div>

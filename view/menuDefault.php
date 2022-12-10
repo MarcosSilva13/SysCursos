@@ -1,6 +1,6 @@
 <?php
 require_once '../verifyLogin.php'; //verifica se o usuario esta logado, para nao entrar direto no painel
-//session_abort();
+
 $type_user = $_SESSION['type_user'];
 
 if ($type_user == "administrador"): ?>

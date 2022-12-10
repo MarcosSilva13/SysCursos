@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
@@ -24,56 +21,9 @@ session_start();
     <div class="area-form-user">
         <div class="form-user">
             <h1>Cadastro</h1>
-            <div id="messages">
-                <?php //sessão vindo de registration.php
-                    if (isset($_SESSION['status-registration'])): 
-                ?>
-                    <div class="message-confirm">
-                        Confirmação: Cadastro efetuado com sucesso!<span class="btn-close-message" onclick="closeMessage(event);">&times;</span><br>
-                        Faça login informando seu usuário e senha <a href="../index.php">aqui</a>.
-                    </div>
-                <?php 
-                    endif; unset($_SESSION['status-registration']); ?>
 
-                <?php //sessão vindo de registration.php
-                    if (isset(($_SESSION['user-exists']))):  
-                ?>
-                    <div class="message-warning">
-                        Atenção: O usuário escolhido já existe.
-                        <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
-                    </div>
-                <?php
-                    endif; unset($_SESSION['user-exists']); ?>
-
-                <?php //sessão vindo de registration.php
-                    if (isset(($_SESSION['cpf-exists']))):  
-                ?>
-                    <div class="message-warning">
-                        Atenção: O cpf informado já esta cadastrado.
-                        <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
-                    </div>
-                <?php
-                    endif; unset($_SESSION['cpf-exists']); ?>
-
-                <?php //sessão vindo de registration.php
-                    if (isset(($_SESSION['email-exists']))):  
-                ?>
-                    <div class="message-warning">
-                        Atenção: O email informado já esta cadastrado.
-                        <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
-                    </div>
-                <?php
-                    endif; unset($_SESSION['email-exists']); ?>
-
-                <?php //sessão vindo de registration.php
-                    if (isset($_SESSION['missing-values-registration'])):
-                ?>
-                    <div class="message-warning">
-                        Atenção: Dados insuficientes para realizar cadastro.
-                        <span class="btn-close-message" onclick="closeMessage(event);">&times;</span>
-                    </div>
-                <?php endif; unset($_SESSION['missing-values-registration']); ?>
-            </div>
+            <div id="messages"></div>
+            
             <form id="form-add-user" action="../registration.php" method="POST">
                 <div class="form-fields">
                     <div class="div-login">

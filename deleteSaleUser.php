@@ -1,5 +1,4 @@
 <?php
-session_start();
 require_once 'dao/Connection.php';
 require_once 'dao/DaoSale.php';
 

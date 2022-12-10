@@ -64,7 +64,6 @@
                                     <input type="hidden" name="id_course" id="id_course" value="' . $values['id_curso'] . '"/>
                                     <input type="submit" id="editar" value="Editar"/>
                                     </form></td>';
-                                //echo '<td id="acoes"><a id="editar" href="form.php?id_course=' . $values['id_curso'] . '&acao=2">Editar</a></td>';
                                 echo '<td><form action="" method="POST">
                                     <input type="hidden" name="id_course" id="id_course" value="' . $values['id_curso'] . '"/>
                                     <input type="submit" id="excluir" value="Excluir"/>
@@ -92,7 +91,6 @@
                                 <input type="hidden" name="id_course" id="id_course" value="' . $values['id_curso'] . '"/>
                                 <input type="submit" id="editar" value="Editar"/>
                                 </form></td>';
-                            //echo '<td id="acoes"><a id="editar" href="form.php?id_course=' . $values['id_curso'] . '&acao=2">Editar</a></td>';
                             echo '<td> <form action="" method="POST">
                                 <input type="hidden" name="id_course" id="id_course" value="' . $values['id_curso'] . '"/>
                                 <input type="submit" id="excluir" value="Excluir"/>
@@ -161,7 +159,6 @@
                                 <input type="hidden" name="id_course" id="id_course" value="' . $values['id_curso'] . '"/>
                                 <input type="submit" id="editar" value="Editar"/>
                                 </form></td>';
-                            //echo '<td id="acoes"><a id="editar" href="form.php?id_course=' . $values['id_curso'] . '&acao=2">Editar</a></td>';
                             echo '<td> <form action="" method="POST">
                                 <input type="hidden" name="id_course" id="id_course" value="' . $values['id_curso'] . '"/>
                                 <input type="submit" id="excluir" value="Excluir"/>
