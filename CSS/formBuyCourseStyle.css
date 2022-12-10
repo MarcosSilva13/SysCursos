@@ -34,6 +34,7 @@ body {
     /*justify-content: space-evenly;*/
     /*flex-wrap: wrap;*/
     margin-bottom: 5px;
+    width: 250px;
 }
 
 .course-name, .course-duration, .course-price, .company-name, .payment, .password{
