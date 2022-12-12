@@ -20,7 +20,7 @@ SET time_zone = "+00:00";
 --
 -- Banco de dados: `sys_cursos`
 --
-CREATE DATABASE sys_cursos;
+CREATE DATABASE IF NOT EXISTS sys_cursos;
 USE sys_cursos;
 -- --------------------------------------------------------
 
